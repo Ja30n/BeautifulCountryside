@@ -1,0 +1,137 @@
+﻿@charset "utf-8";
+/* CSS Document */
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+li{
+	list-style:outside none none;
+	padding:0;
+	margin:0;
+	vertical-align:middle;
+}
+img{
+	border:0 none;
+}
+.main{
+	overflow:hidden;
+}
+.block1{
+	background:rgba(0,0,0,0) url(/Content/Livelihood/images/over1.png) no-repeat scroll 0 0;
+	cursor:pointer;
+	height:143px;
+	width:48px;
+}
+.block2{
+	background:rgba(0,0,0,0) url(/Content/Livelihood/images/over2.png) no-repeat scroll 0 0;
+	cursor:pointer;
+	height:143px;
+	width:48px;
+}
+.block1On{
+	background:rgba(0,0,0,0) url(/Content/Livelihood/images/on1.png) no-repeat scroll 0 0;
+	cursor:pointer;
+	height:143px;
+	width:48px;
+}
+.block2On{
+	background:rgba(0,0,0,0) url(/Content/Livelihood/images/on2.png) no-repeat scroll 0 0;
+	cursor:pointer;
+	height:143px;
+	width:48px;
+}
+.list{
+	float:left;
+	height:286px;
+	width:950px;
+}
+.qieh{
+	float:left;
+	margin-left:20px;
+}
+.zjqz_w{
+	float:left;
+}
+.tabconbox{
+	height:185px;
+	width:440px;
+}
+tr,td{
+	color:#3d3d3d;
+	font-size:12px;
+	line-height:22px;
+}
+td{
+	empty-cells:show;
+}
+.gfds{	
+    margin-bottom: 7px;
+	width: 90px;
+	height: 27px;
+	line-height: 27px;
+	border: 1px solid #c5c5c5;
+	text-align: center;
+    overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.bt_link{
+	color:#666666;
+	font-size:12px;
+	text-decoration:none;
+}
+.zjqz_center,.qwer_center,.asdf_center,.zxcv_center{
+	margin:0 auto;
+	overflow:hidden;
+	width:40px;
+}
+.zjqz_center li,.qwer_center li,.asdf_center li,.zxcv_center li{
+	float:left;
+	margin:5px;
+}
+.zjqzOn{
+	background: rgba(0,0,0,0) url(/Content/Livelihood/images/dianOn.png) no-repeat scroll center center;
+	cursor:pointer;
+	float:left;
+	height:10px;
+	width:10px;
+}
+.zjqz{
+	background: rgba(0,0,0,0) url(/Content/Livelihood/images/dianOver.png) no-repeat scroll center center;
+	cursor:pointer;
+	float:left;
+	height:10px;
+	width:10px;
+}
+
+.qwer_w {float: left;}
+.qwerOn {width:10px;height: 10px;float:left; background:url(/Content/Livelihood/images/dianOn1.png)  center no-repeat;  cursor:pointer}
+.qwer {  width:10px;height: 10px;float: left; background:url(/Content/Livelihood/images/dianOver1.png) center no-repeat; cursor:pointer}
+.asdf_w {float: left;}
+
+.asdfOn {width:10px;height: 10px;float:left; background:url(/Content/Livelihood/images/dianOn.png) center no-repeat; cursor:pointer}
+.asdf {  width:10px;height: 10px;float: left; background:url(/Content/Livelihood/images/dianOver.png) center no-repeat;cursor:pointer}
+
+.zxcv_w {float: left;}
+.gfds2{	
+    margin-bottom: 7px;
+	width: 90px;
+	height: 27px;
+	line-height: 27px;
+	border: 1px solid #c5c5c5;
+	text-align: center;
+    overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.zxcvOn {width:10px;height: 10px;float:left; background:url(/Content/Livelihood/images/dianOn1.png) center no-repeat;cursor:pointer}
+.zxcv {  width:10px;height: 10px;float: left; background:url(/Content/Livelihood/images/dianOver1.png) center no-repeat;cursor:pointer}
+.gfds:hover {border: 1px solid #ebaa2c;background: #ebaa2c;}
+.gfds:hover a{display: block;_display:inline-block;width: 90px;height: 27px;line-height: 27px;color: #FFF;text-align: center;	overflow: hidden;	white-space: nowrap;text-overflow: ellipsis;}
+.gfds2:hover {border: 1px solid #66aed8;background: #66aed8;}
+.gfds2:hover a{display: block;_display:inline-block;width: 90px;height: 27px;line-height: 27px;color: #FFF;text-align: center;	overflow: hidden;	white-space: nowrap;text-overflow: ellipsis;}
+.main_foot{ overflow:hidden;height:auto !important;}
+.bd{border-bottom:1px solid #ececec;}
+.ylm{ color:#373737; font-size:14px; font-weight:bold; line-height:40px; text-align:center; border-bottom:1px solid #ececec;}
+.ztOn{ font-size:14px; font-weight:bold; color:#FFF;  line-height:40px;  cursor:pointer; background:url(/Content/Livelihood/images/fwbg1.png) no-repeat;  padding-top:3px; border-bottom:solid 1px #ececec; text-align:center;cursor:pointer}
+.zt{font-size:14px; font-weight:bold; color:#FFF; line-height:40px; cursor:pointer; background:url(/Content/Livelihood/images/fwbg2.png) no-repeat; padding-top:3px; border-bottom:solid 1px #ececec; text-align:center;cursor:pointer}

@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+    border: 0 none;
+    overflow: hidden;
+    vertical-align: middle;
+}
+body a {
+    outline: medium none;
+}
+ body {
+  /* background-color: #fff;
+    color: #000;
+    font-family: "宋体","Microsoft Yahei",Arial, Helvetica, sans-serif ;
+    font-size: 12px;
+    font-style: normal;
+    height: 100%;
+    line-height: 30px;*/
+	color: #777;
+		-webkit-font-smoothing: antialiaszed; /* Fix for webkit rendering */
+		-webkit-text-size-adjust: 100%;
+	font: 14px/1.5 Arial;
+    text-align: center;
+	background-color: #efece2;
+	background-image: url(../images/main-content-bg.png);
+	background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+
+div {
+    text-align: left;
+}
+a {
+    color: #777;
+    text-decoration: none;
+}
+a:hover {
+    color: #ff0000;
+    text-decoration: none;
+}
+a:active {
+    outline: medium none;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: outside none none;
+
+}

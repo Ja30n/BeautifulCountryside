@@ -1,0 +1,28 @@
+网站名称：美丽乡村之耕读孔坵
+后台技术：ASP.NET MVC+SQL SERVER2012 EXPRESS
+数据库设计：见附件
+运行环境：WindowsX，数据库SQL SERVER2012 EXPRESS 
+建议浏览器：FireFox，Chrome
+
+总架构分为三层界面层(Web)、业务逻辑层（Model)、数据访问层(DAL)
+共有(5)个区域，分别为主区域、管理员区域(Adm1n)、论坛区域(BBS)、用户区域(User)、村务区域(Livelihood)
+
+
+
+安全性考虑：
+	1.密码统一以MD5的方式存储(16位)，结尾加“盐”。
+		例：
+			原密码：admin
+			存储密码：MD5(admin_GDKQ)
+	2.用AntiForgeryToken防止csrf
+	3.登录验证码防止暴力破解和撞库
+
+软删除
+
+python爬虫
+文件位置：/Content/adm1n/PythonApplication/
+原理：从指定网址爬取相关信息,写入sqlserver数据库中,在每次登陆后台的时候,会执行python脚本,同时删除数据库中旧的文件.
+cmd执行命令：python D:\PycharmData\Daxuesheng.py
+			 python D:\PycharmData\main.py(分别从两个网站爬取)
+	
+

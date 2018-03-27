@@ -1,0 +1,551 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+        font-family: inherit;
+        font-size: inherit;
+    vertical-align: baseline;
+}
+body {
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 100%;
+	/*background:#949494;*/
+}
+a{
+	text-decoration:none;
+}
+ul{ list-style:none}
+
+*{margin:0;
+padding:0;
+}
+
+
+/*头部开始*/
+   /*header_leader*/
+.header_leader{
+	background:#F3F3F3;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	height:40px;
+}
+.header_leader p{
+	float:right;
+	text-align:center;
+	margin-top:10px;
+	margin-right:30px;
+	color:#808080;
+}
+.header_leader a{
+	color:#808080;
+}
+.header_leader a:hover{
+	color: #03b2b5;
+}
+
+/*header_bg*/
+.header_bg {
+    background: white;
+    height: 100px;
+    z-index: 3;
+    margin-top: 5px;
+}
+.wrap {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.logo img {
+    float: left;
+    padding: 1em 2em 1em 0.7em;
+}
+
+/* start header_btm */
+.header_btm{
+	background: #03b2b5;
+	height:60px;
+}
+
+
+/* start header_sub */
+.h_menu{
+	float:left;
+}
+.h_menu ul li{
+	margin-right:20px;   /*标题之间的间距*/
+	float: left;
+	padding-left:2px;
+	height:60px;
+	width:100px;
+	display:block;
+	text-align:center;
+}
+.h_menu ul li:hover{
+	background:#FFFFFF;
+	color:#03b2b5;
+}
+.h_menu ul li:hover a{
+	color:#03b2b5;
+}
+.active
+{
+	margin-left:5px;
+	background:#FFFFFF;
+}
+.h_menu ul li.active a{
+	color: #03b2b5;
+	padding-top:16px;
+}
+.h_menu ul li a{
+	display:block;
+/*	padding: 18px 15px;*/
+/*padding-left:10px;*/
+	padding-top:16px;
+	font-size: 1.1em;          /* 0.925*/
+	color:#fff;
+	font-weight: 600;
+/*	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;*/
+}
+/*.h_menu ul li a:hover{
+	color:#03b2b5;
+	background:#FFFFFF;
+}*/
+/*中间大块开始*/
+.center{
+	margin:50px auto;
+	width:1230px;
+}
+/*左边内容*/
+.side_left{
+	width:210px;
+	border-spacing:0;
+	overflow:hidden;
+	padding:0 10px 10px 0;
+	margin:0;
+	height:auto;
+    float:left;
+}
+.side_left .formTop{
+	background:#02b2b5;
+	height:45px;
+	line-height:45px;
+}
+.side_left .formTopText{
+	float:left;
+	margin-left:10px;
+	text-align:left;
+}
+.side_left .formTopText span{
+	color:#fff;
+}
+.side_left .formTopMore{
+	float:left;
+	padding-left:100px;
+	text-align:left;
+}
+.side_left .formTopMore a{
+	color:#fff;
+}
+.form{
+	background:#FFFFFF;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+ .formbody{
+	height:150px;
+	margin-bottom:7px;
+	border-spacing:0;
+	padding:0;
+	position:relative;
+	width:100%;
+}
+.side_left .formbody1{
+	/*background:#f6f6f6 none repeat scroll 0 0;*/
+	height:350px;
+	border-spacing:0;
+	padding:0;
+	position:relative;
+	width:100%;
+}
+ .formMiddle{
+	/*background:#f6f6f6 none repeat scroll 0 0;*/
+	margin:0;
+	width:100%
+}
+ .formMiddle ul{
+	height:147px;
+	overflow-y:hidden;
+	padding-top:0;
+	margin:5px;
+	max-height:none;
+	min-height:5px;
+	overflow-x:hidden;
+	position:relative;
+}
+ .formMiddle1 ul{
+	 
+	height:340px;
+	overflow-y:hidden;
+	padding-top:0;
+	margin:5px;
+	max-height:none;
+	min-height:5px;
+	overflow-x:hidden;
+	position:relative;
+}
+.side_left  li{
+	ist-style-type:none; 
+	border-bottom:1px dashed #C4BEBE;
+}
+ .newlist{
+	height:30px;
+	margin:0;
+	overflow: hidden;
+	padding:5px 5px;
+	cursor:pointer;
+	line-height:23px;
+	min-height:23px;
+}
+ .newlist time{
+	float:right;
+	font-size:14px;
+}
+ .newlist a{
+	 font-size:14px;
+	display:inline-block;
+	height:23px;
+	line-height:23px;
+	outline:0 none;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	vertical-align:bottom;
+	white-space:nowrap;
+	width:100%;
+	word-break:keep-all;	
+	color:#6f6f6f;
+}
+.newlist a:hover{
+	color:#02b2b5;
+}
+/*左边内容结束*/
+/*中间内容开始*/
+.centerform{
+	border-spacing:0;
+	height:auto;
+	margin:0;
+	overflow:hidden;
+	padding:0 0 10px;
+	float:left;
+	width:760px;
+}
+.centerform  li{
+	ist-style-type:none; 
+	border-bottom:1px dashed #C4BEBE;
+}
+.centertopform{
+	margin:0;
+	padding:0;
+}
+.Topform{
+	box-shadow: 0px 0px 5px  rgba(0,0,0,0.2);
+	height:200px;
+	margin-bottom:7px;
+	overflow:hidden;
+	padding-left:5px;
+	position:relative;
+
+}
+.formbanner{
+	border-bottom:1px solid #cccccc;
+	height:45px;
+	line-height:45px;
+	border-spacing:0;
+	padding-left:5px;
+	white-space:nowrap;
+	width:100%;
+	word-break:keep-all;
+}
+.formbannerTitle{
+	height:45px;
+	border-spacing:0;
+	float:left;
+	padding:0;
+}
+.titleLeft{
+	border:medium none;
+	height:auto;
+	width:14px;
+	float:left;
+	margin:4px;
+
+}
+.titleCenter{
+	color:#02b2b5;
+	text-align:left;
+	padding:0 5px;
+	float:left;
+}
+.titleCenter a{
+	color:#02b2b5;
+}
+.titleRight{
+	float:right;
+	line-height:45px;
+	margin-right:7px;
+}
+.titleRight a{
+	color:#000;
+}
+ .newlist1{
+	height:30px;
+	margin:0;
+	overflow: hidden;
+	padding:5px 5px;
+	cursor:pointer;
+	line-height:23px;
+	min-height:23px;
+}
+ .newlist1 time{
+	float:right;
+	font-size:14px;
+}
+ .newlist1 a{
+    font-size:14px;
+	height:23px;
+	line-height:23px;
+	outline:0 none;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	vertical-align:bottom;
+	white-space:nowrap;
+	width:100%;
+	word-break:keep-all;	
+	color:#6f6f6f;
+}
+.newlist1 a:hover{
+	color:#02b2b5;
+}
+.centerimg{
+	margin-bottom:5px;
+	position:relative;
+	clear:both;
+	width:100%;
+	height:auto;
+	min-height:50px;
+	max-height:none;
+	overflow-x:hidden;
+}
+.textimg{
+	float:none;
+	width:100%;
+	display:block;
+	position:relative;
+}
+.textimg img{
+	margin:0 auto;
+	display:block;
+}
+.richimg{
+	height:120px;
+	width:744px;
+}
+.centerCform{
+	background:#FFFFFF;
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+	position:relative;
+	clear:both;
+	padding-top:2px;
+	height:auto;
+	min-height:50px;
+	max-height:none;
+	overflow:hidden;
+}
+.centerMform{
+	border-spacing:0;
+	clear:both;
+	padding:0;
+	width:100%;
+	position: relative;
+	height:auto;
+	max-height:none;
+	min-height:5px;
+	height:100%;
+}
+.centerLform{
+	width:250px;
+	height:100%;
+	vertical-align:top;
+	padding-right:10px;
+	float:left;
+}
+ .formbody3{
+	height:222px;
+	border-spacing:0;
+	padding:0;
+	position:relative;
+	width:100%;
+}
+.formMiddle3{
+	/*background:#f6f6f6 none repeat scroll 0 0;*/
+	margin:0;
+	width:100%;
+	height:222px;
+}
+ .formMiddle3 ul{
+	overflow-y:hidden;
+	padding-top:0;
+	margin:5px;
+	max-height:none;
+    text-overflow:ellipsis;
+	min-height:5px;
+	overflow-x:hidden;
+	position:relative;
+}
+.centerRform{
+	width:500px;
+	height:100%;
+	vertical-align:top;
+	float:right;
+}
+.vmc-centered{ padding: 10px 0; }
+.vmc-centered img { transition: all 0.3s ease; }
+.vmc-centered .vmc_active img { transform: scale(1.2); }
+.vmc-container{position: relative;
+               margin-top:15px;
+			  }
+.vmc-viewport{overflow: hidden;}
+
+.vmcarousel{list-style-type: none; padding: 0; margin: 0; width: 1000%;}
+.vmcarousel:after{content: ''; display: table; clear: both;}
+.vmcarousel > li{float: left;}
+.vmcarousel > li img{ display: block; margin: 0 auto; max-width: 100%;}
+
+.vmc-container.hide-controls .vmc-arrow-left, .vmc-container.hide-controls .vmc-arrow-right{display: none;}
+
+.vmc-arrow-left, .vmc-arrow-right{
+    position: absolute; top: 50%; left: -15px; width: 50px; height: 50px; margin-top: -25px; overflow: hidden;
+    opacity: 0; border-radius: 50%; transition: opacity 0.3s ease;
+    text-align: center;
+}
+.vmc-arrow-right{left: auto; right: -15px;}
+.vmc-container:hover .vmc-arrow-left, .vmc-container:hover .vmc-arrow-right{opacity: 1;}
+
+.vmc-arrow-left:after, .vmc-arrow-right:after{
+    content: ''; display: inline-block;
+    font-family: 'Glyphicons Halflings'; font-style: normal; font-weight: 400; line-height: 1; -webkit-font-smoothing: antialiased;
+	 font-size: 50px; line-height: 50px; color: white;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    text-shadow: 2px 2px #000;
+}
+.vmc-arrow-left:hover:after, .vmc-arrow-right:hover:after{color: white;}
+.vmc-arrow-left:after{}
+.vmc-arrow-right:after{}/*content: "\e080";*bootstap专用图标，需要bootstrap.min.css/
+
+.vmc-container img[src$=".svg"]{width: 100% !important; height: auto !important; max-height: 100%;}
+
+
+/*中间内容结束*/
+/*右边内容开始*/
+.side_right{
+	border-spacing:0;
+	height:auto;
+	margin:0;
+	overflow:hidden;
+	padding:0 0 10px 20px;
+	width:210px;
+}
+.rightform{
+	margin:0;
+	padding:0;
+	width:100%;
+}
+.formNei{
+	padding:5px;
+	font-size:13px;
+	line-height:1.8;
+}
+
+
+/*右边内容结束*/
+/*下面内容开始*/
+.centerbottomform{
+	padding-top:210px;
+}
+/*下面内容结束*/
+/*中间大块结束*/
+/*底部内容开始*/
+.footer{
+	background:#282828 none repeat scroll 0 0;
+	border-spacing:0;
+	margin:0;
+	padding:0;
+	width:100%;
+}
+.footerForm{
+	height:inherit;
+	overflow:hidden;
+	
+}
+.footerContent{
+	background:rgba(0,0,0,0) none repeat scroll 0 0;
+	margin:30px auto;
+	text-align:center;
+}
+.footerNav{
+	
+	text-align:center;
+	line-height:22px;
+	clear:both;
+	padding:0;
+	margin-left:26%;
+}
+.footerNav ul{
+	text-align:center;
+	list-style-type:none;
+}
+.footerNavC li{
+	float:left;
+	display:inline;
+}
+.footerNavC{
+	text-align:center;
+	margin:0 auto;
+	padding:0;
+	overflow:hidden;
+}
+.footerSection{
+	height:22px;
+	display:inline-block;
+	overflow:hidden;
+	vertical-align:top;
+	border-spacing:0;
+}
+.footerItemTOP{
+	color:#4d4d4d;
+	text-decoration:none;
+	font-size:14px;
+	font-family:微软雅黑;
+}
+.footerSpacing{
+	padding-top:5px;
+	height:13px;
+	padding-left:7px;
+	padding-right:7px;
+}
+.footerLine{
+	background-color:#4d4d4d;
+	width:1px;
+	height:100%;
+}
+.footerInfo{
+	color:#4d4d4d;
+    font-size:14px;
+	font-family:微软雅黑;
+}
+/*底部内容结束*/

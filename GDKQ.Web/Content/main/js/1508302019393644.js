@@ -1,0 +1,12 @@
+document.writeln("<style type=\"text/css\">");
+document.writeln("");
+document.writeln(".sidebar{ display:block; width:114px; height:280px; position:fixed; top:218px; right:0; z-index:9999; overflow:hidden;}");
+document.writeln("</style>");
+document.writeln("");
+document.writeln("<div class=\"sidebar\">");
+document.writeln("           <div style=\"height:44px; text-align:right; padding-top:1px;\"><a href=\"/jphoto/\" target=\"_blank\" onMouseOut=\"MM_swapImgRestore()\" onMouseOver=\"MM_swapImage(\'Image44\',\'\',\'/picture/1/1508302027384719760.png\',1)\"><img src=\"/picture/1/1508302027390776294.png\" width=\"92\" height=\"42\" id=\"Image44\" border=\"0\"></a></div>      		  ");
+document.writeln("           <div style=\"height:44px; text-align:right; padding-top:1px");
+document.writeln(";\"><a href=\"/col/col1467/index.html\" target=\"_blank\" onMouseOut=\"MM_swapImgRestore()\" onMouseOver=\"MM_swapImage(\'Image41\',\'\',\'/picture/1/1508302027387393994.png\',1)\" ><img src=\"/picture/1/1508302027392147806.png\" width=\"92\" height=\"42\" id=\"Image41\" border=\"0\"></a></div>");
+document.writeln("          <div style=\"height:44px; text-align:right; padding-top:1px;\"><a href=\"/jrobot/robot/index.do?webId=1\" target=\"_blank\" onMouseOut=\"MM_swapImgRestore()");
+document.writeln("\" onMouseOver=\"MM_swapImage(\'Image42\',\'\',\'/picture/1/1508302027386223712.png\',1)\"><img src=\"/picture/1/1508302027393457233.png\" width=\"92\" height=\"42\" id=\"Image42\" border=\"0\"></a></div>");
+document.writeln("		</div>");

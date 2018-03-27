@@ -1,0 +1,93 @@
+﻿/*--------------全局公共css------------*/
+/*body{ width:100%; height:auto;font-size:12px;font-family:Arial, "宋体", sans-serif;margin:0px auto;color:#444;LINE-HEIGHT: 20px; }*/
+img{border:none;margin:0px; padding:0px; display:block; overflow:hidden; cursor:pointer;}
+ul,ol,dl,li{list-style:none; margin:0px; padding:0px;}
+address,em,i,cite,q,quote{font-style:normal;}
+table,th,td{border-spacing:0;overflow:hidden;word-break:break-all;}
+a{color:#666;text-decoration:none; cursor:pointer;}
+/*a:hover{color:#666;text-decoration:none;}*/
+.clearfloat{ width:100%; height:0px; clear:both; overflow:hidden; font-size:4px;}
+.container b {
+margin-top:-50px;}
+.denglu {
+margin-top:-50px;}
+
+
+/*---------------名胜古迹-正文样式----------------*/
+#zp_msgj_cont{ width:980px;  margin:0px auto;padding-bottom:30px;
+background:url(../images/toupiao/c_bg_dsmj1.jpg)no-repeat /*center top*/; background-repeat:no-repeat; background-color:#F2F2F3;padding-top:170px;}
+#zp_msgj_cont .dv{ width:220px; height:254px; float:left;border: white 5px solid;-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin-left:12px;  margin-top:15px; background-color:#FFF;}
+#zp_msgj_cont .dv .dv_img{ width:220px; height:154px; margin:0px auto; overflow:hidden; text-align:center;}
+#zp_msgj_cont .dv .dv_img img{ display:block; margin:0px auto; text-align:center; padding:0; overflow:hidden;}
+#zp_msgj_cont .dv .dv_tit{ width:220px; height:28px; margin:0px auto; line-height:28px;  }
+#zp_msgj_cont .dv .dv_tit a{font-family:"微软雅黑"; font-size:14px; color:#C1B782;}
+#zp_msgj_cont .dv .dv_tit a:hover{ color:#F35100;}
+#zp_msgj_cont .dv .dv_cont{ width:220px; height:41px; margin:0px auto; line-height:18px; font-family:"微软雅黑"; font-size:12px; color:#333; border-bottom:1px solid #C1B782; }
+#zp_msgj_cont .dv .dv_tp{ width:194px; height:30px; margin:0px auto; margin:0px auto; background:url(../images/ico_00.png) repeat-x 5px 10px; background-repeat:no-repeat;
+ padding-left:26px; line-height:30px;font-family:"微软雅黑"; font-size:12px; color:#000; }
+#zp_msgj_cont .dv .dv_tp a{font-family:"微软雅黑"; font-size:12px; color:#C1B782;}
+#zp_msgj_cont .dv .dv_tp a:hover{ color:#F35100;}
+#zp_msgj_cont .dv .dv_tp span{font-family:"微软雅黑"; font-size:12px; color:#C1B782;}
+
+/*---------------摄影基地-山水风光-正文样式----------------*/
+#zp_ssfg_cont{ width:980px;  margin:0px auto;padding-bottom:30px; background:url(../images/c_bg_ssfg1.jpg)  center top; background-repeat:no-repeat; background-color:#F2F2F3;padding-top:170px;}
+#zp_ssfg_cont .dv{ width:220px; height:254px; float:left;border: white 5px solid;-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin-left:12px;  margin-top:15px; background-color:#FFF;}
+#zp_ssfg_cont .dv .dv_img{ width:220px; height:154px; margin:0px auto; overflow:hidden; text-align:center;}
+#zp_ssfg_cont .dv .dv_img img{ display:block; margin:0px auto; text-align:center; padding:0; overflow:hidden;}
+#zp_ssfg_cont .dv .dv_tit{ width:220px; height:28px; margin:0px auto; line-height:28px;  }
+#zp_ssfg_cont .dv .dv_tit a{font-family:"微软雅黑"; font-size:14px; color:#809EC0;}
+#zp_ssfg_cont .dv .dv_tit a:hover{ color:#F35100;}
+#zp_ssfg_cont .dv .dv_cont{ width:220px; height:41px; margin:0px auto; line-height:18px; font-family:"微软雅黑"; font-size:12px; color:#333; border-bottom:1px solid #809EC0; }
+#zp_ssfg_cont .dv .dv_tp{ width:194px; height:30px; margin:0px auto; margin:0px auto; background:url(../images/ico_00.png) repeat-x 5px 10px; background-repeat:no-repeat;
+ padding-left:26px; line-height:30px;font-family:"微软雅黑"; font-size:12px; color:#000; }
+#zp_ssfg_cont .dv .dv_tp a{font-family:"微软雅黑"; font-size:12px; color:#809EC0;}
+#zp_ssfg_cont .dv .dv_tp a:hover{ color:#F35100;}
+#zp_ssfg_cont .dv .dv_tp span{font-family:"微软雅黑"; font-size:12px; color:#809EC0;}
+
+
+
+/*---------------摄影基地-都市美景-正文样式----------------*/
+#zp_dsmj_cont{ width:980px;  margin:0px auto;padding-bottom:30px; background:url(../images/toupiao/c_bg_dsmj1.jpg)  center top; background-repeat:no-repeat; background-color:#F2F2F3;padding-top:170px;}
+#zp_dsmj_cont .dv{ width:220px; height:254px; float:left;border: white 5px solid;-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin-left:12px;  margin-top:15px; background-color:#FFF;}
+#zp_dsmj_cont .dv .dv_img{ width:220px; height:154px; margin:0px auto; overflow:hidden; text-align:center;}
+#zp_dsmj_cont .dv .dv_img img{ display:block; margin:0px auto; text-align:center; padding:0; overflow:hidden;}
+#zp_dsmj_cont .dv .dv_tit{ width:220px; height:28px; margin:0px auto; line-height:28px;  }
+#zp_dsmj_cont .dv .dv_tit a{font-family:"微软雅黑"; font-size:14px; color:#6B9E5C;}
+#zp_dsmj_cont .dv .dv_tit a:hover{ color:#F35100;}
+#zp_dsmj_cont .dv .dv_cont{ width:220px; height:41px; margin:0px auto; line-height:18px; font-family:"微软雅黑"; font-size:12px; color:#333; border-bottom:1px solid #6B9E5C; }
+#zp_dsmj_cont .dv .dv_tp{ width:194px; height:30px; margin:0px auto; margin:0px auto; background:url(../images/ico_00.png) repeat-x 5px 10px; background-repeat:no-repeat;
+ padding-left:26px; line-height:30px;font-family:"微软雅黑"; font-size:12px; color:#000; }
+#zp_dsmj_cont .dv .dv_tp a{font-family:"微软雅黑"; font-size:12px; color:#6B9E5C;}
+#zp_dsmj_cont .dv .dv_tp a:hover{ color:#F35100;}
+#zp_dsmj_cont .dv .dv_tp span{font-family:"微软雅黑"; font-size:12px; color:#6B9E5C;}
+
+
+/*---------------摄影基地-民俗风情-正文样式----------------*/
+#zp_msfq_cont{ width:980px;  margin:0px auto;padding-bottom:30px; background:url(../images/c_bg_msfq1.jpg)  center top; background-repeat:no-repeat; background-color:#F2F2F3;padding-top:170px;}
+#zp_msfq_cont .dv{ width:220px; height:254px; float:left;border: white 5px solid;-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin-left:12px;  margin-top:15px; background-color:#FFF;}
+#zp_msfq_cont .dv .dv_img{ width:220px; height:154px; margin:0px auto; overflow:hidden; text-align:center;}
+#zp_msfq_cont .dv .dv_img img{ display:block; margin:0px auto; text-align:center; padding:0; overflow:hidden;}
+#zp_msfq_cont .dv .dv_tit{ width:220px; height:28px; margin:0px auto; line-height:28px;  }
+#zp_msfq_cont .dv .dv_tit a{font-family:"微软雅黑"; font-size:14px; color:#FDA61B;}
+#zp_msfq_cont .dv .dv_tit a:hover{ color:#F35100;}
+#zp_msfq_cont .dv .dv_cont{ width:220px; height:41px; margin:0px auto; line-height:18px; font-family:"微软雅黑"; font-size:12px; color:#333; border-bottom:1px solid #FDA61B; }
+#zp_msfq_cont .dv .dv_tp{ width:194px; height:30px; margin:0px auto; margin:0px auto; background:url(../images/ico_00.png) repeat-x 5px 10px; background-repeat:no-repeat;
+ padding-left:26px; line-height:30px;font-family:"微软雅黑"; font-size:12px; color:#000; }
+#zp_msfq_cont .dv .dv_tp a{font-family:"微软雅黑"; font-size:12px; color:#FDA61B;}
+#zp_msfq_cont .dv .dv_tp a:hover{ color:#F35100;}
+#zp_msfq_cont .dv .dv_tp span{font-family:"微软雅黑"; font-size:12px; color:#FDA61B;}
+
+
+
+#imgps{Z-INDEX: 999999; POSITION:fixed; width:auto; height:auto; display:none;margin-left:12%;}
+#imgps img{ border:5px solid #FFF;}
+#imgps .x{ width:50px; height:40px; position:absolute; right:0px; top:0px; text-align:center; line-height:40px; font-family:Arial, Helvetica, sans-serif; font-size:24px; color:#333; cursor:pointer;}
+
+
+
+.I-c8{ width:100%; height:370px; margin:0px auto;  background:url(../images/bg_01.jpg); }
+.I-c8 img{ margin:0px auto; padding:0; display:block; overflow:hidden;}

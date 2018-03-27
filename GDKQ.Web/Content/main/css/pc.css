@@ -1,0 +1,77 @@
+*{padding:0px;margin:0px;}
+img{border:0px;display:block;/*opacity:0.9;*/}
+ul,li{list-style:none;}
+a{text-decoration:none;}
+
+body{font-size:14px;font-family:'微软雅黑';min-width:1200px;}
+
+
+/*我的活动*/
+.search_wrapper{
+	width:850px;
+	padding:10px 20px 10px 20px;
+	border:1px solid #ccc;
+	/*margin:0 auto;*/
+	margin-left: 45px;
+	}
+.s_row{
+	border-bottom:1px solid #ccc;
+	line-height:50px;
+	}
+.s_row_t{
+	float:left;
+	width:70px;
+	margin-left: 20px;
+	}
+.s_row_c{
+	float: left;
+    margin-right: -100px;
+    width: 800px;
+	}
+.s_row_c label{
+	float:left;
+	margin-left:35px;
+	margin-right:20px;
+	color:#02b6d9;
+	cursor:pointer;
+	}
+.s_row_c label.margin0{
+	margin-left:0px;
+	margin-right:0px;
+	}
+.s_row_c label input{
+	float:left;
+	margin-top:20px;
+	}
+.date_select{
+	display:block;
+	text-align:center;
+	width:120px;
+	height:30px;
+	line-height:30px;
+	border:1px solid #ccc;
+	border-radius:10px;
+	padding:0px 6px;
+	}
+.s_row_c label input.date_select{
+	margin-top:9px;
+	}
+.s_row_c label span{
+	float:left;
+	margin-left:10px;
+	}
+
+.s_row_c label input.section_input{
+	margin-top:9px;
+	}
+
+
+
+
+
+
+
+
+
+
+

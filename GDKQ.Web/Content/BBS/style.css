@@ -1,0 +1,59 @@
+.header_leader{
+	background:#F3F3F3;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	height:40px;
+}
+.header_leader p{
+	float:right;
+	text-align:center;
+	margin-top:10px;
+	margin-right:80px;
+	color:#808080;
+}
+.header_leader a{
+	color:#808080;
+}
+.header_leader a:hover{
+	color: #f0b70c;
+}
+.header_first{
+	float:left;
+	
+	
+}
+.welcome1{
+	margin-left:80px;
+	margin-top:12px;
+}
+.header_second{
+	float:right;
+}
+
+.right_all{
+	margin-top:70px;
+}
+/*.header_all{
+	float:left;
+	display:inline;
+}*/
+.publish-header{
+	/*background:#82D471;*/
+	background:url(images/发帖3.png);
+	border-radius:5px 5px 5px 5px;
+	height:30px;
+	padding-right:90px;
+	float:right;
+	margin-top:3px;
+}
+.publish-header a{
+	float:left;
+	font-size:24px;
+}
+#s0{
+	width:285px;
+	height:35px;
+	margin-left:30px;
+}
+.active_img{
+	
+	}

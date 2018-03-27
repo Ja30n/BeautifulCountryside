@@ -1,0 +1,80 @@
+﻿@charset "utf-8";
+/* CSS Document */
+#container1{
+	width:490px;
+	height:310px;
+
+    position:absolute;
+	}
+
+#container1 img{
+	width:490px;
+	height:310px;
+}
+#container1 ul {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	border: 0px;
+
+}
+#container1 p {
+	width:490px;
+	height:36px;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	background-color: rgba(137,129,132,0.4);
+}
+#p1{
+	color:#ffffff;
+	text-align: center;
+	line-height:36px;
+}
+.formbanner1{
+	border-bottom:1px solid #cccccc;
+	height:45px;
+	line-height:45px;
+	border-spacing:0;
+	white-space:nowrap;
+	width:100%;
+	word-break:keep-all;
+}
+.formbody3  li{background: url(/Content/Livelihood/images/bg.png) 8px center no-repeat;border-bottom: 1px dashed #c4bebe;}
+.formbody3 li a{ font-size:16px; margin-top:5px; margin-left:19px;}
+.content_tou{
+	font-size:14px;
+	padding-top:25px;
+	padding-left:25px;
+    line-height:25px;
+}
+.content_tou span{ margin:5px;}
+
+.submit{ width:60px; height:31px; border-color:#03b2b5; background-color:#03b2b5;color:#fff; float:left; margin-top:5px; margin-left:20px;}
+.check{ width:75px;height:27px; border:1px solid #03b2b5; line-height:27px; font-size:13px;  text-align:center; box-shadow:0 2px 2px #000; background-color:#03b2b5; float:left; margin-left:10px;  margin-top:5px;}
+.check a {color:#ffffff; }
+.button input[type="submit"],.send_button input[type="submit"] {
+	cursor: pointer;
+	color: #FFF;
+	font-size: 0.95em;
+	outline: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	border-radius: 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	background: #49CBCD;
+	/*padding: 10px 50px;*/
+	border: none;
+	margin-top: 7px;
+	-webkit-appearance: none;
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.button input[type="submit"]:hover,.send_button input[type="submit"]:hover
+{
+	background:#45BDBE;
+}
+.content_yi{ margin-top:10px; margin-left:5px;}
+.submit1{ width:60px; height:27px; margin-left:5px;}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>我的摄影比赛</title>
+        
+
+        
+        <link rel="shortcut icon" href="../images/logo_1.png" >   <!--页面图标-->
+        
+        
+        
+
+        
+		<link rel="stylesheet" href="../assets/css/amazeui.css" />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/core.css" />
+		<link rel="stylesheet" href="../assets/css/menu.css" />
+		<link rel="stylesheet" href="../assets/css/index.css" />
+		<link rel="stylesheet" href="../assets/css/admin.css" />
+		<link rel="stylesheet" href="../assets/css/page/typography.css" />
+		<link rel="stylesheet" href="../assets/css/page/form.css" />
+        <link href="../assets/css/others.css" rel="stylesheet" type="text/css" />
+        
+        
+        <script language="javascript" type="text/javascript">
+
+window.onload=function()
+{
+	var wd=window.screen.width
+	var img=document.getElementById("Top")
+	if(wd<=1440)
+	{
+		img.style.backgroundImage="url(/templets/default/sheying2014/images/top_img2.jpg)"
+	}
+	else
+	{
+		img.style.backgroundImage="url(/templets/default/sheying2014/images/top_img3.jpg)"	
+	}
+}
+
+
+function show()
+{
+   	
+	var swd=document.body.scrollWidth
+	var wid=(swd-980)/2
+	var hh=window.screen.height
+	var hig=(hh-580)/2
+	
+	var ps=document.getElementById("ps");
+	ps.style.left=wid+"px"
+	ps.style.top=hig+"px"
+	
+	document.getElementById('ps').style.display = "block";
+	document.getElementById("div3").style.display="block";
+}
+function iclose()
+{
+	document.getElementById('ps').style.display = "none";
+	document.getElementById("div3").style.display="none";
+}
+
+
+function show1(n,m,t,q)
+{
+	var swd=document.body.scrollWidth
+	var wid=(swd-980)/2
+	var hh=window.screen.height
+	var hig=50	
+	
+	var ps=document.getElementById("imgps");
+	ps.style.left=wid+"px"
+	ps.style.top=hig+"px"
+	
+	var nn=n;
+	var ssimg=document.getElementById('showimg')
+	ssimg.src=nn;
+	
+	var mm=m
+	var zpname=document.getElementById("zp_name")
+	zpname.innerHTML=mm
+	
+	/*var tt=t
+	var zpzz=document.getElementById("zp_zz")
+	zpzz.innerHTML=tt
+	
+	var qq=q
+	var zpadr=document.getElementById("zp_adr")
+	zpadr.innerHTML=qq*/
+	
+	
+	document.getElementById('imgps').style.display = "block";
+	document.getElementById("imgdiv3").style.display="block";
+}
+
+function imgclose()
+{
+	document.getElementById('imgps').style.display = "none";
+	document.getElementById("imgdiv3").style.display="none";
+}
+
+
+function resizeimg(ImgD,iwidth,iheight) { 
+     var image=new Image(); 
+     image.src=ImgD.src; 
+     if(image.width>0 && image.height>0){ 
+        if(image.width/image.height>= iwidth/iheight){ 
+           if(image.width>iwidth){ 
+               ImgD.width=iwidth; 
+               ImgD.height=(image.height*iwidth)/image.width; 
+           }else{ 
+                  ImgD.width=image.width; 
+                  ImgD.height=image.height; 
+                } 
+               ImgD.alt=image.width+"×"+image.height; 
+        } 
+        else{ 
+                if(image.height>iheight){ 
+                       ImgD.height=iheight; 
+                       ImgD.width=(image.width*iheight)/image.height; 
+                }else{ 
+                        ImgD.width=image.width; 
+                        ImgD.height=image.height; 
+                     } 
+                ImgD.alt=image.width+"×"+image.height; 
+            } 
+　　　　　ImgD.style.cursor= "pointer"; //改变鼠标指针 
+　　　　　ImgD.onclick = function() { window.open(this.src);} //点击打开大图片 
+　　　　if (navigator.userAgent.toLowerCase().indexOf("ie") > -1) { //判断浏览器，如果是IE 
+　　　　　　ImgD.title = "请使用鼠标滚轮缩放图片，点击图片可在新窗口打开"; 
+　　　　　　ImgD.onmousewheel = function img_zoom() //滚轮缩放 
+　　　　　 { 
+　　　　　　　　　　var zoom = parseInt(this.style.zoom, 10) || 100; 
+　　　　　　　　　　zoom += event.wheelDelta / 12; 
+　　　　　　　　　　if (zoom> 0)　this.style.zoom = zoom + "%"; 
+　　　　　　　　　　return false; 
+　　　　　 } 
+　　　  } else { //如果不是IE 
+　　　　　　　     ImgD.title = "点击图片可在新窗口打开"; 
+　　　　　　   } 
+    } 
+}
+</script>
+        
+        
+	</head>
+	<body>
+		<!-- Begin page -->
+		<header class="am-topbar am-topbar-fixed-top">		
+			<div class="am-topbar-left am-hide-sm-only">
+                <a href="../个人中心.html" class="logo"><span>个人中心<span>   </span></span><i class="zmdi zmdi-layers"></i></a>
+            </div>
+	
+			<div class="contain">
+				<ul class="am-nav am-navbar-nav am-navbar-left">
+
+					<li><h4 class="page-title">我的摄影比赛</h4></li>
+				</ul>
+				
+				<ul class="am-nav am-navbar-nav am-navbar-right">
+					<!--<li class="inform"><i class="am-icon-bell-o" aria-hidden="true"></i></li>-->
+					<li class="hidden-xs am-hide-sm-only">
+
+                        <form role="welcome" class="welcome1" style="margin-left:20px; margin-top:12px;">
+                             孔坵欢迎您！
+                             <SCRIPT language="javascript">  
+                             var d = new Date();  
+                             document.write(d.getFullYear() + "年" +(d.getMonth() + 1) + "月" + d.getDate() + "日");  
+                             document.write(' 星期'+'日一二三四五六'.charAt(new Date().getDay()));  
+                             </SCRIPT>      <!--代码参考百度JS编码-->
+                        </form>
+                    </li>
+				</ul>
+			</div>
+		</header>
+		<!-- end page -->
+		
+		
+		<div class="admin">
+			<!--<div class="am-g">-->
+		<!-- ========== Left Sidebar Start ========== -->
+		<!--<div class="left side-menu am-hide-sm-only am-u-md-1 am-padding-0">
+			<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 548px;">
+				<div class="sidebar-inner slimscrollleft" style="overflow: hidden; width: auto; height: 548px;">-->
+                  <!-- sidebar start -->
+				  <div class="admin-sidebar am-offcanvas  am-padding-0" id="admin-offcanvas">
+				    <div class="am-offcanvas-bar admin-offcanvas-bar">
+				    	<!-- User -->
+						<div class="user-box am-hide-sm-only">
+	                        <div class="user-img">
+	                            <img src="../assets/img/toux1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+	                            
+	                        </div>
+	                        <h5><a href="#">胡萝卜</a> </h5>
+
+	                   
+	                    </div>
+	                    <!-- End User -->
+	            
+						
+						 <ul class="am-list admin-sidebar-list">
+                         
+						    <li><a href="../个人中心.html"><span class="am-icon-home"></span> 个人中心</a></li>
+                            
+                            
+                            <li class="admin-parent">
+						      <a class="am-cf" data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-file"></span> 个人资料 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+						      <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav5">
+						       <!-- <li><a href="html/form_basic.html" class="am-cf"> 修改基本资料</a></li>-->
+						        <li><a href="修改个人资料.html">修改个人资料</a></li>   
+						      </ul>
+						    </li>
+                            
+                            
+						    <li class="admin-parent">
+						      <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 文章管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+						      <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
+
+						        <li><a href="文章删改.html">文章删改</a></li>
+						      </ul>
+						    </li>
+                            
+                            <li class="admin-parent">
+						      <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><span class="am-icon-save"></span> 我的活动 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+						      <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
+                                <li><a href="餐饮住宿预订.html" class="am-cf"> 餐饮住宿预订</span></a></li>
+                                <li><a href="我的摄影比赛.html" class="am-cf"> 我的摄影比赛</span></a></li>
+                                <li><a href="我的众筹与活动.html" class="am-cf"> 我的众筹与活动</span></a></li>
+						      </ul>
+						    </li>
+                            
+                            <li><a href="我的私信.html"><span class="am-icon-columns"></span> 我的私信</a></li>
+                            
+						  </ul>
+				</div>
+				  </div>
+				  <!-- sidebar end -->
+    
+				<!--</div>
+			</div>
+		</div>-->
+		<!-- ========== Left Sidebar end ========== -->
+		
+		
+		
+	<!--	<div class="am-g">-->
+		<!-- ============================================================== -->
+		<!-- Start right Content here -->
+		<div class="content-page">
+			<!-- Start content -->
+			<div class="content">
+				<div class="am-g">
+					<!-- Row start -->
+						<div class="am-u-sm-12">
+							<div class="card-box">
+								
+                                
+
+
+                                <form action="" class="am-form" data-am-validator>
+								  <fieldset>
+								    <legend>我的摄影比赛</legend>
+								                 
+                                                 
+                                                 
+          <div id="zp_dsmj_cont">
+
+           <div class="dv">
+            	<div class="dv_img"><img src="../images/logo_1.png"  height="154" onclick="show1('../images/logo_1.png','大美郑州—流光溢彩（组照一）')" title="点击查看详细" /></div>				
+                <div class="dv_tit"><a onclick="show1('../images/logo_1.png','大美郑州—流光溢彩（组照一）')" title="点击查看大图">大美郑州—流光溢彩（组照一）</a></div>
+                <div class="dv_cont"  ></div>
+                <div class="dv_tp">已有<span id="num4743">36331</span>人投票</div>
+            </div>
+            
+            
+<div class="dv">
+            	<div class="dv_img"><img src="../images/logo_1.png"  height="154" onclick="show1('../images/logo_1.png','美丽天鹅城')" title="点击查看详细" /></div>				
+                <div class="dv_tit"><a onclick="show1('../images/logo_1.png','美丽天鹅城')" title="点击查看大图">美丽天鹅城</a></div>
+               <div class="dv_cont"  ></div>
+                <div class="dv_tp">已有<span id="num5013">35477</span>人投票</div>
+            </div>
+            
+            
+<div class="dv">
+            	<div class="dv_img"><img src="../images/logo_1.png"  height="154" onclick="show1('../images/logo_1.png','路口')" title="点击查看详细" /></div>				
+                <div class="dv_tit"><a onclick="show1('../images/logo_1.png')" title="点击查看大图">路口</a></div>
+                <div class="dv_cont"  ></div>
+                <div class="dv_tp">已有<span id="num4556">35377</span>人投票</div>
+            </div>
+            
+            
+<div class="dv">
+            	<div class="dv_img"><img src="../images/logo_1.png"  height="154" onclick="show1('../images/logo_1.png')" title="点击查看详细" /></div>				
+                <div class="dv_tit"><a onclick="show1('../images/logo_1.png')" title="点击查看大图">二七广场夜景</a></div>
+               <div class="dv_cont"  ></div>
+                <div class="dv_tp">已有<span id="num5348">33512</span>人投票</div>
+            </div>
+</div>
+                                                        
+                                    </fieldset>
+                                    </form>
+                                
+							</div>
+						</div>
+					<!-- Row end -->
+				</div>
+			
+			
+			
+			
+			</div>
+		</div>
+		<!-- end right Content here -->
+		<!--</div>-->
+		</div>
+		</div>
+		
+		<!-- navbar -->
+		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
+		
+		<script type="text/javascript" src="../assets/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="../assets/js/amazeui.min.js"></script>
+		<script type="text/javascript" src="../assets/js/app.js" ></script>
+		<script type="text/javascript" src="../assets/js/blockUI.js" ></script>
+        <script type="text/javascript" src="../assets/js/others2.js"></script>
+        
+        
+<!--摄影作品详细页浮层-->
+
+<div style="width:100%; height:100%;position:fixed;top:0px;left:0px;background-color:#000;filter:alpha(opacity=50);opacity:0.5; z-index:9999;display:none;" id="imgdiv3" onclick="imgclose()"></div>
+
+<div id="imgps" class="img-pic-all">
+<div style="width:100%; height:40px; min-width:500px; text-indent:13px; margin:0px auto; font-family:'微软雅黑'; font-size:14px; color:#000; line-height:40px; background-color:#FFF;"><span id="zp_name"></span></div>
+<div style="width:100%; min-width:500px; background-color:#FFF; text-align:center;" ><img name="" id="showimg" src="/templets/default/sheying2014/images/img_011.jpg" height="600" onclick="window.open(this.src)" title="点击查看原图" style=" margin:0px auto;" ></div>
+    <div class="x" onclick="imgclose()">	X</div>    
+</div>
+
+
+        
+	</body>
+	
+</html>
