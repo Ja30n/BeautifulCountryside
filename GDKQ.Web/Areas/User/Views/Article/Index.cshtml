@@ -1,0 +1,363 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.Article>
+@{
+    ViewBag.Title = "用户文章";
+}
+	<!--	<div class="am-g">-->
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="card-box">
+            <!-- Row start -->
+            <div class="am-g">
+                <!--						<div class="am-u-sm-12 am-u-md-6">
+                                          <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                              <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+                                              <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
+                                              <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
+                                              <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+                                            </div>
+                                          </div>
+                                        </div>	-->
+
+                <div class="am-u-sm-12 am-u-md-3" style="float:right;">
+                    <div class="am-input-group am-input-group-sm">
+                        <input type="text" class="am-form-field">
+                        <span class="am-input-group-btn" style="margin-right:5px;">
+                            <button class="am-btn am-btn-default" type="button">搜索</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- Row end -->
+            <!-- Row start -->
+            <div class="am-g">
+                <div class="am-u-sm-12">
+                    <form class="am-form">
+                        <table class="am-table am-table-striped am-table-hover table-main">
+                            <thead>
+                                <tr>
+                                    <th class="table-check"><input type="checkbox" /></th>
+                                    <th class="table-id">ID</th>
+                                    <th class="table-title">标题</th>
+                                    <th class="table-type">分类名称</th>
+                                    <th class="table-author am-hide-sm-only">作者</th>
+                                    <th class="table-date am-hide-sm-only">修改日期</th>
+                                    <th class="table-set">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td><input type="checkbox" /></td>
+                                            <td>@item.ID</td>
+                                            <td><a href="../../论坛/（二）评赎奴隶.html" target="view_windows">@item.Title</a></td>
+                                            <td>@item.CaName</td>
+                                            <td class="am-hide-sm-only">@ViewBag.username</td>
+                                            <td class="am-hide-sm-only">@item.ModTime.ToString("yyyy-mm-dd")</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"> 编辑</span></button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"> 删除</span></button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                    
+                                
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>2</td>
+                                    <td><a href="../../论坛/枯树枝创意DIY.html" target="view_windows">枯树枝创意DIY</a></td>
+                                    <td>活动提倡</td>
+                                    <td class="am-hide-sm-only">胡萝卜</td>
+                                    <td class="am-hide-sm-only">11月20日，2016</td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"> 编辑</span></button>
+                                                <!--                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                -->
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>3</td>
+                                    <td><a href="../../论坛/（一）孔子行礼.html" target="view_windows">孔子趣事一则（一）————孔子行礼</a></td>
+                                    <td>其它精彩</td>
+                                    <td class="am-hide-sm-only">胡萝卜</td>
+                                    <td class="am-hide-sm-only">5月3日，2016</td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"> 编辑</span></button>
+                                                <!--                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                -->
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"> 删除</span></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>4</td>
+                                    <td><a href="../../论坛/single.html" target="view_windows">我是带着孩子去踏青的，很漂亮</a></td>
+                                    <td>最新文章</td>
+                                    <td class="am-hide-sm-only">胡萝卜</td>
+                                    <td class="am-hide-sm-only">4月25日，2015</td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"> 编辑</span></button>
+                                                <!--                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                -->
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"> 删除</span></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>5</td>
+                                    <td><a href="#" target="view_windows">活动很多，都很有意义</a></td>
+                                    <td>文章</td>
+                                    <td class="am-hide-sm-only">胡萝卜</td>
+                                    <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                <!--                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                -->
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>6</td>
+                                    <td><a href="#" target="view_windows">春游的选择</a></td>
+                                    <td>文章</td>
+                                    <td class="am-hide-sm-only">胡萝卜</td>
+                                    <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                <!--                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                -->
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>7</td>
+                                    <td><a href="#" target="view_windows">文化底蕴很浓</a></td>
+                                    <td>文章</td>
+                                    <td class="am-hide-sm-only">胡萝卜</td>
+                                    <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                <!--                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                -->
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>8</td>
+                                    <td><a href="#" target="view_windows">环境优美</a></td>
+                                    <td>文章</td>
+                                    <td class="am-hide-sm-only">胡萝卜</td>
+                                    <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                <!--                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                -->
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!--              <tr>
+                                                <td><input type="checkbox" /></td>
+                                                <td>9</td>
+                                                <td><a href="#">有很多去拍照的</a></td>
+                                                <td>文章</td>
+                                                <td class="am-hide-sm-only">胡萝卜</td>
+                                                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                                <td>
+                                                  <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                              </tr>-->
+                                <!--              <tr>
+                                                <td><input type="checkbox" /></td>
+                                                <td>10</td>
+                                                <td><a href="#">很美味的农家菜</a></td>
+                                                <td>文章</td>
+                                                <td class="am-hide-sm-only">胡萝卜</td>
+                                                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                                <td>
+                                                  <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                              </tr>-->
+                                <!--              <tr>
+                                                <td><input type="checkbox" /></td>
+                                                <td>11</td>
+                                                <td><a href="#">游客们都很自觉</a></td>
+                                                <td>文章</td>
+                                                <td class="am-hide-sm-only">胡萝卜</td>
+                                                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                                <td>
+                                                  <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                              </tr>-->
+                                <!--              <tr>
+                                                <td><input type="checkbox" /></td>
+                                                <td>12</td>
+                                                <td><a href="#">植物很多样</a></td>
+                                                <td>文章</td>
+                                                <td class="am-hide-sm-only">胡萝卜</td>
+                                                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                                <td>
+                                                  <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                              </tr>-->
+                                <!--              <tr>
+                                                <td><input type="checkbox" /></td>
+                                                <td>13</td>
+                                                <td><a href="#">组队一起去</a></td>
+                                                <td>文章</td>
+                                                <td class="am-hide-sm-only">胡萝卜</td>
+                                                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                                <td>
+                                                  <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                              </tr>-->
+                                <!--              <tr>
+                                                <td><input type="checkbox" /></td>
+                                                <td>14</td>
+                                                <td><a href="#">交通也很便利</a></td>
+                                                <td>文章</td>
+                                                <td class="am-hide-sm-only">胡萝卜</td>
+                                                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                                <td>
+                                                  <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                              </tr>-->
+                                <!--              <tr>
+                                                <td><input type="checkbox" /></td>
+                                                <td>15</td>
+                                                <td><a href="#">家人都很开心</a></td>
+                                                <td>文章</td>
+                                                <td class="am-hide-sm-only">胡萝卜</td>
+                                                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                                <td>
+                                                  <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                              </tr>-->
+                            </tbody>
+                        </table>
+                        <link rel="stylesheet" type="text/css" href="/Content/pagerstyles.css" />
+
+                        <h5>Bootstrap style:</h5>
+                        <div class="text-center">
+                            <nav>
+                                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageindex", ContainerTagName = "ul", CssClass = "pagination", CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>", DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>", PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager" })
+                            </nav>
+                        </div>
+
+                        <!--            <div class="am-cf">
+                                      共 15 条记录
+                                      <div class="am-fr">
+                                        <ul class="am-pagination">
+                                          <li class="am-disabled"><a href="#">«</a></li>
+                                          <li class="am-active"><a href="#">1</a></li>
+                                          <li><a href="#">2</a></li>
+                                          <li><a href="#">3</a></li>
+                                          <li><a href="#">4</a></li>
+                                          <li><a href="#">5</a></li>
+                                          <li><a href="#">»</a></li>
+                                        </ul>
+                                      </div>
+                                    </div>-->
+                        <hr />
+                        <p style="color:red;">注：文章一旦删除则相关评论等皆删除，且不可恢复，请慎重考虑。</p>
+                    </form>
+                </div>
+
+            </div>
+            <!-- Row end -->
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>
+<!-- end right Content here -->
+<!--</div>-->
+

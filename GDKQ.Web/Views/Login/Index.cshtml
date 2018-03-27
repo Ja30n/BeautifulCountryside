@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>孔坵欢迎您</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="/Content/Login/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/Content/Login/images/login.js"></script>
+    <link href="/Content/Login/css/login2.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/content/logo_1.png" />
+</head>
+<body>
+    <h1>孔坵欢迎您<sub><a href="/home/home" style="color:#2795dc;">Back&nbsp;>></a></sub></h1>
+
+    <div class="login" style="margin-top:50px;">
+
+        <div class="header">
+            <div class="switch" id="switch">
+                <a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);" tabindex="7">快速登录</a>
+                <a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">快速注册</a><div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
+            </div>
+        </div>
+
+
+        <div class="web_qr_login" id="web_qr_login" style="display: block; height: 300px;">
+
+            <!--登录-->
+            <div class="web_login" id="web_login">
+
+
+                <div class="login-box">
+
+
+                    <div class="login_form" style="margin-top:10px;">
+                        <input type="hidden" name="did" value="0" />
+                        <input type="hidden" name="to" value="log" />
+                        <div class="uinArea" id="uinArea">
+                            <label class="input-tips" for="u">帐号：</label>
+                            <div class="inputOuter" id="uArea">
+
+                                <input type="text" id="username" name="username" class="inputstyle" />
+                            </div>
+                        </div>
+                        <div class="pwdArea" id="pwdArea">
+                            <label class="input-tips" for="p">密码：</label>
+                            <div class="inputOuter" id="pArea">
+
+                                <input type="password" id="password" name="p" class="inputstyle" />
+                            </div>
+                        </div>
+
+                        <div class="uinArea" id="uinArea">
+                            <label class="input-tips" for="u" style="width:65px;">验证码：</label>
+                            <div class="inputOuter" id="uArea">
+                                <input type="text" id="SecurityCode" name="SecurityCode" class="inputstyle" style="width:90px; " /><!--验证码输入框-->
+                               <div style="width:37px; margin-top:7px;float:right; margin-right:50px;"><img src="/Login/SecurityCode" onclick="this.src=this.src+'?'"  style=""/></div><!--验证码图片-->
+                            </div>
+                        </div>
+                        <br />
+                        <div>
+                            <label><input name="Role" id="Role" type="radio" value="user" checked="checked" />游客 </label>
+                            <label><input name="Role" id="Role" type="radio" value="villager" />村民 </label>
+                            <label><input name="Role" id="Role" type="radio" value="admin" />管理员 </label>
+                        </div>
+
+
+                        <div style="padding-left:50px;margin-top:20px;">
+                            <input type="button" onclick="Login()" value="登 录" style="width:150px;" class="button_blue" />
+                        </div>
+                        @Html.AntiForgeryToken()
+                    </div>
+
+                </div>
+
+            </div>
+            <!--登录end-->
+        </div>
+
+        <!--注册-->
+        <div class="qlogin" id="qlogin" style="display: none; height: 300px; ">
+
+            <div class="web_login">
+                <form name="form2" id="regUser" accept-charset="utf-8" action="" method="post">
+                    <input type="hidden" name="to" value="reg" />
+                    <input type="hidden" name="did" value="0" />
+                    <ul class="reg_form" id="reg-ul">
+                        <li>
+
+                            <label for="user" class="input-tips2" >用户名：</label>
+                            <div class="inputOuter2">
+                                <input type="text" id="usernamer" name="usernamer" maxlength="16" class="inputstyle2"  placeholder="以字母开头，最少6个字符"/>
+                            </div>
+
+                        </li>
+
+                        <li>
+                            <label for="passwd" class="input-tips2">密码：</label>
+                            <div class="inputOuter2">
+                                <input type="password" id="passwordr" name="passwordr" maxlength="16" class="inputstyle2" placeholder="最少6个字符"/>
+                            </div>
+
+                        </li>
+                        <li>
+                            <label for="passwd2" class="input-tips2">确认密码：</label>
+                            <div class="inputOuter2">
+                                <input type="password" id="passwordr2" name="passwordr2" maxlength="16" class="inputstyle2" placeholder="再次输入密码" />
+                            </div>
+
+                        </li>
+
+                        <li>
+                            <label for="qq" class="input-tips2">邮箱：</label>
+                            <div class="inputOuter2">
+
+                                <input type="text" id="mail" name="mail"  class="inputstyle2"  placeholder="xxxx@xx.com"/>
+                            </div>
+
+                        </li>
+
+                        <li>
+                            <div class="inputArea">
+                                <input type="button" onclick="Register()" id="reg" style="margin-top:10px;margin-left:85px;width:150px; " class="button_blue" value="注册" />
+                            </div>
+
+                        </li>
+                    </ul>
+                </form>
+
+
+            </div>
+
+
+        </div>
+        <!--注册end-->
+    </div>
+    <div class="jianyi">*推荐使用ie8或以上版本ie浏览器或Chrome内核浏览器访问本站</div>
+    <script>
+        function Login(){
+            var username = $.trim($("#username").val());
+            var password = $.trim($("#password").val());
+            var SecurityCode = $.trim($("#SecurityCode").val());
+            var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+            var postdata = { username: username, password: password, SecurityCode: SecurityCode, __RequestVerificationToken: __RequestVerificationToken }
+            var RoleValue = $('input[name="Role"]:checked ').val();
+            if (RoleValue=="admin") {
+                var url = "/Login/admin?t=" + new Date().valueOf();
+            } else if (RoleValue == "villager") {
+                var url = "/Login/villager?t=" + new Date().valueOf();
+            }else {
+                var url = "/Login/user?t=" + new Date().valueOf();
+            }
+
+            $.post(url, postdata, function (data) {
+                if (data.status == "y") {
+                    location.href = data.NextUrl;
+                } else {
+                    alert(data.info);
+                    location.href = "/Login/Index";
+                }
+            }, 'json')
+        }//登录
+
+        function Register() {
+            var usernamer = $.trim($("#usernamer").val());
+            var passwordr = $.trim($("#passwordr").val());
+            var passwordr2 = $.trim($("#passwordr2").val());
+            var mail = $.trim($("#mail").val());
+            var url = "/Login/Register?t=" + new Date().valueOf();
+            var postdata = { usernamer: usernamer, passwordr: passwordr, passwordr2: passwordr2,mail:mail }
+            $.post(url, postdata, function (data) {
+                if (data.status == "y") {
+                    alert(data.info);
+                    location.href = data.NextUrl;
+                } else {
+                    alert(data.info);
+                    location.href = "/Login/Index";
+                }
+            }, 'json')
+            }//注册
+
+
+    </script><!-- 提交数据到后台&取得返回info -->
+</body>
+</html>

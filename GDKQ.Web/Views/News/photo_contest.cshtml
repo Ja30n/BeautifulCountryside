@@ -1,0 +1,374 @@
+﻿@*@model List<GDKQ.Model.Photo>*@
+<script src="~/content/main/js/toupiao_dedeajax2.js"></script>
+<script src="/Content/main/js/jquery.min.js"></script>
+<script src="~/content/main/js/mediaelement-and-player.min.js"></script>
+<link href="~/content/main/css/list.css" rel="stylesheet" />
+<script src="~/content/main/js/vote2.js"></script>
+<script type="text/javascript">
+    /*	Back to Top
+	/* ---------------------------------------------------- */
+
+    (function () {
+
+        var extend = {
+            button: '#back-top',
+            bt: '.divider-top a',
+            text: 'Back to Top',
+            min: 200,
+            fadeIn: 400,
+            fadeOut: 400,
+            speed: 800,
+            easing: 'easeOutQuint'
+        }
+			,
+			oldiOS = false,
+			oldAndroid = false;
+
+        // Detect if older iOS device, which doesn't support fixed position
+        if (/(iPhone|iPod|iPad)\sOS\s[0-4][_\d]+/i.test(navigator.userAgent))
+            oldiOS = true;
+
+        // Detect if older Android device, which doesn't support fixed position
+        if (/Android\s+([0-2][\.\d]+)/i.test(navigator.userAgent))
+            oldAndroid = true;
+
+        $('body').append('<a href="#" id="' + extend.button.substring(1) + '" title="' + extend.text + '">' + extend.text + '</a>');
+
+        $(window).scroll(function () {
+            var pos = $(window).scrollTop();
+
+            if (oldiOS || oldAndroid) {
+                $(settings.button).css({
+                    'position': 'absolute',
+                    'top': pos + $(window).height()
+                });
+            }
+
+            if (pos > extend.min)
+                $(extend.button).fadeIn(extend.fadeIn);
+            else
+                $(extend.button).fadeOut(extend.fadeOut);
+        });
+
+        $(extend.button).add(extend.bt).click(function (e) {
+            $('html, body').animate({ scrollTop: 0 }, extend.speed, extend.easing);
+            e.preventDefault();
+        });
+
+    })();
+
+    /* end Back to Top */
+
+</script>
+<script language="javascript" type="text/javascript">
+
+window.onload=function()
+{
+	var wd=window.screen.width
+	var img=document.getElementById("Top")
+	if(wd<=1440)
+	{
+		img.style.backgroundImage="url(/templets/default/sheying2014/images/top_img2.jpg)"
+	}
+	else
+	{
+		img.style.backgroundImage="url(/templets/default/sheying2014/images/top_img3.jpg)"
+	}
+}
+
+
+
+function show()
+{
+
+	var swd=document.body.scrollWidth
+	var wid=(swd-980)/2
+	var hh=window.screen.height
+	var hig=(hh-580)/2
+
+	var ps=document.getElementById("ps");
+	ps.style.left=wid+"px"
+	ps.style.top=hig+"px"
+
+	document.getElementById('ps').style.display = "block";
+	document.getElementById("div3").style.display="block";
+}
+function iclose()
+{
+	document.getElementById('ps').style.display = "none";
+	document.getElementById("div3").style.display="none";
+}
+
+
+function show1(n,m,t,q)
+{
+	var swd=document.body.scrollWidth
+	var wid=(swd-980)/2
+	var hh=window.screen.height
+	var hig=50
+
+	var ps=document.getElementById("imgps");
+	ps.style.left=wid+"px"
+	ps.style.top=hig+"px"
+
+	var nn=n;
+	var ssimg=document.getElementById('showimg')
+	ssimg.src=nn;
+
+	var mm=m
+	var zpname=document.getElementById("zp_name")
+	zpname.innerHTML=mm
+
+	var tt=t
+	var zpzz=document.getElementById("zp_zz")
+	zpzz.innerHTML=tt
+
+	var qq=q
+	var zpadr=document.getElementById("zp_adr")
+	zpadr.innerHTML=qq
+
+
+	document.getElementById('imgps').style.display = "block";
+	document.getElementById("imgdiv3").style.display="block";
+}
+
+function imgclose()
+{
+	document.getElementById('imgps').style.display = "none";
+	document.getElementById("imgdiv3").style.display="none";
+}
+
+
+function resizeimg(ImgD,iwidth,iheight) {
+     var image=new Image();
+     image.src=ImgD.src;
+     if(image.width>0 && image.height>0){
+        if(image.width/image.height>= iwidth/iheight){
+           if(image.width>iwidth){
+               ImgD.width=iwidth;
+               ImgD.height=(image.height*iwidth)/image.width;
+           }else{
+                  ImgD.width=image.width;
+                  ImgD.height=image.height;
+                }
+               ImgD.alt=image.width+"×"+image.height;
+        }
+        else{
+                if(image.height>iheight){
+                       ImgD.height=iheight;
+                       ImgD.width=(image.width*iheight)/image.height;
+                }else{
+                        ImgD.width=image.width;
+                        ImgD.height=image.height;
+                     }
+                ImgD.alt=image.width+"×"+image.height;
+            }
+　　　　　ImgD.style.cursor= "pointer"; //改变鼠标指针
+　　　　　ImgD.onclick = function() { window.open(this.src);} //点击打开大图片
+　　　　if (navigator.userAgent.toLowerCase().indexOf("ie") > -1) { //判断浏览器，如果是IE
+　　　　　　ImgD.title = "请使用鼠标滚轮缩放图片，点击图片可在新窗口打开";
+　　　　　　ImgD.onmousewheel = function img_zoom() //滚轮缩放
+　　　　　 {
+　　　　　　　　　　var zoom = parseInt(this.style.zoom, 10) || 100;
+　　　　　　　　　　zoom += event.wheelDelta / 12;
+　　　　　　　　　　if (zoom> 0)　this.style.zoom = zoom + "%";
+　　　　　　　　　　return false;
+　　　　　 }
+　　　  } else { //如果不是IE
+　　　　　　　     ImgD.title = "点击图片可在新窗口打开";
+　　　　　　   }
+    }
+}
+function hotelvote(sid,tid)
+{
+    var c="jscookietest=valid";
+        document.cookie=c;
+        if(document.cookie.indexOf(c)==-1){
+          alert("浏览器COOKIE被禁止，无法投票");
+     } else{
+    var taget_obj = document.getElementById("num"+sid);
+	var saveid = GetCookie('did');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==tid && hasid) continue;
+			else {
+				if(saveids[i]==tid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==20 && hasid) break;
+				if(j==19 && !hasid) break;
+			}
+		}
+		if(hasid) { alert("您已经投过票了，谢谢 ！"); return; }
+		else saveid += ','+tid;
+		SetCookie('did',saveid,1);
+	}
+	else
+	{
+		SetCookie('did',tid,1);
+	}
+	alert("投票成功 ！");
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	var url = "/plus/bjsydsvote_ajax.php?id="+sid;
+	myajax.SendGet2(url);
+	DedeXHTTP = null;
+	}
+}
+var arr =new Array();
+var i=0;
+function sayend( val ){
+	/* <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4743">36331</span>人投票</div>*/
+//	alert(val.parentElement.lastElementChild.innerHTML);
+ /*	alert("您来晚了，活动已结束！");*/
+	var tp = confirm("您确定要投选这个人吗?");
+	var flag = true;
+	for (var i=0;i<arr.length;i++) {
+		if(arr[i]===val){
+			flag= false;
+		}
+	}
+	if(flag){
+		arr[i]= val;
+		i++;
+		if(tp){
+			var span = val.parentElement.lastElementChild;
+			var num = span.innerHTML;
+			num = parseInt(num)+1;
+			span.innerHTML= num;
+		}
+	}else{
+		alert("谢谢您的参与，每张图只能投票一次");
+	}
+
+
+
+
+}
+</script>
+<section class="main container sbr clearfix">
+    
+    <!-- - - - - - - - - - Breadcrumbs - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs">
+
+        <a title="孔坵首页" href="\Home\Home"><b>首页</b></a>
+        <a title="孔坵首页"><b>异彩纷呈</b></a>
+        <span><b>摄影作品投票</b></span>
+        <div class="border-divider1"></div>
+    </div><!--/ .breadcrumbs-->
+    <!-- - - - - - - - - end Breadcrumbs - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <section id="content" class="ten columns">
+
+        <section class="holder1tp clearfix">
+            <div id="zp_dsmj_cont">
+                
+                <div style="text-align:center;">
+                    <a href="/News/join_contest" style=" margin-top:30px;font-size:22px; color:#DB5E13;">我也要参赛</a>
+                </div>
+                <div class="bigdv">
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/jianzhu1.jpg" height="154" onclick="show1('/Content/main/images/jianzhu1.jpg','大美孔坵—流光溢彩（组照一）','胡海英','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/jianzhu1.jpg','大美孔坵—流光溢彩（组照一）','胡海英','孔坵村')" title="点击查看大图">大美孔坵—流光溢彩（组照一）</a></div>
+                        <div class="dv_cont">摄影：胡小英<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4743">36331</span>人投票</div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/jianzhu2.jpg" height="154" onclick="show1('/Content/main/images/jianzhu2.jpg','拐角处','王家臣','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/jianzhu2.jpg','拐角处','王家臣','孔坵村')" title="点击查看大图">拐角处</a></div>
+                        <div class="dv_cont">摄影：王家臣<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num5013">35477</span>人投票</div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/jianzhu3.jpg" height="154" onclick="show1('/Content/main/images/jianzhu3.jpg','路口','邓国勇','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/jianzhu3.jpg','路口','邓国勇','驻马店')" title="点击查看大图">路口</a></div>
+                        <div class="dv_cont">摄影：邓国勇<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp">
+                            <a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有
+                            <span id="num4556">35377</span>人投票
+                        </div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/百岁路1.jpg" height="154" onclick="show1('/Content/main/images/百岁路-1.jpg','百岁路','段顺利','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/百岁路-1.jpg','百岁路','段顺利','孔坵村')" title="点击查看大图">百岁路</a></div>
+                        <div class="dv_cont">摄影：段顺利<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num5348">33512</span>人投票</div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/jianzhu5-1.jpg" height="154" onclick="show1('/Content/main/images/jianzhu5.jpg','大美孔坵—流光溢彩（组照二）','胡海英','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/jianzhu5.jpg','大美孔坵—流光溢彩（组照二）','胡海英','孔坵村')" title="点击查看大图">大美孔坵—流光溢彩（组照二）</a></div>
+                        <div class="dv_cont">摄影：胡小英<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4744">32067</span>人投票</div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/近仁堂.jpg" height="154" onclick="show1('/Content/main/images/近仁堂.jpg','大美孔坵—流光溢彩（组照三）','胡海英','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/近仁堂.jpg','大美孔坵—流光溢彩（组照三）','胡海英','孔坵村')" title="点击查看大图">大美孔坵—流光溢彩（组照三）</a></div>
+                        <div class="dv_cont">摄影：胡小英<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4745">32067</span>人投票</div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/中和桥1.jpg" height="154" onclick="show1('/Content/main/images/中和桥-1.jpg','中和桥','汪继泉','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/中和桥-1.jpg','中和桥','汪继泉','孔坵村')" title="点击查看大图">中和桥</a></div>
+                        <div class="dv_cont">摄影：汪继泉<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4715">31859</span>人投票</div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/qita3.jpg" height="154" onclick="show1('/Content/main/images/qita3.jpg','古村印象组照（一）','白建','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/qita3.jpg','古村印象组照（一）','白建','孔坵村')" title="点击查看大图">古村印象组照（一）</a></div>
+                        <div class="dv_cont">摄影：白建<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4715">31859</span>人投票</div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/半耕堂门外1.jpg" height="154" onclick="show1('/Content/main/images/半耕堂门外.jpg','半耕堂门外','胡海英','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/半耕堂门外.jpg','半耕堂门外','胡海英','孔坵村')" title="点击查看大图">半耕堂门外</a></div>
+                        <div class="dv_cont">摄影：胡小英<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4744">32067</span>人投票</div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/宝新义塾旧址1.jpg" height="154" onclick="show1('/Content/main/images/宝新义塾旧址.jpg','宝新义塾旧址','王文琦','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/jianzhu5.jpg','宝新义塾旧址','王文琦','孔坵村')" title="点击查看大图">宝新义塾旧址</a></div>
+                        <div class="dv_cont">摄影：王文琦<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4744">32067</span>人投票</div>
+                    </div>
+
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/qita4.jpg" height="154" onclick="show1('/Content/main/images/qita4.jpg','古村印象组照（二）','白建','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/qita4.jpg','古村印象组照（二）','白建','孔坵村')" title="点击查看大图">古村印象组照（二）</a></div>
+                        <div class="dv_cont">摄影：白建<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4821">30600</span>人投票</div>
+                    </div>
+                    <div class="dv">
+                        <div class="dv_img"><img src="/Content/main/images/qita5.jpg" height="154" onclick="show1('/Content/main/images/qita5.jpg','古村印象组照（三）','白建','孔坵村')" title="点击查看详细" /></div>
+                        <div class="dv_tit"><a onclick="show1('/Content/main/images/qita5.jpg','古村印象组照（三）','白建','孔坵村')" title="点击查看大图">古村印象组照（三）</a></div>
+                        <div class="dv_cont">摄影：白建<br />拍摄地：孔坵村</div>
+                        <div class="dv_tp"><a onclick="javascript:sayend(this)" title="点击投票">投票</a>&nbsp; 已有<span id="num4821">30600</span>人投票</div>
+                    </div>
+                    <div class="clearfloat"></div>
+                </div>
+            </div>
+
+
+            <!--摄影作品详细页浮层-->
+            <div style="width:100%; height:100%;position:fixed;top:0px;left:0px;background-color:#000;filter:alpha(opacity=50);opacity:0.5; z-index:9999;display:none;" id="imgdiv3" onclick="imgclose()"></div>
+            <div id="imgps">
+                <div style="width:100%; height:40px; min-width:500px; text-indent:13px; margin:0px auto; font-family:'微软雅黑'; font-size:14px; color:#000; line-height:40px; background-color:#FFF;"><span id="zp_name"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#F35100">摄影：</span><span id="zp_zz"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#F35100">拍摄地：</span><span id="zp_adr"></span></div>
+                <div style="width:100%; min-width:500px; background-color:#FFF; text-align:center;"><img name="" id="showimg" src="/Content/main//templets/default/sheying2014/images/img_011.jpg" height="600" onclick="window.open(this.src)" title="点击查看原图" style=" margin:0px auto;"></div>
+                <div class="x" onclick="imgclose()">	X</div>
+            </div>
+
+        </section>
+    </section><!--/ #content-->
+    <!-- - - - - - - - - - - - - end Sidebar - - - - - - - - - - - - - - - -->
+
+
+</section>
+
+
+

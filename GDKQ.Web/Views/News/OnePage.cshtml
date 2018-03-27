@@ -1,0 +1,29 @@
+﻿
+@{
+    
+}
+@model GDKQ.Model.News
+<script src="/Content/main/js/jquery.min.js"></script>
+
+<section class="main container sbr clearfix">
+
+    <!-- - - - - - - - - - Breadcrumbs - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs">
+        <a title="孔坵首页" href="/Home/Home"><b>首页</b></a>
+        <a title="孔坵首页"><b>人文历史</b></a>
+        <span><b>@ViewBag.Title</b></span>
+        <div class="border-divider1"></div>
+    </div><!--/ .breadcrumbs-->
+    <!-- - - - - - - - - end Breadcrumbs - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+
+    <section id="content" class="ten columns">
+         @Html.Raw(Model.Title)
+        @Html.Raw(Model.Body)
+
+    </section><!--/ #content-->
+    <!-- - - - - - - - - - - - - end Sidebar - - - - - - - - - - - - - - - -->
+
+
+</section>

@@ -1,0 +1,91 @@
+﻿@using GDKQ.Model
+@model GDKQ.Web.Areas.Livelihood.Controllers.VoteController.viewModel
+@{
+    ViewBag.Title = "投票结果";
+}
+<link href="/Content/Livelihood/css/affair.css" rel="stylesheet" type="text/css" media="all" />
+<script src="/Content/Livelihood/js/affair.js"></script>
+
+
+<div class="main">
+    <div style="width:1000px;height: 310px; margin:20px 80px 20px 166px;  background:#FFF; box-shadow: 0 1px 5px rgba(0,0,0,0.2);">
+        <div class="centerLform" style="width:1000px;">
+            <div class="formbanner1">
+                <div class="formbannerTitle">
+                    <div class="titleLeft"> <img src="/Content/Livelihood/images/blue.png"></div>
+                    <div class="titleCenter"><span>在线投票</span></div>
+                </div>
+            </div>
+            @if (Model.vom != null)
+            {
+                <div class="formbody">
+                    <div class="formMiddle">
+                        <div class="content">
+                            <p class="formNei">@Html.Raw(Model.vom.Body)</p>
+                            <p class="formNei">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每人限投1票</p>
+                            <p class="formNei">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;截止时间：@Model.vom.EndTime.ToString("yyyy-MM-dd")</p>
+                            <div class="content_tou">
+                                <label><input name="Choice" id="Choice" type="radio" value="agree" />同意 </label><br />
+                                <label><input name="Choice" id="Choice" type="radio" value="disagree" />反对 </label>
+                            </div>
+                            <div class="button">
+                                <input class="submit" value="提 交" type="button" onclick="Vote()">
+                                <a class="check" value="" href="/Livelihood/Vote/VoteResult">查看结果</a>
+                            </div>
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(x => x.vom.ID)
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="main_foot">
+    <div style="width:1000px; margin:5px 80px 30px 166px; background:#FFF;  box-shadow: 0 1px 5px rgba(0,0,0,0.2); height:230px; ">
+        <!--min-height:315px;-->
+        <div class="centerLform">
+            <div class="formbanner1">
+                <div class="formbannerTitle">
+                    <div class="titleLeft"> <img src="/Content/Livelihood/images/blue.png"></div>
+                    <div class="titleCenter"><span>结果</span></div>
+                </div>
+            </div>
+            <div class="formbody">
+
+            </div>
+        </div>
+        <div style="width:100%; height:100%; vertical-align:top;">
+            <div class="formbanner1">
+                
+            </div>
+            <a>同意：@Model.agree_num 人</a>
+            <a>反对：@Model.disagree_num 人</a>
+        </div>
+    </div>
+</div>
+<!-- Thumbnail Item Skin End -->
+<!-- Arrow Navigator -->
+<span data-u="arrowleft" class="jssora05l" style="top:0px;left:248px;width:40px;height:40px;" data-autocenter="2"></span>
+<span data-u="arrowright" class="jssora05r" style="top:0px;right:8px;width:40px;height:40px;" data-autocenter="2"></span>
+
+<script>
+    function Vote() {
+        var id = $.trim($("#vom_ID").val());
+        var Choice = $('input[name="Choice"]:checked ').val();
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = {id:id, Choice: Choice, __RequestVerificationToken: __RequestVerificationToken }
+        var url = "/Livelihood/Vote?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/Livelihood/Vote";
+            } else {
+                alert(data.info);
+                location.href = "/Livelihood/Vote";
+            }
+        }, 'json')
+    }//投票
+
+</script><!-- 提交数据到后台&取得返回info -->
+

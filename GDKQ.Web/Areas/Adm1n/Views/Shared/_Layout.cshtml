@@ -1,0 +1,223 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>孔坵后台管理</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="/Content/Admin/assets/i/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="/Content/Admin/assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="/Content/Admin/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="/Content/Admin/assets/css/admin.css">
+    <link rel="stylesheet" href="/Content/Admin/assets/css/app.css">
+    <script src="/Content/Admin/assets/js/echarts.min.js"></script>
+</head>
+
+<body data-type="index">
+
+
+    <header class="am-topbar am-topbar-inverse admin-header">
+        <div class="am-topbar-brand">
+            <!--            <a href="javascript:;" class="tpl-logo">
+                            <img src="assets/img/logo.png" alt="">
+                        </a> -->
+        </div>
+        <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+        </div>
+
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+
+                <!-- <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                        <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span></span>
+                    </a>
+                    <ul class="am-dropdown-content tpl-dropdown-content">
+                        <li class="tpl-dropdown-content-external">
+                            <h3>你有 <span class="tpl-color-danger">9</span> 条新消息</h3><a href="https://www.baidu.com">全部</a>
+                        </li>
+                    </ul>
+                </li> -->
+                <!--<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>-->
+                <li class="am-hide-sm-only"><a href="/Home" class="tpl-header-list-link"><span class="admin-fullText">孔坵首页</span></a></li>
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                        <span class="tpl-header-list-user-nick">admin</span><span class="tpl-header-list-user-ico"> <img src="/Content/Admin/assets/img/user01.png"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="/Adm1n/PwdMod"><span class="am-icon-key"></span> 密码修改</a></li>
+                        <li><a href="/Login"><span class="am-icon-power-off"></span> 退出</a></li>
+                    </ul>
+                </li>
+                <li><a href="/Login" class="tpl-header-list-link"><span class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+            </ul>
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <div class="tpl-page-container tpl-page-header-fixed">
+
+
+        <div class="tpl-left-nav tpl-left-nav-hover">
+            <div class="tpl-left-nav-title">
+                内容管理
+            </div>
+            <div class="tpl-left-nav-list">
+                <ul class="tpl-left-nav-menu">
+                    <li class="tpl-left-nav-item">
+                        <a href="/Adm1n/Home" class="nav-link">
+                            <i class="am-icon-home"></i>
+                            <span>后台首页</span>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-user"></i>
+                            <span>角色管理</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu">
+                            <li>
+
+                                <a href="/Adm1n/RoleManage/Villager">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>村民</span>
+                                </a>
+
+                                <a href="/Adm1n/RoleManage/User">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>游客</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-list-ul"></i>
+                            <span>对外管理</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu">
+                            <li>
+                                <a href="/Adm1n/News/OnePage?bh=11">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>逆旅千古</span>
+                                </a>
+                                <a href="/Adm1n/News/List?bh=12">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>先哲今贤</span>
+                                </a>
+                                <a href="/Adm1n/News/List?bh=12">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>守望瑰宝</span>
+                                </a>
+                                <a href="table-font-list.html">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>异彩纷呈</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-list-ul"></i>
+                            <span>村中事务</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu" style="display: block;">
+                            <li>
+                                <a href="/Adm1n/News/List?bh=001">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>公示公告</span>
+                                </a>
+
+                                <a href="/Adm1n/News/List?bh=002">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>建设农村</span>
+                                </a>
+
+                                <a href="/Adm1n/News/List?bh=003 ">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>村内事务</span>
+                                </a>
+
+                                <a href="/Adm1n/News/List?bh=007 ">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>时事要点</span>
+                                </a>
+
+                                <a href="/Adm1n/Vote/List">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>在线投票</span>
+                                </a>
+
+
+                                <a href="/Adm1n/News/AdviceList">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>建议栏</span>
+                                    <i class="tpl-left-nav-content tpl-badge-primary">
+                                        @ViewBag.AdviceCount
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-list-ul"></i>
+                            <span>论坛管理</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu">
+                            <li>
+                                <a href="/Adm1n/News/ShowArticle">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>所有文章</span>
+                                </a>
+                                <a href="/Adm1n/News/ExmArticle">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>文章审核</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        @RenderBody()
+
+
+
+
+
+    </div>
+
+
+
+    <script src="/Content/Admin/assets/js/jquery.min.js"></script>
+    <script src="/Content/Admin/assets/js/amazeui.min.js"></script>
+    <script src="/Content/Admin/assets/js/iscroll.js"></script>
+    <script src="/Content/Admin/assets/js/app.js"></script>
+
+</body>
+
+</html>

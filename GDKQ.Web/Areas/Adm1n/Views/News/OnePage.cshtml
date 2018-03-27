@@ -1,0 +1,90 @@
+﻿@model GDKQ.Model.News
+@{
+    ViewBag.Title = Model.CaName;
+}
+<link rel="stylesheet" href="/Content/Admin/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="/Content/Admin/kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="/Content/Admin/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="/Content/Admin/kindeditor/lang/zh-CN.js"></script>
+<script charset="utf-8" src="/Content/Admin/kindeditor/plugins/code/prettify.js"></script>
+<script>
+    var editor1;
+    KindEditor.ready(function (K) {
+        editor1 = K.create('#body', {
+            cssPath: '/Content/Admin/kindeditor/plugins/code/prettify.css',
+            uploadJson: '/Adm1n/Home/Kindeditor_Upload',
+            allowFileManager: false,
+
+        });
+        prettyPrint();
+    });
+</script>
+
+<div class="tpl-content-wrapper">
+    <div class="row">
+
+        <div class="am-u-md-12 am-u-sm-12 row-mb">
+
+            <div class="tpl-portlet">
+                <div class="tpl-portlet-title">
+                    <div class="note note-info">
+                        <h3>
+                            @ViewBag.Title
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div id="wrapper" class="wrapper" style="height:700px;">
+                <form class="am-form am-form-horizontal">
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-1">新闻内容</div>
+                        <div class="am-u-sm-10">
+                            <label for="doc-ta-1"></label>
+                            <textarea class="" rows="10" id="body" name="body" style="height:600px;">@Html.Raw(Model.Body)</textarea>
+                        </div>
+                        <div class="am-u-sm-1"></div>
+
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-g">
+                            <div class="am-u-sm-1"></div>
+                            <div class="am-u-sm-11">
+                                <button type="button" onclick="OnePageMod()" class="am-btn am-btn-success ">保 存</button>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(a => a.ID)
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function OnePageMod() {
+        var body = editor1.html();
+        //$.trim($("#body").val());
+        var ID = $.trim($("#ID").val());
+        if (body == '') {
+            alert('请将内容填写完整');
+            return;
+        }
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+
+        var postdata = { body: body, ID: ID, __RequestVerificationToken: __RequestVerificationToken }
+        var url = "/Adm1n/News/OnePage?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/Adm1n/Home";
+            } else {
+                alert(data.info);
+                location.href = "/Adm1n/News/OnePage?bh=11";
+            }
+        }, 'json')
+    }//修改密码
+
+</script><!-- 提交数据到后台&取得返回info -->

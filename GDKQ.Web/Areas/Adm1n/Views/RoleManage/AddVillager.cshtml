@@ -1,0 +1,109 @@
+﻿@model GDKQ.Model.Villager
+@{
+    if (Model.ID==0)
+    {
+        ViewBag.Title = "添加村民";
+    }
+    else
+    {
+        ViewBag.Title = "修改村民信息";
+    }
+}
+
+
+<div class="tpl-content-wrapper">
+    <div class="row">
+        <div class="row">
+            <div class="am-u-md-12 am-u-sm-12 row-mb">
+
+                <div class="tpl-portlet">
+                    <div class="tpl-portlet-title">
+                        <div class="note note-info">
+                            <h3>
+                                @ViewBag.Title
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="wrapper" class="wrapper">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <label for="doc-ipt-3" class="am-u-sm-2 am-form-label">用户名</label>
+                            <div class="am-u-sm-3 am-u-end">
+                                @Html.TextBoxFor(a => a.UserName)
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">密码</label>
+                            <div class="am-u-sm-3 am-u-end">
+                                <input id="Password" name="Password" type="password">
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">确认密码</label>
+                            <div class="am-u-sm-3 am-u-end">
+                                <input id="Password1" name="Password1" type="password">
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">真实姓名</label>
+                            <div class="am-u-sm-3 am-u-end">
+                                @Html.TextBoxFor(a => a.RealName)
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">联系方式</label>
+                            <div class="am-u-sm-3 am-u-end">
+                                @Html.TextBoxFor(a => a.Mobile)
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="am-form-group">
+                            <div class="am-g">
+                                <div class="am-u-sm-2"></div>
+                                <div class="am-u-sm-10">
+                                    <button type="button" onclick="AddVillager()" class="am-btn am-btn-success am-round">确认</button>
+                                    <button type="reset" class="am-btn am-btn-warning am-round">重置</button>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.AntiForgeryToken()
+                    </form>
+                    @Html.HiddenFor(a=>a.ID)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function AddVillager() {
+        var id = $.trim($("#ID").val());
+        var username = $.trim($("#UserName").val());
+        var password = $.trim($("#Password").val());
+        var password1 = $.trim($("#Password1").val());
+        var realname = $.trim($("#RealName").val());
+        var mobile = $.trim($("#Mobile").val());
+        if (username==''||password==''||password1==''||realname==''||mobile=='') {
+            alert("请填写完整信息");
+            return;
+        }
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = {id:id, username: username, password: password, password1: password1, realname: realname, mobile: mobile, __RequestVerificationToken: __RequestVerificationToken };
+        var url = "/Adm1n/RoleManage/AddVillager?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/Adm1n//Home";
+            } else {
+                alert(data.info);
+                location.href = "/Adm1n/RoleManage/AddVillager";
+            }
+        }, 'json')
+    }//修改村民
+
+</script><!-- 提交数据到后台&取得返回info -->

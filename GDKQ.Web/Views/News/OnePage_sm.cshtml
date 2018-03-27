@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewBag.Title = "山明水秀";
+}
+<link rel="stylesheet" href="css/stylezp.css" media="screen" />	
+<script type="text/javascript">
+    /*	Back to Top
+	/* ---------------------------------------------------- */
+
+    (function () {
+
+        var extend = {
+            button: '#back-top',
+            bt: '.divider-top a',
+            text: 'Back to Top',
+            min: 200,
+            fadeIn: 400,
+            fadeOut: 400,
+            speed: 800,
+            easing: 'easeOutQuint'
+        }
+			,
+			oldiOS = false,
+			oldAndroid = false;
+
+        // Detect if older iOS device, which doesn't support fixed position
+        if (/(iPhone|iPod|iPad)\sOS\s[0-4][_\d]+/i.test(navigator.userAgent))
+            oldiOS = true;
+
+        // Detect if older Android device, which doesn't support fixed position
+        if (/Android\s+([0-2][\.\d]+)/i.test(navigator.userAgent))
+            oldAndroid = true;
+
+        $('body').append('<a href="#" id="' + extend.button.substring(1) + '" title="' + extend.text + '">' + extend.text + '</a>');
+
+        $(window).scroll(function () {
+            var pos = $(window).scrollTop();
+
+            if (oldiOS || oldAndroid) {
+                $(settings.button).css({
+                    'position': 'absolute',
+                    'top': pos + $(window).height()
+                });
+            }
+
+            if (pos > extend.min)
+                $(extend.button).fadeIn(extend.fadeIn);
+            else
+                $(extend.button).fadeOut(extend.fadeOut);
+        });
+
+        $(extend.button).add(extend.bt).click(function (e) {
+            $('html, body').animate({ scrollTop: 0 }, extend.speed, extend.easing);
+            e.preventDefault();
+        });
+
+    })();
+
+    /* end Back to Top */
+
+</script>
+<style type="text/css">
+    body {
+        background-color: #e8e3da;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    #wrap {
+        width: 980px;
+        height: 500px;
+    }
+
+        #wrap li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: transform 1500ms ease-out;
+            background-color: white;
+        }
+
+    .box {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        transition: transform 1500ms ease-out;
+    }
+
+    .center {
+        margin: 150px auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+</style>
+<script type="text/javascript" src="/Content/main/js/jqueryzp.min.js"></script>
+<script type="text/javascript">
+$(function () {
+	var collums = 5;//列
+	var rows = 5;//行
+	var wrap = $('#wrap');
+	var w = wrap.width() / rows;
+	var h = wrap.height() / collums;
+
+
+	for (var r = 0; r < rows; r++) {
+		for (var c = 0; c < collums; c++) {
+
+			$('<li><div class="box"></div></li>').width(w).height(h)
+					.css({
+						'left': w * c + 'px',
+						'top': h * r + 'px',
+						'transform': 'scale(0.9) rotate(' + (Math.random() * 40 - 20) + 'deg) ' +
+						'translateX(' + (30*c-60) + 'px)' +
+						'translateY(' + (30*r-60) + 'px)'
+					})
+					.find('.box')
+					.css({
+						'background-image': 'url(/Content/main/images/' + (r * collums + c) + '.jpg)',
+						'transform': 'scale(0.9)'
+					})
+					.end()
+					.appendTo(wrap)
+		}
+	}
+
+	var change = true;
+	wrap.find('li').on('click', function () {
+		if (change == true) {
+			var bgImg = $(this).find('div').css('background-image');
+			var bgLeft = 0;
+			var bgTop = 0;
+			$('#wrap li').each(function (index) {
+				var $this=$(this);
+				$(this).delay(40*index).animate({"opacity":0},200, function () {
+					$this.css({
+						'transform': ' rotate(0deg) ' +
+						'translateX(0)' +
+						'translateY(0)'
+					});
+					$this.find('div').css({
+						'background-image': bgImg,
+						'background-size': 'auto',
+						'backgroundPositionX': -bgLeft,
+						'backgroundPositionY': -bgTop,
+						'transform': 'scale(1)'
+					});
+					bgLeft += 196;
+					if (bgLeft >= 980) {
+						bgTop += 100;
+						bgLeft = 0;
+					}
+					$this.animate({"opacity":1},300);
+				})
+
+
+
+
+			});
+			change = false;
+
+		} else if (change == false) {
+
+			$('#wrap li').each(function (index) {
+				var c=index %collums;
+				var r=parseInt(index/collums);
+				var $this=$(this);
+				$(this).delay(40*index).animate({"opacity":0},200, function () {
+					$this.css({
+						'transform': 'rotate(' + (Math.random() * 40 - 20) + 'deg)' +
+						'translateX(' + (30*c-60) + 'px)' +
+						'translateY(' + (30*r-60) + 'px)'
+					});
+					$this.find('div').css({
+					    'background-image': 'url(/Content/main/images/' + index + '.jpg)',
+						'background-size': 'cover',
+						'transform': 'scale(0.9)'
+					});
+					$this.animate({"opacity":1},200);
+				})
+
+			});
+			change = true;
+		}
+	})
+})
+</script>
+
+
+<section class="main container clearfix" style="height:700px;">
+
+    <!-- - - - - - - - - - Breadcrumbs - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs">
+
+        <a title="孔坵首页" href="\Home\Home"><b>首页</b></a>
+        <a title="孔坵首页"><b>世外桃源</b></a>
+        <span><b>山明水秀</b></span>
+        <div class="border-divider1"></div>
+    </div><!--/ .breadcrumbs-->
+        <ul id="wrap" class="center"></ul>
+
+</section>
+<script src="/Content/main/js/jquery.min.js"></script>
+
+<script src="/Content/main/js/custom.js"></script>
+

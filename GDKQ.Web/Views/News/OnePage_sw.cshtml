@@ -1,0 +1,413 @@
+﻿
+@{
+    ViewBag.Title = "守望瑰宝";
+    Layout = null;
+    if (Session["user"] != null)
+    {
+        ViewBag.UserHome = "/User/Home";
+        ViewBag.UserIcon = "我的个人空间";
+    }
+    else if (Session["admin"] != null)
+    {
+        ViewBag.UserHome = "/Adm1n/Home";
+        ViewBag.UserIcon = "返回后台";
+    }
+    else if (Session["villager"] != null)
+    {
+        ViewBag.UserHome = "/Livelihood/Home";
+        ViewBag.UserIcon = "村务中心";
+    }
+    else
+    {
+        ViewBag.UserHome = "/Login";
+        ViewBag.UserIcon = "登录/注册";
+    }
+
+}
+<script src="/Content/main/js/jquery.min.js"></script>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>守望瑰宝</title>
+    <!--<link rel="stylesheet" href="/Content/main/css/style.css" media="screen" />-->
+    <link href="/Content/main/css/templets_cchp_images_res.css" type="text/css" rel="stylesheet" />
+    <link href="/Content/main/css/templets_cchp_images_css.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/Content/main/js/templets_cchp_js_jquery1.42.min.js"></script>
+    <script type="text/javascript" src="/Content/main/js/templets_cchp_js_jquery.SuperSlide.2.1.js"></script>
+    <script type="text/javascript" src="/Content/main/js/templets_cchp_js_slider.js"></script>
+    <script language="javascript" src="/Content/main/js/zjkq_jquery.js"></script>
+    <script type="text/javascript" src="/Content/main/js/modernizr.custom.js"></script>
+    <script type="text/javascript">
+    /*	Back to Top
+	/* ---------------------------------------------------- */
+
+    (function () {
+
+        var extend = {
+            button: '#back-top',
+            bt: '.divider-top a',
+            text: 'Back to Top',
+            min: 200,
+            fadeIn: 400,
+            fadeOut: 400,
+            speed: 800,
+            easing: 'easeOutQuint'
+        }
+			,
+			oldiOS = false,
+			oldAndroid = false;
+
+        // Detect if older iOS device, which doesn't support fixed position
+        if (/(iPhone|iPod|iPad)\sOS\s[0-4][_\d]+/i.test(navigator.userAgent))
+            oldiOS = true;
+
+        // Detect if older Android device, which doesn't support fixed position
+        if (/Android\s+([0-2][\.\d]+)/i.test(navigator.userAgent))
+            oldAndroid = true;
+
+        $('body').append('<a href="#" id="' + extend.button.substring(1) + '" title="' + extend.text + '">' + extend.text + '</a>');
+
+        $(window).scroll(function () {
+            var pos = $(window).scrollTop();
+
+            if (oldiOS || oldAndroid) {
+                $(settings.button).css({
+                    'position': 'absolute',
+                    'top': pos + $(window).height()
+                });
+            }
+
+            if (pos > extend.min)
+                $(extend.button).fadeIn(extend.fadeIn);
+            else
+                $(extend.button).fadeOut(extend.fadeOut);
+        });
+
+        $(extend.button).add(extend.bt).click(function (e) {
+            $('html, body').animate({ scrollTop: 0 }, extend.speed, extend.easing);
+            e.preventDefault();
+        });
+
+    })();
+
+    /* end Back to Top */
+
+    </script>
+    <link rel="shortcut icon" href="/content/logo_1.png">
+    
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container">
+
+            <a href="/Home/Home" title="耕读孔坵"><img src="/Content/main/images/logo-白高80.png" alt="耕读孔坵" style="height: 60px;margin-left:140px;margin-bottom: 20px;"></a>
+            <!-- - - - - - - - - - - end Logo - - - - - - - - - - - - -->
+            <!-- - - - - - - - - - - - Event Holder - - - - - - - - - - - - - -->
+
+            <div class="event-holder clearfix">
+                <b>
+                    孔坵欢迎您！今天是：
+                    <SCRIPT language="javascript">
+
+                             var d = new Date();
+                             document.write(d.getFullYear() + "年" +(d.getMonth() + 1) + "月" + d.getDate() + "日");
+                             document.write(' 星期'+'日一二三四五六'.charAt(new Date().getDay()));
+                    </SCRIPT>      <!--代码参考百度JS编码-->
+                </b>
+                <div class="denglu" >
+                    <a href="@ViewBag.UserHome" title="登录">@ViewBag.UserIcon</a>
+                </div>
+
+            </div>
+
+            <!-- 导航菜单代码 开始 ------------------------------------------->
+            <nav id="navigation" class="navigation clearfix">
+
+                <ul class="clearfix" style="margin-left: 10%;">
+                    <li><a href="/Home/Home">首页</a></li>
+                    <li><a href="/News/KQDetail">走进孔坵</a></li>
+                    <li>
+                        <a>人文历史</a>
+                        <ul>
+                            <li><a href="/News/OnePage?bh=11">逆旅千古</a></li>
+                            <li><a href="/News/List?bh=12">先哲今贤</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/News/OnePage_sw">守望瑰宝</a>
+                        <ul>
+                            <li>
+                                <a>文化遗产保护</a>
+                                <ul>
+                                    <li><a href="/News/OnePage1?bh=71&id=1063">农耕文化保护</a></li>
+                                    <li><a href="/News/OnePage1?bh=71&id=1064">古村文化保护</a></li>
+                                    <li><a href="/News/OnePage1?bh=71&id=1065">古屋建筑保护</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>世外桃源</a>
+                        <ul>
+                            <li><a href="/News/OnePage_qj">孔坵全景</a></li>
+                            <li><a href="/News/OnePage_sm">山明水秀</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/News/OnePage_qjty">曲径通幽</a></li>
+                    <li>
+                        <a>异彩纷呈</a>
+                        <ul>
+                            <li>
+                                <a href="/News/List_zc?bh=41">众筹与活动</a>
+                                <ul>
+                                    <li><a href="/News/OnePage_zc?bh=412&id=1078">素食活动</a></li>
+                                    <li><a href="/News/OnePage_zc?bh=412&id=1080">枯枝创意</a></li>
+                                    <li><a href="/News/OnePage_zc?bh=412&id=1079">玩转轮胎</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="/News/photo_contest">摄影评选</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>众说纷纭</a>
+                        <ul>
+                            <li><a href="/Livelihood">村务入口</a></li>
+                            <li><a href="/BBS">孔坵论坛</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- 导航菜单代码 结束 ------------------------------------------->
+
+
+        </div>
+    </header>
+    <!---网店顶部代码END--------------------->
+    <!---banner -Start------>
+    <!--修改banner开始-->
+    <!--修改banner开始-->
+
+    <div class='iosSliderDemo'>
+        <div class='fluidHeight'>
+            <div class='sliderContainer'>
+                <div class='iosSlider'>
+                    <div class='slider'>
+
+
+                        <div class='item item1'>
+                            <div class='inner'>
+                                <a  ><img src="/Content/main/images/凉亭.jpg" title=""></a>
+                                <div class='selectorShadow'></div>
+                                <div class='text1'><span>清平亭</span></div>
+
+                            </div>
+                        </div>
+
+                        <div class='item item1'>
+                            <div class='inner'>
+                                <a href="/Content/main/javascript:void()"><img src="/Content/main/images/书画.jpg" title=""></a>
+                                <div class='selectorShadow'></div>
+                                <div class='text1'><span>书画</span></div>
+
+                            </div>
+                        </div>
+
+                        <div class='item item1'>
+                            <div class='inner'>
+                                <a  ><img src="/Content/main/images/孔坵.png" title=""></a>
+                                <div class='selectorShadow'></div>
+                                <div class='text1'><span>传统村落</span></div>
+
+                            </div>
+                        </div>
+
+                        <div class='item item1'>
+                            <div class='inner'>
+                                <a  ><img src="/Content/main/images/活动.jpg" title=""></a>
+                                <div class='selectorShadow'></div>
+                                <div class='text1'><span>文化活动</span></div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class='item item1'>
+                            <div class='inner'>
+                                <a  ><img src="/Content/main/images/文化大舞台.jpg" title=""></a>
+                                <div class='selectorShadow'></div>
+                                <div class='text1'><span>文化大舞台</span></div>
+
+                            </div>
+                        </div>
+
+                        <div class='item item1'>
+                            <div class='inner'>
+                                <a  ><img src="/Content/main/images/桥.png" title=""></a>
+                                <div class='selectorShadow'></div>
+                                <div class='text1'><span>中和桥</span></div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+                <div class='slideSelectors' style="margin-left: 45%;">
+                    <div class='prev'></div>
+                    <div class='item selected'></div>
+                    <div class='item'></div>
+                    <div class='item'></div>
+                    <div class='item'></div>
+                    <div class='item'></div>
+                    <div class='item'></div>
+                    <div class='next'></div>
+                </div>
+                <div class='scrollbarContainer'></div>
+            </div>
+        </div>
+    </div>    <!--修改banner结束-->
+    <!---banner -end------>
+
+    <div class="mar_auto w1000">
+        <ul class="index_zx">
+            <li><a class="zx1 yahei" target="_blank" href="/News/OnePage1?bh=71&id=1063">古村保护</a></li>
+            <li><a class="zx2 yahei" target="_blank" href="/News/OnePage1?bh=71&id=1064">农耕保护</a></li>
+            <li><a class="zx3 yahei" target="_blank" href="/News/OnePage1?bh=71&id=1065">建筑保护</a></li>
+            <!--<li><a class="zx4 yahei" target="_blank" href="/Content/main/#">孔坵论坛</a></li>-->
+
+        </ul>
+    </div>
+
+
+    <div class="w1000 mar_auto">
+        <div class="caiang">
+            <span class="cai_l yahei"><a href="/Content/main//zhongxindongtai">孔坵动态</a></span>
+            <!--<span class="more"><a href="/Content/main//zhongxindongtai">更多》</a></span>-->
+
+        </div>
+
+        <div class="dongtai">
+            <div class="dt_left">
+                <p class="dt_img"><a><img alt="非物质文化遗产进校园" src="/Content/main/images/夏令营.png" width="371" height="215"></a></p>
+                <p class="dt_title yahei" style="font-size: 16px;color: #36332e;font-weight: bold;">孔坵书院夏令营活动</p>
+                <p class="dt_info">孔坵书院开放后立即组织了文化遗产进校园大型系列夏令营活动，通过知识竞赛、招募志愿者和非遗展演等，普及文化遗产知识、启迪全民族文化自觉。节假日，老师们也会带领学生来体验孔坵的耕读文化...</p>
+
+            </div>
+            <div class="dt_right">
+                <ul class="info_list">
+
+                    <li>
+                        <span class="info_date yahei">2016<em>05</em><em>05</em></span>
+                        <div class="info_r">
+                            <h3 style="color: #36332e;">宝新小学校友会</h3>
+                            <div class="info_news_des">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;宝新小学于孔坵书院举办百年校友大会。众多校友从四面八方赶来,欢聚一堂，参加此次规模甚大的校友会，缅怀过去美好的读书时光。期间，宝新小学老校长出面发表感想,见此校友们感慨万分。
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="info_date yahei">2016<em>05</em><em>05</em></span>
+                        <div class="info_r">
+                            <h3 style="color: #36332e;">跟老师读——孔坵古诗</h3>
+                            <div class="info_news_des">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;俗语说得好:“读书破万卷,下笔如有神。”大洋小学的学生在老师的带领下来到了孔坵文化讲堂，开展了今年的跟老师读——孔坵古诗活动。通过朗读孔坵古诗，去慢慢了解孔坵的文化底蕴，去感受孔坵的文化之美。
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="info_date yahei">2016<em>04</em><em>07</em></span>
+                        <div class="info_r">
+                            <h3 style="color: #36332e;">体验农耕蓑衣</h3>
+                            <div class="info_news_des">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随着城市化的不断推进，不少村庄被小区所代替，如今这样有着乡土气息的场景已经越来越少见了。不少农村地区农耕文化体验也随之方兴未艾，如火如荼。孔坵村推出了农耕用具展览室，让后人能进一步了解农耕文化。
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!---分割线--->
+    <div class="blank30 clear"></div>
+    <div class="w1000 mar_auto">
+        <div class="caiang">
+            <span class="cai_l yahei"><a>文化遗产项目</a></span>
+            <!--<span class="more"><a href="/Content/main//xiangmujigou/2016/0505/34.html">更多》</a></span>-->
+        </div>
+
+        <div class="xiangmu">
+            <ul>
+                <li>
+                    <div class="xm_img"><img src="/Content/main/images/讲堂.jpg" width="320" height="210"></div>
+                    <div class="xm_des">
+                        <p class="xm_title yahei"><a href="/News/OnePage1?bh=71&id=1063">古村文化遗产保护项目</a></p>
+                        <p class="xx_des">孔坵村历史悠久，文化积淀浓厚，尤其是该村重视文化建设，建有文化活动中心，传统文化得到弘扬，现代文化丰富多彩.清初，该村便开始出现私塾，其中，育英家塾和登祥家塾曾在临海东乡一带名噪一时，培养出不少文人...<a class="more" href="/News/OnePage1?bh=71&id=1063">更多>></a></p>
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="xm_img"><img src="/Content/main/images/蓑衣.jpg" width="320" height="210"></div>
+                    <div class="xm_des">
+                        <p class="xm_title yahei"><a href="/News/OnePage1?bh=71&id=1064">农耕文化遗产保护项目</a></p>
+                        <p class="xx_des">中华民族的祖先在历史上所创造出的丰厚的农业文化遗产，不但使我们这个土地贫瘠、自然条件并不算十分优越的古老国度，在数千年间实现了超稳定发展，同时我们的祖先也通过利用施用农家肥、轮种、套种等传统技术...<a class="more" href="/News/OnePage1?bh=71&id=1064">更多>></a></p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="xm_img"><img src="/Content/main/images/掀天楼.jpg" width="320" height="210"></div>
+                    <div class="xm_des">
+                        <p class="xm_title yahei"><a href="/News/OnePage1?bh=71&id=1065">建筑遗产保护项目</a></p>
+                        <p class="xx_des">当年的山上村，四周被溪水环绕，建筑物非常宏伟。如今的山上古村，残墙瓦砾遍布。小巷呈圆弧型，据说是顺着护村河的弯道来修建的。小巷两边是栉次鳞比的清一色青砖瓦房，屋檐下精美的木雕随处可见...<a class="more" href="/News/OnePage1?bh=71&id=1065">更多>></a></p>
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="blank30 clear"></div>
+    <footer id="footer">
+
+        <div class="container clearfix">
+
+            <div class="widget widget_contacts">
+                <div class="vcard" style="text-align: center;">
+                    <span class="contact street-address">地址:浙江省台州市临海市汇溪镇孔坵村</span>
+                    <span class="contact WeChat">微信公众号：gdkq_2014</span>
+                    <span class="contact email">邮箱:2633890098@qq.com</span>
+                </div>
+            </div><!--/ .widget-->
+        </div><!--/ .container-->
+    </footer><!--/ #footer-->
+    <!--banner效果JS-->
+    <script type="text/javascript" src="/Content/main/js/templets_cchp_js_jquery.iosslider.js"></script>
+    <script type="text/javascript" src="/Content/main/js/custom.js"></script>
+    <script src="/Content/main/js/jquery.easing.1.3.js"></script>
+    <script src="/Content/main/fancybox/jquery.fancybox.pack.js"></script>
+   
+</body>
+</html>
+

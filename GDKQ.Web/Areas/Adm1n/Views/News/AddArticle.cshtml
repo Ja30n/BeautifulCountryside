@@ -1,0 +1,226 @@
+﻿@model GDKQ.Model.Article
+@{
+    string caname = ViewBag.Title;
+    if (Model.ID == 0)
+    {
+        ViewBag.Title = "添加" + caname;
+    }
+    else
+    {
+        ViewBag.Title = "编辑" + caname;
+    }
+}
+
+<link rel="stylesheet" href="/Content/Admin/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="/Content/Admin/kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="/Content/Admin/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="/Content/Admin/kindeditor/lang/zh-CN.js"></script>
+<script charset="utf-8" src="/Content/Admin/kindeditor/plugins/code/prettify.js"></script>
+<style>
+    #img_big {
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .imglist li {
+        padding: 5px;
+        cursor: pointer;
+    }
+
+        .imglist li:hover {
+            filter: alpha(opacity=0);
+            -moz-opacity: 0.8;
+            -khtml-opacity: 0.8;
+            opacity: 0.8;
+        }
+
+        .imglist li img {
+            width: 100%;
+        }
+
+    .imglistclose {
+        position: absolute;
+        margin: -8px 0 0 -15px;
+        color: #ffffff;
+        background-color: #bfbfbf;
+        border-radius: 20px;
+        width: 20px;
+        height: 20px;
+        line-height: 15px;
+    }
+
+    a.imglistclose:hover {
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+
+    .huitext {
+        color: #eeeeee;
+    }
+
+    label {
+        font-weight: 500;
+    }
+</style>
+<script>
+    var editor1;
+    KindEditor.ready(function (K) {
+        editor1 = K.create('#body', {
+            cssPath: '/Content/Admin/kindeditor/plugins/code/prettify.css',
+            uploadJson: '/Adm1n/Home/Kindeditor_Upload',
+            allowFileManager: false,
+
+        });
+        prettyPrint();
+    });
+</script>
+
+<div class="tpl-content-wrapper">
+    <div class="row">
+
+        <div class="am-u-md-12 am-u-sm-12 row-mb">
+
+            <div class="tpl-portlet">
+                <div class="tpl-portlet-title">
+                    <div class="note note-info">
+                        <h3>
+                            @ViewBag.Title
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div id="wrapper" class="wrapper" style="height:700px;">
+                <form class="am-form am-form-horizontal">
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-1">文章标题</div>
+                        <div class="am-u-sm-10">
+                            <label for="doc-ta-1"></label>
+                            @Html.TextBoxFor(a => a.Title)
+                        </div>
+                        <div class="am-u-sm-1"></div>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-1">文章内容</div>
+                        <div class="am-u-sm-10">
+                            <label for="doc-ta-1"></label>
+                            <textarea class="" rows="10" id="body" name="body" style="height:450px;">@Html.Raw(Model.Body)</textarea>
+                        </div>
+                        <div class="am-u-sm-1"></div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-1">文章标签</div>
+                        <div class="am-u-sm-10">
+                            <label for="doc-ta-1"></label>
+                            @Html.TextBoxFor(a => a.lab)
+                        </div>
+                        <div class="am-u-sm-1"></div>
+                    </div>
+                    <div class="am-form-group">
+                        <div class="am-g">
+                            <div class="am-u-sm-1"></div>
+                            <div class="am-u-sm-11">
+                                <button type="button" onclick="OnePageMod()" class="am-btn am-btn-success ">保 存</button>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(a => a.ID)
+                    @Html.HiddenFor(a=>a.AuthorID)
+                    @Html.HiddenFor(a=>a.AuthorName)
+                    @Html.HiddenFor(a => a.CategoryID)
+                    @Html.HiddenFor(a => a.CaName)
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function OnePageMod() {
+        var Title = $.trim($("#Title").val());
+        var body = editor1.html();
+        var lab = $.trim($("#lab").val());
+
+        var id = $.trim($("#ID").val());
+        var AuthorID = $.trim($("#AuthorID").val());
+        var AuthorName = $.trim($("#AuthorName").val());
+        var CategoryID = $.trim($("#CategoryID").val());
+        var CaName = $.trim($("#CaName").val());
+
+        if (body == '' || Title == ''||lab=='') {
+            alert('请将内容填写完整');
+            return;
+        }
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+
+        var postdata = {
+            Title: Title,
+            body: body,
+            lab: lab,
+            id: id,
+            AuthorID: AuthorID,
+            AuthorName:AuthorName,
+            CategoryID: CategoryID,
+            CaName: CaName,
+            __RequestVerificationToken: __RequestVerificationToken
+        }
+        var url = "/Adm1n/News/AddArticle?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/Adm1n/Home";
+            } else {
+                alert(data.info);
+            }
+        }, 'json')
+    }//修改文章内容
+</script><!-- 提交数据到后台&取得返回info -->
+
+<script language="javascript">
+		var imgid='';
+			function upinput(){
+			    var data = new FormData($('#imgFile')[0]);
+				$.ajax({
+						url: '/Home/SaveMedia',
+						type: 'POST',
+						data: data,
+						dataType: 'html',
+						cache: false,
+						processData: false,
+						contentType: false,
+						error: function(msg){ //失败
+							alert('上传失败，请联系服务器管理员.开通读写权限.');
+						},
+						success: function(msgurl){ //成功
+							$(imgid).attr("src",msgurl);
+							var imgtext='';
+							$(".upimgs").each(function() {
+								srctext=$(this).attr('src')
+								if (srctext!='images/upsmall.png'){
+									imgtext=imgtext + "," + srctext;
+								}
+                            });
+							imgtext='**'+imgtext;
+							imgtext=imgtext.replace('**,','')
+							$('#formimg').val(imgtext)
+						}
+						});
+
+			}
+			function searchliimg(){
+				var $elements = $('.imghave');
+				var len = $elements.length;
+				return len;
+			}
+			function GetRandomNum(Min,Max)
+			{
+			var Range = Max - Min;
+			var Rand = Math.random();
+			return(Min + Math.round(Rand * Range));
+			}
+
+</script>

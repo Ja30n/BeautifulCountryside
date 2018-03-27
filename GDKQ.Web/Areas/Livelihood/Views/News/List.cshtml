@@ -1,0 +1,28 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.News>
+@{
+}
+
+<link href="/Content/Livelihood/css/notice.css" rel="stylesheet" type="text/css" media="all" />
+
+<div class="middle" style="height:515px;">
+    <div class="midleft" style="height:450px;">
+        <p class="navbox">您的当前位置：<a href="/Livelihood/News/List?bh=@ViewBag.bh">@ViewBag.Title</a></p>
+        <div class="dy_list clearfix">
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li><time>[@item.CreateTime.ToString("yyyy-MM-dd")]</time><a href="/Livelihood/News/OnePage?id=@item.ID"><p class="main">@item.Title</p></a></li>
+                }
+            </ul>
+        </div>           
+    </div>
+    <div class="dy_list">
+
+        <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css" />
+        <nav>
+            @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageindex", ContainerTagName = "ul", CssClass = "pagination1", CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>", DisabledPagerItemTemplate = "<li class=\"pagination1\"><a>{0}</a></li>", PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager" })
+        </nav>
+    </div>
+</div>          
+  

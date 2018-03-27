@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "发表文章";
+}
+
+
+<div class="span8 page-content">
+
+    <article class="type-page hentry clearfix">
+        <h1 class="post-title">
+            <a href="#">发表内容</a>
+
+            <!--                                                       <a href="contact.html">
+                                                                    <div class="publish-header">
+                                                                    </div>
+                                                                    </a>
+                                                                    -->
+        </h1>
+        <hr>
+        <p style="font-size:16px;">&nbsp;&nbsp;关于孔坵村，您有什么想法或者是经验想要和大家分享的呢？或者说您有什么疑问，希望更多网友能够给您提供帮助或者提供意见的呢？您可以通过发表文章来表达自己的想法，并且和网友们进行交流。</p>
+    </article>
+
+
+    <form id="contact-form" class="row" action="http://inspirythemes.com/templates/knowledgebase-html/contact_form_handler.php" method="post">
+
+        <div class="span2">
+            <label for="name">选择发表板块 <span style="color:red;">*</span> </label>
+        </div>
+        <div>
+            <select id="s0">
+                <option value="0" selected> - 请选择您的类型 -</option> <!--- please select your options --->
+                <option value="01">最新文章</option>
+                <option value="02">活动提倡</option>
+                <option value="03">其它精彩</option>
+            </select>
+        </div>
+
+        <div class="span2">
+            <label for="reason">标签（请用分号隔开）<span style="color:red;">*</span> </label>
+        </div>
+        <div class="span6">
+            <input type="text" name="labell" id="labell" class="required input-xlarge" title="请输入标签！" value="">
+        </div>
+
+
+        <div class="span2">
+            <label for="reason">标题 <span style="color:red;">*</span></label>
+        </div>
+        <div class="span6">
+            <input type="text" name="Title" id="Title" class="required input-xlarge" title="请输入标题！" value="">
+        </div>
+
+
+
+        <div class="span2">
+            <label for="message">文章、想法内容 <span style="color:red;">*</span> </label>
+        </div>
+
+        <div class="span6">
+            <textarea name="Body" id="Body" class="required span6" rows="6" title="请输入内容！"></textarea>
+        </div>
+
+        <div class="span6 offset2 bm30">
+            <input type="button" onclick="AddArticle()" value="发表上传" class="btn btn-inverse">
+            <img src="/Content/BBS/images/loading.gif" id="contact-loader" alt="Loading...">
+        </div>
+
+        <div class="span6 offset2 error-container"></div>
+        <div class="span8 offset2" id="message-sent"></div>
+        @Html.AntiForgeryToken()
+    </form>
+</div>
+
+<script>
+    function AddArticle() {
+        var bh = $("#s0").val();
+        var Label = $.trim($("#labell").val());
+        var Title = $.trim($("#Title").val());
+        var Body = $.trim($("#Body").val());
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = { bh: bh, Label: Label, Title: Title, Body: Body, __RequestVerificationToken: __RequestVerificationToken };
+        var url = "/BBS/News/Add?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = data.NextUrl;
+            } else {
+                alert(data.info);
+                location.href = data.NextUrl;
+            }
+        }, 'json');
+    }//发布文章
+
+</script><!-- 提交数据到后台&取得返回info -->

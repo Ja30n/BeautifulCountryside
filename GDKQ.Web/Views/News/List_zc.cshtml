@@ -1,0 +1,152 @@
+﻿@using GDKQ.Model
+@model List<GDKQ.Model.News>
+@{
+    ViewBag.Title = "众筹与活动";
+}
+<script src="/Content/main/js/jquery.min.js"></script>
+<script type="text/javascript">
+    /*	Back to Top
+	/* ---------------------------------------------------- */
+
+    (function () {
+
+        var extend = {
+            button: '#back-top',
+            bt: '.divider-top a',
+            text: 'Back to Top',
+            min: 200,
+            fadeIn: 400,
+            fadeOut: 400,
+            speed: 800,
+            easing: 'easeOutQuint'
+        }
+			,
+			oldiOS = false,
+			oldAndroid = false;
+
+        // Detect if older iOS device, which doesn't support fixed position
+        if (/(iPhone|iPod|iPad)\sOS\s[0-4][_\d]+/i.test(navigator.userAgent))
+            oldiOS = true;
+
+        // Detect if older Android device, which doesn't support fixed position
+        if (/Android\s+([0-2][\.\d]+)/i.test(navigator.userAgent))
+            oldAndroid = true;
+
+        $('body').append('<a href="#" id="' + extend.button.substring(1) + '" title="' + extend.text + '">' + extend.text + '</a>');
+
+        $(window).scroll(function () {
+            var pos = $(window).scrollTop();
+
+            if (oldiOS || oldAndroid) {
+                $(settings.button).css({
+                    'position': 'absolute',
+                    'top': pos + $(window).height()
+                });
+            }
+
+            if (pos > extend.min)
+                $(extend.button).fadeIn(extend.fadeIn);
+            else
+                $(extend.button).fadeOut(extend.fadeOut);
+        });
+
+        $(extend.button).add(extend.bt).click(function (e) {
+            $('html, body').animate({ scrollTop: 0 }, extend.speed, extend.easing);
+            e.preventDefault();
+        });
+
+    })();
+
+    /* end Back to Top */
+
+</script>
+<section class="main container sbr clearfix">
+
+    <!-- - - - - - - - - - Breadcrumbs - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs">
+
+        <a title="孔坵首页" href="/Home/Home"><b>首页</b></a>
+        <a title="异彩纷呈"><b>异彩纷呈</b></a>
+        <span><b>@ViewBag.Title</b></span>
+        <div class="border-divider1"></div>
+    </div><!--/ .breadcrumbs-->
+    <!-- - - - - - - - - end Breadcrumbs - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->
+    <section id="content" class="ten columns">
+
+        <article class="entry event">
+            <div class="borderedzc">
+                <figure class="add-border">
+                    <a class="single-image" href="/News/OnePage_zc?bh=412&id=1078"><img src="/Content/main/images/素食活动.jpg" alt="" /></a>
+                </figure>
+            </div><!--/ .bordered-->
+            <div class="zctitle"><a href="/News/OnePage_zc?bh=412&id=1078">我就是吃素的！</a></div>
+
+            <p style="margin-top: 10px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;春天是一个适合食素的好时节。如果你也想吃吃素，欢迎来到孔坵厨房，做出美味的素食。<br>
+                活动时间：2017.4<br>
+                活动流程： <br>
+                9：00 活动开始，大家可以去提供的菜园里采摘自己喜欢的蔬菜<br>
+                10：30 回到孔坵厨房，根据自己采摘的以及部分提供的食材，做出美味的素食<br>
+                12：00 品尝大家做出的美食<br>
+                13：00 活动结束<br>
+                参加金额：50元<br>
+                提供食材：各式新鲜水果、黄瓜、牛油果、腐竹、豆腐、香菇、豆芽、芥蓝等各式蔬菜。<br>
+                提示：欢迎大家自带食材<br>
+                报名渠道：微信报名（微信号：gdkq_2014）或个人中心报名<br>
+            </p>
+
+        </article>
+
+        <article class="entry event">
+            <div class="borderedzc">
+                <figure class="add-border">
+                    <a class="single-image" href="/News/OnePage_zc?bh=412&id=1080"><img src="/Content/main/images/枯枝.jpg" alt="" /></a>
+                </figure>
+            </div><!--/ .bordered-->
+            <div class="zctitle"><a href="/News/OnePage_zc?bh=412&id=1080">枯枝创意DIY</a></div>
+            <p style="margin-top: 10px;">
+                <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法国著名艺术家罗丹曾说过：“自然总是美的”。大自然的勃勃生机无处不在，每一棵树，每一朵花，每一片叶子，每一株小草，都以它特别的姿态和色彩呈现着与众不同的美。<br>-->
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大自然是最好的美育老师，带孩子近距离的观察花草树木，摸摸大树，玩玩树枝，这些探索和体验，开启的是孩子想象的一扇门，而那些取之不尽的自然素材，会激发孩子们各种新奇的灵感和无穷的创造力。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;你有没有兴趣，和孩子一起，进行一次单纯的艺术创作？<br>
+                活动时间：2017.6-2017.11 10：00-17：00<br>
+                地点：孔坵厨房大堂<br>
+                参与金额：50元<br>
+                孔坵厨房工作人员会提供树枝、胶水、各色线、剪刀、电动工具等。作品完成后可带回家。<br>
+                报名渠道：微信报名（微信号：gdkq_2014）或个人中心报名<br>
+                <!-- 联络电话：18 x x x x x x x x x-->
+
+            </p>
+
+        </article><!--/ .entry-->
+
+        <article class="entry event">
+            <div class="borderedzc">
+                <figure class="add-border">
+                    <a class="single-image" href="/News/OnePage_zc?bh=412&id=1079"><img src="/Content/main/images/众筹活动/废旧轮胎.jpg" alt="" /></a>
+                </figure>
+            </div><!--/ .bordered-->
+            <div class="zctitle"><a href="/News/OnePage_zc?bh=412&id=1079">创意艺术玩转废旧轮胎</a></div>
+
+            <p style="margin-top: 10px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“设计师在乡村”计划由孔坵乡村体验营发起并举办，是一项为热爱乡村、有创意、有理想、有匠心精神的游客举办的活动。作为可持续设计的方向之一，时下非常流行利用废旧材料进行设计，这样既满足了环保要求，又能使其焕发新生。这次我们的活动就是利用这些废旧的轮胎进行艺术加工制作，既环保又独特。<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实，只要敢想，轮胎还可以有无限种创意制造。<br>
+                活动时间：2017年11月 <br> 活动地点：孔坵活动中心空地<br>
+                招募对象：不限年龄，不限职业，亲子家庭优先哦~  <br>
+                活动费用：50元 <br>
+                报名渠道：微信报名(微信号：gdkq_2014）或个人中心报名
+            </p>
+            </p>
+
+        </article>
+
+    </section><!--/ #content-->
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+</section>
+    <!--/ #content-->
+    <!-- - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - -->
+
+</section>
+

@@ -1,0 +1,268 @@
+﻿@{ 
+
+    if (Session["user"] != null)
+    {
+        ViewBag.UserHome = "/User/Home";
+        ViewBag.UserIcon = "我的个人空间";
+    }
+    else if (Session["admin"] != null)
+    {
+        ViewBag.UserHome = "/Adm1n/Home";
+        ViewBag.UserIcon = "返回后台";
+    }
+    else if (Session["villager"] != null)
+    {
+        ViewBag.UserHome = "/Livelihood/Home";
+        ViewBag.UserIcon = "村务中心";
+    }
+    else
+    {
+        ViewBag.UserHome = "/Login";
+        ViewBag.UserIcon = "登录/注册";
+    }
+}
+
+
+
+<!doctype html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-US">
+ <!--<![endif]-->
+<head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>耕读孔坵之论坛</title>
+
+    <link rel="shortcut icon" href="images/logo_1.png">   <!--页面图标-->
+    <!-- Style Sheet-->
+    <link rel="stylesheet" href="/Content/BBS/style.css" />
+    <link rel="stylesheet" id='bootstrap-css-css' href="/Content/BBS/css/bootstrap5152.css" type='text/css' media='all' />
+    <link rel="stylesheet" id='responsive-css-css' href="/Content/BBS/css/responsive5152.css" type='text/css' media='all' />
+    <link rel="stylesheet" id='pretty-photo-css-css' href="/Content/BBS/js/prettyphoto/prettyPhotoaeb9.css" type='text/css' media='all' />
+    <link rel="stylesheet" id='main-css-css' href="/Content/BBS/css/main5152.css" type="text/css" media='all' />
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Start of Header -->
+    <div class="header-wrapper">
+        <header>
+            <div class="header_leader">
+
+                <div class="header_first">
+                    <form role="welcome" class="welcome1" style=" ">
+                        <!--margin-left:20px;-->
+                        孔坵欢迎您！
+                        <SCRIPT language="javascript">
+
+                             var d = new Date();
+                             document.write(d.getFullYear() + "年" +(d.getMonth() + 1) + "月" + d.getDate() + "日");
+                             document.write(' 星期'+'日一二三四五六'.charAt(new Date().getDay()));
+                        </SCRIPT>      <!--代码参考百度JS编码-->
+                    </form>
+                </div>
+                <div class="header_second">
+                    <p> <a href="@ViewBag.UserHome">@ViewBag.UserIcon</a> </p>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="logo-container">
+                    <!-- Website Logo -->
+                    <a href="/Home/Index" title="耕读孔坵">
+                        <img src="/Content/BBS/images/logo-1.png" alt="耕读孔坵">
+                    </a>
+                    <!--<span class="tag-line">论坛</span>-->
+                </div>
+
+
+                <!-- Start of Main Navigation -->
+                <nav class="main-nav">
+                    <div class="menu-top-menu-container">
+                        <ul id="menu-top-menu" class="clearfix">
+                            <li class="current-menu-item tip"><a href="/BBS/Home/Index">论坛首页</a></li>
+                            <li class="tip"><a href="/BBS/News/ListQ">常见问题</a></li>
+                            <li class="tip"><a href="/BBS/News/List?bh=04">精华文章</a></li>
+                            <li class="tip"><a href="/BBS/News/List?bh=01">最新文章</a></li>
+                            <li class="tip"><a href="/BBS/News/List?bh=02">活动提倡</a></li>
+                            <li class="tip"><a href="/BBS/News/List?bh=03">其它精彩</a></li>
+
+                        </ul>
+                    </div>
+                </nav>
+                <!-- End of Main Navigation -->
+
+            </div>
+        </header>
+    </div>
+    <!-- End of Header -->
+    <!-- Start of Search Wrapper -->
+    <div class="search-area-wrapper">
+        <div class="search-area container">
+            <h3 class="search-header">请输入关键字：</h3>
+            <p class="search-tag-line"></p>
+
+            <form id="search-form" class="search-form clearfix"  autocomplete="off">
+                <input class="search-term required" type="text" id="keywords" name="keywords" placeholder="输入关键字" title="请输入关键字" />
+                <input class="search-btn" type="button" onclick="ReturnResult()" value="论坛搜索" />
+                <div id="search-error-container"></div>
+            </form>
+        </div>
+    </div>
+    <!-- End of Search Wrapper -->
+    <!-- Start of Page Container -->
+    <div class="page-container">
+        <div class="container">
+            <div class="row">
+
+                <!-- start of page content -->
+                @RenderBody()
+                <!-- end of page content -->
+                <!-- start of sidebar -->
+                <aside class="span4 page-sidebar right_all">
+
+                    <section class="widget">
+                        <div class="quick-links-widget">
+                            <h3 class="title">快速工具栏</h3>
+                            <ul id="menu-quick-links" class="menu clearfix">
+                                <li><a href="/Home">孔坵首页</a></li>
+                                <li><a href="/Livelihood/Home">村务入口</a></li>
+                                <li><a href="/BBS/News/Add">快速发帖</a></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="widget">
+                        <div class="support-widget">
+                            <h3 class="title">有疑问？</h3>
+                            <p class="intro">如果您还有什么其它的疑问，可以扫描二维码关注公众号并联系我们。</p>
+                        </div>
+                    </section>
+
+
+
+                    <section class="widget">
+                        <h3 class="title">标签</h3>
+                        <div class="tagcloud">
+                            <a href="/BBS/News/ReturnResult?keywords=风景优美" class="btn btn-mini">风景优美</a>
+                            <a href="/BBS/News/ReturnResult?keywords=孔子" class="btn btn-mini">路线</a>
+                            <a href="single.html" class="btn btn-mini">饮食</a>
+                            <a href="single.html" class="btn btn-mini">住宿</a>
+                            <a href="single.html" class="btn btn-mini">特色</a>
+                            <a href="single.html" class="btn btn-mini">文化</a>
+                            <a href="single.html" class="btn btn-mini">经济</a>
+                            <a href="single.html" class="btn btn-mini">教育</a>
+                            <a href="single.html" class="btn btn-mini">有改变</a>
+                            <a href="single.html" class="btn btn-mini">值得游完</a>
+                            <a href="single.html" class="btn btn-mini">没意思</a>
+                            <a href="single.html" class="btn btn-mini">较普通</a>
+                            <a href="single.html" class="btn btn-mini">交通不便</a>
+                            <a href="single.html" class="btn btn-mini">吃的不多</a>
+                            <a href="single.html" class="btn btn-mini">春天</a>
+                            <a href="single.html" class="btn btn-mini">夏天</a>
+                            <a href="single.html" class="btn btn-mini">秋天</a>
+                            <a href="single.html" class="btn btn-mini">冬天</a>
+                            <!--<a href="#" class="btn btn-mini">wordpress</a>-->
+                        </div>
+                    </section>
+
+                </aside>
+                <!-- end of sidebar -->
+            </div>
+        </div>
+    </div>
+    <!-- End of Page Container -->
+    <!-- Start of Footer -->
+    <footer id="footer-wrapper">
+
+        <!-- end of #footer -->
+        <!-- Footer Bottom -->
+        <div id="footer-bottom-wrapper">
+            <div id="footer-bottom" class="container">
+                <div class="row">
+                    <div class="span6">
+                        <p class="copyright">
+                            联系我们：2366890098@qq.com<!--<a href="" title="" target="_blank"></a>-->
+                        </p>
+                    </div>
+                    <!--                                                <div class="span6">
+
+                                                                    </div>-->
+                </div>
+            </div>
+        </div>
+        <!-- End of Footer Bottom -->
+
+    </footer>
+    <!-- End of Footer -->
+
+    <a href="#top" id="scroll-top"></a>
+
+    <!-- script -->
+    <script type='text/javascript' src='/Content/BBS/js/jquery-1.8.3.min.js'></script>
+    <script type='text/javascript' src='/Content/BBS/js/jquery.easing.1.3.js'></script>
+    <script type='text/javascript' src='/Content/BBS/js/prettyphoto/jquery.prettyPhoto.js'></script>
+    <script type='text/javascript' src='/Content/BBS/js/jflickrfeed.js'></script>
+    <script type='text/javascript' src='/Content/BBS/js/jquery.liveSearch.js'></script>
+    <script type='text/javascript' src='/Content/BBS/js/jquery.form.js'></script>
+    <script type='text/javascript' src='/Content/BBS/js/jquery.validate.min.js'></script>
+    <script type='text/javascript' src='/Content/BBS/js/custom.js'></script>
+
+    <script>
+    $(function () {
+        $('.tip').eq(1).click(function () {
+            $('.tip').eq(1).addClass('current-menu-item');
+            $('.tip').eq(1).siblings().removeClass('current-menu-item');
+        })
+        $('.tip').eq(0).click(function () {
+            $('.tip').eq(0).addClass('current-menu-item');
+            $('.tip').eq(0).siblings().removeClass('current-menu-item');
+        })
+        $('.tip').eq(2).click(function () {
+            $('.tip').eq(2).addClass('current-menu-item');
+            $('.tip').eq(2).siblings().removeClass('current-menu-item');
+        })
+        $('.tip').eq(3).click(function () {
+            $('.tip').eq(3).addClass('current-menu-item');
+            $('.tip').eq(3).siblings().removeClass('current-menu-item');
+        })
+        $('.tip').eq(4).click(function () {
+            $('.tip').eq(4).addClass('current-menu-item');
+            $('.tip').eq(4).siblings().removeClass('current-menu-item');
+        })
+        $('.tip').eq(5).click(function () {
+            $('.tip').eq(5).addClass('current-menu-item');
+            $('.tip').eq(5).siblings().removeClass('current-menu-item');
+        })
+    })
+    </script>
+    <script>
+    function ReturnResult() {
+        var keywords = $.trim($("#keywords").val());
+        var postdata = { keywords, keywords  }
+        var url = "/BBS/News/ReturnResult?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "n") {
+                alert(data.info);
+                location.href = "/BBS/Home";
+            } 
+        }, 'json')
+    }//搜索
+
+    </script>
+</body>
+
+</html>
+

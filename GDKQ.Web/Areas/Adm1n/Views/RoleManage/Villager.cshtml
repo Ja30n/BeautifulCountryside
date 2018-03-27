@@ -1,0 +1,110 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.Villager>
+@{
+    
+}
+
+<div class="tpl-content-wrapper">
+    <div class="row">
+
+        <div class="am-u-md-12 am-u-sm-12 row-mb">
+
+            <div class="tpl-portlet">
+                <div class="tpl-portlet-title">
+                    <div class="note note-info">
+                        <h3>
+                            @ViewBag.Title
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wrapper" class="wrapper">
+                <div class="am-g">
+                    <div class="am-u-lg-9">
+                        <div class="am-input-group">
+                            <span class="am-input-group-btn">
+                                <a href="/Adm1n/RoleManage/AddVillager" class="am-btn am-btn-secondary">添加村民</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="am-u-lg-3">
+                        <form>
+                            <div class="am-input-group">
+                                <input type="text" class="am-form-field" id="search" name="search">
+                                <span class="am-input-group-btn">
+                                    <button class="am-btn am-btn-default" onclick="SearchUser()" type="button"><span class="am-icon-search"></span> </button>
+                                </span>
+                            </div>
+                            @Html.AntiForgeryToken()
+                        </form>
+
+                    </div>
+                </div>
+                <div class="am-g">
+                    <table class="am-table am-table-striped am-table-hover table-main">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>真实姓名</th>
+                                <th>联系方式</th>
+                                <th>最后登录时间</th>
+                                <th>最后登录IP</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ID</td>
+                                    <td>@item.RealName</td>
+                                    <td>@item.Mobile</td>
+                                    <td>@item.LastLoginTime</td>
+                                    <td>@item.LastLoginIP</td>
+                                    <td>
+                                        <a type="button" class="am-btn am-btn-default" href="/Adm1n/RoleManage/AddVillager?id=@item.ID">修改</a>
+                                        @if (item.Enabled == true)
+                                        {
+                                            <a type="button" class="am-btn am-btn-default" onclick="Forbidden(@item.ID)">禁用</a>
+                                        }
+                                        else
+                                        {
+                                            <a type="button" class="am-btn am-btn-default" onclick="Forbidden(@item.ID)">解禁</a>
+                                        }
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        @Html.AntiForgeryToken()
+                    </table>
+                </div>
+            </div>
+            <div class="text-center" style="float:right;">
+                <nav>
+                    @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageindex", ContainerTagName = "ul", CssClass = "pagination", CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>", DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>", PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager" })
+                </nav>
+            </div>
+            <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css" />
+        </div>
+    </div>
+</div>
+<script>
+    function Forbidden(var1) {
+        var id = var1;
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = { id: id, __RequestVerificationToken: __RequestVerificationToken }
+        var url = "/Adm1n/RoleManage/Forbidden?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/Adm1n/Home";
+            } else {
+                alert(data.info);
+                location.href = "/Adm1n/Home";
+            }
+        }, 'json')
+    }//禁用用户
+</script>
+

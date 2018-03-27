@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "修改密码";
+}
+
+
+<div class="tpl-content-wrapper">
+    <div class="row">
+        <div class="row">
+        <div class="am-u-md-12 am-u-sm-12 row-mb">
+
+            <div class="tpl-portlet">
+                <div class="tpl-portlet-title">
+                    <div class="note note-info">
+                        <h3>
+                            @ViewBag.Title
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div id="wrapper" class="wrapper">
+                <form class="am-form am-form-horizontal">
+                    <div class="am-form-group">
+                        <label for="doc-ipt-3" class="am-u-sm-2 am-form-label">原密码</label>
+                        <div class="am-u-sm-3 am-u-end">
+                            <input type="password" id="password" name="password" placeholder="请输入原密码">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">新密码</label>
+                        <div class="am-u-sm-3 am-u-end">
+                            <input type="password" id="password1" name="password1" placeholder="请输入新密码">
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">确认密码</label>
+                        <div class="am-u-sm-3 am-u-end">
+                            <input type="password" id="password2" name="password2" placeholder="请再次输入原密码">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="am-form-group">
+                        <div class="am-g">
+                            <div class="am-u-sm-2"></div>
+                            <div class="am-u-sm-10">
+                                <button type="button" onclick="PwdMod()" class="am-btn am-btn-success am-round">确认</button>
+                                <button type="reset" class="am-btn am-btn-warning am-round">重置</button>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.AntiForgeryToken()
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+<script>
+    function PwdMod() {
+            var password = $.trim($("#password").val());
+            var password1 = $.trim($("#password1").val());
+            var password2 = $.trim($("#password2").val());
+            var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+            var postdata = { password: password, password1: password1, password2: password2, __RequestVerificationToken: __RequestVerificationToken }
+            var url = "/Adm1n/PwdMod?t=" + new Date().valueOf();
+            $.post(url, postdata, function (data) {
+                if (data.status == "y") {
+                    alert(data.info);
+                    location.href = "/Login";
+                } else {
+                    alert(data.info);
+                    location.href = "/Adm1n/PwdMod";
+                }
+            }, 'json')
+        }//修改密码
+
+</script><!-- 提交数据到后台&取得返回info -->
+                                

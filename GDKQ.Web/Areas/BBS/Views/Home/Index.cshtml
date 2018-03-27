@@ -1,0 +1,71 @@
+﻿@using GDKQ.Model
+@model GDKQ.Web.Areas.BBS.Controllers.HomeController.viewModel
+@{
+    
+}
+
+<div class="span8 page-content">
+
+    <!-- Basic Home Page Template -->
+    <div class="row separator">
+
+
+        <section class="span4 articles-list">
+
+
+            <h2> <a href="/BBS/News/List?bh=04" target="view_window">精华文章</a></h2>
+            <ul class="articles">
+                @if (Model.Article04 != null)
+                {
+                    foreach (var item in Model.Article04)
+                    {
+                        <li class="article-entry standard">
+                            <h4><a href="/BBS/News/OnePage?id=@item.ID">@item.Title</a></h4>
+                            <span class="article-meta">@item.CreateTime.ToString("yyyy-MM-dd")  by  作者：<a>@item.AuthorName</a></span>
+                            <a class="like-count"  onclick="AddLikeCount(@item.ID)">@item.like_count</a>
+                        </li>
+                    }
+                }
+                
+            </ul>
+        </section>
+
+
+        <section class="span4 articles-list">
+            <h2> <a href="/BBS/News/List?bh=01" target="view_window">最新文章</a></h2>
+            <ul class="articles">
+                @if (Model.Article01 != null)
+                {
+                    foreach (var item in Model.Article01)
+                    {
+                        <li class="article-entry standard">
+                            <h4><a href="/BBS/News/OnePage?id=@item.ID">@item.Title</a></h4>
+                            <span class="article-meta">@item.CreateTime.ToString("yyyy-MM-dd")  by  作者：<a>@item.AuthorName</a></span>
+                            <a class="like-count" onclick="AddLikeCount(@item.ID)">@item.like_count</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    function AddLikeCount(var1) {
+        var id = var1;
+        var postdata = { id: id }
+        var url = "/Home/AddLike?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/BBS/Home";
+            } else {
+                alert(data.info);
+                location.href = "/BBS/Home";
+            }
+        }, 'json')
+    }//点赞
+
+
+</script>

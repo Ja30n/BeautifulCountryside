@@ -1,0 +1,221 @@
+﻿@using GDKQ.Model
+@model GDKQ.Web.Areas.Adm1n.Controllers.HomeController.viewModel
+@{
+    ViewBag.Title = "后台主页";
+}
+
+<div class="tpl-content-wrapper">
+    <div class="tpl-content-scope">
+        <div class="note note-info">
+            <h3>
+                欢迎使用耕读孔坵后台管理系统！
+                <span class="close" data-close="note"></span>
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat blue">
+                <div class="visual">
+                    <i class="am-icon-inbox"></i>
+                </div>
+
+                    <div class="details">
+                        <div class="number"> @Model.Advice </div>
+                        <div class="desc"> 意见箱 </div>
+                    </div>
+
+                <a class="more" href="/Adm1n/News/AdviceList">
+                    查看更多
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat red">
+                <div class="visual">
+                    <i class="am-icon-bar-chart-o"></i>
+                </div>
+
+                    <div class="details">
+                        <div class="number"> @Model.VotePercent % </div>
+                        <div class="desc"> 投票情况 </div>
+                    </div>
+
+                <a class="more" href="/Adm1n/Vote/List">
+                    查看更多
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat purple">
+                <div class="visual">
+                    <i class="am-icon-file"></i>
+                </div>
+                
+                <div class="details">
+                    <div class="number"> @Model.ArtcleNum </div>
+                    <div class="desc"> 文章审核 </div>
+                </div>
+                <a class="more" href="#">
+                    查看更多
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+            <div class="dashboard-stat green">
+                <div class="visual">
+                    <i class="am-icon-line-chart"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> @Model.VisitNum </div>
+                    <div class="desc"> 访问统计 </div>
+                </div>
+                <a class="more" href="#">
+                    查看更多
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="am-u-md-6 am-u-sm-12 row-mb">
+
+            <div class="tpl-portlet">
+                <div class="tpl-portlet-title">
+                    <div class="tpl-caption font-green ">
+                        <span>文章审核</span>
+                        <span class="caption-helper">@Model.ArtcleNum 篇</span>
+                    </div>
+                    <div class="tpl-portlet-input">
+                        <div class="portlet-input input-small input-inline">
+                            <div class="input-icon right">
+                                <i class="am-icon-search"></i>
+                                <input type="text" class="form-control form-control-solid" placeholder="搜索...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="wrapper" class="wrapper">
+                    <div id="scroller" class="scroller">
+                        <ul class="tpl-task-list">
+                            @if (Model.listA != null)
+                            {
+                                foreach (var item in Model.listA)
+                                {
+                                    <li>
+                                        <div class="task-checkbox">
+                                            <span class="task-bell">
+                                                <i class="am-icon-edit"></i>
+                                            </span>
+                                        </div>
+                                        <div class="task-title">
+                                            <span class="task-title-sp"> @item.Title </span>
+
+                                        </div>
+                                        <div class="task-config">
+                                            <div class="am-dropdown tpl-task-list-dropdown" data-am-dropdown>
+                                                <a href="###" class="am-dropdown-toggle tpl-task-list-hover " data-am-dropdown-toggle>
+                                                    <i class="am-icon-cog"></i> <span class="am-icon-caret-down"></span>
+                                                </a>
+                                                <ul class="am-dropdown-content tpl-task-list-dropdown-ul">
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="am-icon-pencil"></i> 通过
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="am-icon-trash-o"></i> 否决
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                            
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="am-u-md-6 am-u-sm-12 row-mb">
+
+            <div class="tpl-portlet">
+                <div class="tpl-portlet-title">
+                    <div class="tpl-caption font-green ">
+                        <span>建议箱</span>
+                        <span class="caption-helper">@Model.Advice 条</span>
+                    </div>
+                    <div class="tpl-portlet-input">
+                        <div class="portlet-input input-small input-inline">
+                            <div class="input-icon right">
+                                <i class="am-icon-search"></i>
+                                <input type="text" class="form-control form-control-solid" placeholder="搜索...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="wrapper" class="wrapper">
+                <div id="scroller" class="scroller">
+                    <ul class="tpl-task-list">
+                        @if (Model.listAD != null)
+                        {
+                            foreach (var item in Model.listAD)
+                            {
+                                <li>
+                                    <div class="task-checkbox">
+                                        <span class="task-bell">
+                                            <i class="am-icon-caret-right"></i>
+                                        </span>
+                                    </div>
+                                        <div class="task-title">
+                                            
+                                            <span class="task-title-sp"> @item.Body </span>
+
+                                        </div>
+                                        <div class="task-config">
+                                            <div class="am-dropdown tpl-task-list-dropdown" data-am-dropdown>
+                                                <a href="###" class="am-dropdown-toggle tpl-task-list-hover " data-am-dropdown-toggle>
+                                                    <i class="am-icon-cog"></i> <span class="am-icon-caret-down"></span>
+                                                </a>
+                                                <ul class="am-dropdown-content tpl-task-list-dropdown-ul">
+
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="am-icon-pencil"></i> 查看
+                                                        </a>
+                                                    </li>
+                                                </ul>
+
+
+                                            </div>
+                                        </div>
+                                </li>
+                
+                            }
+                        }
+
+
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

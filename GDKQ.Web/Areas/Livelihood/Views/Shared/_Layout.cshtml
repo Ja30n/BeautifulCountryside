@@ -1,0 +1,101 @@
+﻿@{ 
+    if (Session["user"] != null)
+    {
+        ViewBag.UserHome = "/User/Home";
+        ViewBag.UserIcon = "我的个人空间";
+    }
+    else if (Session["admin"] != null)
+    {
+        ViewBag.UserHome = "/Adm1n/Home";
+        ViewBag.UserIcon = "返回后台";
+    }
+    else if (Session["villager"] != null)
+    {
+        ViewBag.UserHome = "/Livelihood/Home";
+        ViewBag.UserIcon = "村务中心";
+    }
+    else
+    {
+        ViewBag.UserHome = "/Login";
+        ViewBag.UserIcon = "登录/注册";
+    }
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>孔坵村村务</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="/Content/Livelihood/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="/Content/Livelihood/js/modernizr.js"></script>
+</head>
+
+<body>
+    <!-- start header -->
+    <div class="header">
+
+
+        <div class="header_leader">
+            <p> <a href="@ViewBag.UserHome">@ViewBag.UserIcon</a>  </p>
+        </div>
+
+        <div class="header_bg">
+            <div class="wrap">
+                <div class="header">
+                    <div class="logo">
+                        <a href="/Home/Home">
+                            <img src="/Content/Livelihood/images/logo1.png" alt="孔坵村" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header_btm">
+            <div class="wrap">
+                <div class="header_sub">
+                    <div class="h_menu">
+                        <ul>
+                            <li><a href="/Livelihood/Home/Index">首页</a></li>
+                            <li><a href="/Livelihood/News/List?bh=001">公示公告</a></li>
+                            <li><a href="/Livelihood/News/List?bh=002">建设农村</a></li>
+                            <li><a href="/Livelihood/Affair/List?bh=003">村内事务</a></li>
+                            <li><a href="/Livelihood/Activity/Index">精彩活动</a></li>
+                            <li><a href="/Livelihood/News/Services">便民服务</a></li>
+                            <li><a href="/Livelihood/Relax/Index">安居乐业</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- 中间大块-->
+    @RenderBody()
+    <!--底部内容-->
+    <div class="footer ">
+        <div class="footerForm">
+            <div class="footerContent">
+                <div class="footerNav">
+                    <ul class="footerNavC">
+                        <li class="footerSection"><a class="footerItemTOP">地址：浙江省台州市临海市汇溪镇孔坵村</a></li>
+                        <li class="footerSpacing"><div class="footerLine"></div></li>
+                        <li class="footerSection"><a class="footerItemTOP">微信公众号：gdkq_2014</a></li>
+                        <li class="footerSpacing"><div class="footerLine"></div></li>
+                        <li class="footerSection"><a class="footerItemTOP">邮箱:2633890098@qq.com</a></li>
+                        <li class="footerSpacing"><div class="footerLine"></div></li>
+                    </ul>
+                </div>
+                <div class="footerInfo">
+                    <p> <font face="Arial">©</font>2017 版权所有</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

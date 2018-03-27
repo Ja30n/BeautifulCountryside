@@ -1,0 +1,89 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.News>
+@{
+}
+
+<link href="/Content/Livelihood/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/Content/Livelihood/css/affair.css" rel="stylesheet" type="text/css" media="all" />
+
+<script src="/Content/Livelihood/js/affair.js"></script>
+
+<div class="main">
+    <div style="width:1000px;height: 351px; margin:20px 80px 20px 166px;  background:#FFF; box-shadow: 0 1px 5px rgba(0,0,0,0.2);">
+        <p class="navbox" style="padding-top:10px; padding-bottom:10px;padding-left:5px; color:#000000;">您的当前位置：<a href="#" style="height:65px;color:#02b2b5;">村内事务</a></p>
+        <div id="container1">
+            <a onclick="clicks()"> <img id="af_img" src="/Content/Livelihood/images/af_img1.png"></a>
+            <p id="p1">修葺一心斋</p>
+        </div>
+        <div style="margin-left:10px; width:500px; float:right;">
+            <div class="formbanner1">
+                <div class="formbannerTitle">
+                    <div class="titleLeft"> <img src="/Content/Livelihood/images/blue.png"></div>
+                    <div class="titleCenter"><span>村内事务</span></div>
+                </div>
+            </div>
+            <div class="formbody3" style="margin-top:10px;">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        <li class="newlist"><a class="cn_newlist" href="/Livelihood/News/OnePage?id=@item.ID">@item.Title</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_foot">
+    <div style="width:1000px; margin:5px 80px 30px 166px; background:#FFF;  box-shadow: 0 1px 5px rgba(0,0,0,0.2); height:230px; ">
+        <!--min-height:315px;-->
+        <div style="width:100%; height:100%; vertical-align:top;">
+            <form>
+                <div class="formbanner1">
+                    <div class="formbannerTitle">
+                        <div class="titleLeft"> <img src="/Content/Livelihood/images/blue.png"></div>
+                        <div class="titleCenter"><span>建议栏</span></div>
+                    </div>
+                    <div class="formTopMore" style="float:right; margin-right:10px;">
+                        <span><a href="/Livelihood/Vote" style="color:#02b2b5;">在线投票</a></span>
+                    </div>
+                </div>
+                <div class="formbody">
+                    <div class="formMiddle">
+                        <div class="content">
+                            <p class="formNei">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有什么建议或者意见都可以在下面的输入框内提出，我们会及时进行反馈的。</p>
+                            <div class="content_yi">
+                                <textarea id="Body" minlength="5" maxlength="100" cols="55" rows="4" style="width: 987px; height: 96px;"></textarea>
+                            </div>
+                            <div class="button">
+                                <input class="submit1" value="提 交" type="button" onclick="Submit_Advice()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Thumbnail Item Skin End -->
+<!-- Arrow Navigator -->
+<span data-u="arrowleft" class="jssora05l" style="top:0px;left:248px;width:40px;height:40px;" data-autocenter="2"></span>
+<span data-u="arrowright" class="jssora05r" style="top:0px;right:8px;width:40px;height:40px;" data-autocenter="2"></span>
+<script src="/Content/Livelihood/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script>
+    function Submit_Advice() {
+        var Body = $.trim($("#Body").val());
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = { Body: Body, __RequestVerificationToken: __RequestVerificationToken }
+        var url = "/Livelihood/Affair/Advice?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/Livelihood/Affair/List?bh=@ViewBag.bh";
+            } else {
+                alert(data.info);
+                location.href = "/Livelihood/Affair/List?bh=@ViewBag.bh";
+            }
+        }, 'json')
+    }//提交建议
+</script>
+

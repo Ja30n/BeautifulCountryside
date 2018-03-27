@@ -1,0 +1,96 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.Article>
+@{
+    ViewBag.Title = "用户文章";
+}
+<!--	<div class="am-g">-->
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="card-box">
+            <!-- Row start -->
+            <div class="am-g">
+                <div class="am-u-sm-12">
+                    <form class="am-form">
+                        <table class="am-table am-table-striped am-table-hover table-main">
+                            <thead>
+                                <tr>
+                                    <th class="table-check"><input type="checkbox" /></th>
+                                    <th class="table-id">ID</th>
+                                    <th class="table-title">标题</th>
+                                    <th class="table-type">分类名称</th>
+                                    <th class="table-author am-hide-sm-only">作者</th>
+                                    <th class="table-date am-hide-sm-only">修改日期</th>
+                                    <th class="table-set">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td><input type="checkbox" /></td>
+                                        <td>@item.ID</td>
+                                        <td><a href="/BBS/News/OnePage?id=@item.ID" target="view_windows">@item.Title</a></td>
+                                        <td>@item.CaName</td>
+                                        <td class="am-hide-sm-only">@ViewBag.username</td>
+                                        <td class="am-hide-sm-only">@item.ModTime.ToString("yyyy-MM-dd")</td>
+                                        <td>
+                                            <div class="am-btn-toolbar">
+                                                <div class="am-btn-group am-btn-group-xs">
+                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"> 编辑</span></button>
+                                                    <a class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="Delect(@item.ID)"><span class="am-icon-trash-o"> 删除</span></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                                @Html.AntiForgeryToken()
+                            </tbody>
+                        </table>
+                        <div class="text-center" style="float:right;">
+                            <nav>
+                                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageindex", ContainerTagName = "ul", CssClass = "pagination", CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>", DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>", PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager" })
+                            </nav>
+                        </div>
+
+                        <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css" />
+
+                        <p style="color:red;">注：文章一旦删除则相关评论等皆删除，且不可恢复，请慎重考虑。</p>
+                    </form>
+                </div>
+
+            </div>
+            <!-- Row end -->
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+<!-- end right Content here -->
+<!--</div>-->
+<script>
+    function Delect(var1) {
+        var id=var1;
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = { id: id, __RequestVerificationToken: __RequestVerificationToken }
+        var url = "/User/Article/Delect?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/User/Article/List";
+            } else {
+                alert(data.info);
+                location.href = "/User/Article/List";
+            }
+        }, 'json')
+    }//删除文章
+
+
+
+</script>

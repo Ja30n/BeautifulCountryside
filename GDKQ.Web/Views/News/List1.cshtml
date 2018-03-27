@@ -1,0 +1,213 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.News>
+@{
+    ViewBag.Title = "山明水秀";
+}
+<!-- - - - - - - - - - Breadcrumbs - - - - - - - - - - - - -->
+<section class="main container clearfix">
+    <div class="breadcrumbs">
+
+        <a title="孔坵首页" href="/Home"><b>孔坵首页</b></a>
+        <span><b>@ViewBag.Title</b></span>
+
+    </div><!--/ .breadcrumbs-->
+    <!-- - - - - - - - - end Breadcrumbs - - - - - - - - - - - -->
+
+    <ul id="portfolio-filter" class="portfolio-filter">
+
+        <li><a data-categories="*">全部</a></li>
+        <li><a data-categories="sermons">风景</a></li>
+        <li><a data-categories="people">人物</a></li>
+        <li><a data-categories="spiritual">历史</a></li>
+        <li><a data-categories="other">其它</a></li>
+
+    </ul><!--/ #portfolio-filter -->
+    <!-- - - - - - - - end Portfolio Filter - - - - - - - - - - -->
+
+    <section id="gallery" class="gallery">
+
+        @foreach (var item in Model)
+        {
+            <article class="one-third column" data-categories="sermons people">
+
+                <div class="project-thumb">
+
+                    <div class="bordered">
+                        <figure class="add-border">
+                            <a class="single-image picture-icon" rel="gallery" href="@item.Photo"><img src="@item.Photo" alt="" /></a>
+                        </figure>
+                    </div><!--/ .bordered-->
+
+                </div><!--/ .project-thumb-->
+
+            </article><!--/ .one-third-->
+
+        }
+
+        <article class="one-third column" data-categories="spiritual other">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/建筑.jpg"><img src="images/建筑1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+
+        <article class="one-third column" data-categories="sermons spiritual">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/宝新义塾旧址.jpg"><img src="images/宝新义塾旧址1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+
+        <article class="one-third column" data-categories="people other">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/renwu1.jpg"><img src="images/renwu1-1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+
+        <article class="one-third column" data-categories="sermons people">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/孔坵一景.jpg"><img src="images/孔坵一景1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+
+        <article class="one-third column" data-categories="spiritual other">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/马头墙.jpg"><img src="images/马头墙1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+
+        <article class="one-third column" data-categories="sermons spiritual">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/中和桥.jpg"><img src="images/中和桥1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+
+        <article class="one-third column" data-categories="people other">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/renwu2.jpg"><img src="images/renwu2-1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+
+
+
+        <article class="one-third column" data-categories="sermons spiritual">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/jianzhu1.jpg"><img src="images/jianzhu1-1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+        <article class="one-third column" data-categories="spiritual other">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/jianzhu5.jpg"><img src="images/jianzhu5-1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+        <article class="one-third column" data-categories="sermons spiritual">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/半耕堂门外.jpg"><img src="images/半耕堂门外1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+        <article class="one-third column" data-categories="sermons people">
+
+            <div class="project-thumb">
+
+                <div class="bordered">
+                    <figure class="add-border">
+                        <a class="single-image picture-icon" rel="gallery" href="images/石拱桥.jpg"><img src="images/石拱桥1.jpg" alt="" /></a>
+                    </figure>
+                </div><!--/ .bordered-->
+
+            </div><!--/ .project-thumb-->
+
+        </article><!--/ .one-third-->
+
+    </section><!--/ #portfolio-items-->
+</section><!--/ .main -->
+<!-- - - - - - - - - - - - - end Main - - - - - - - - - - - - - - - - -->	
+<script src="/Content/main/js/respond.min.js"></script>
+<script src="/Content/main/js/jquery.min.js"></script>
+<script src="/Content/main/js/jquery.easing.1.3.js"></script>
+<script src="/Content/main/js/jquery.cycle.all.min.js"></script>
+<script src="/Content/main/js/mediaelement-and-player.min.js"></script>
+<script src="/Content/main/js/jquery.isotope.min.js"></script>
+<script src="/Content/main/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/Content/main/js/custom.js"></script>
+<div style="display:none">
+<script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>		
+

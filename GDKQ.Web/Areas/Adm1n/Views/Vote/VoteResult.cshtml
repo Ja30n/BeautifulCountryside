@@ -1,0 +1,59 @@
+﻿@model GDKQ.Model.Vote_Main
+@{
+    ViewBag.Title = "投票结果";
+}
+
+<div class="tpl-content-wrapper">
+    <div class="row">
+
+        <div class="am-u-md-12 am-u-sm-12 row-mb">
+
+            <div class="tpl-portlet">
+                <div class="tpl-portlet-title">
+                    <div class="note note-info">
+                        <h3>
+                            @ViewBag.Title
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wrapper" class="wrapper">
+                <div class="am-g">
+                    <div class="am-u-lg-8">
+                        <article class="am-article">
+                            <div class="am-article-hd">
+                                <h1 class="am-article-title">@Model.Title</h1>
+                            </div>
+
+                            <div class="am-article-bd">
+                                @Html.Raw(Model.Body)
+                            </div>
+                        </article>
+                    </div>
+                    <div class="am-u-lg-4"></div>
+                </div>
+                <br /><br />
+                <div class="am-g">
+                    <div class="am-u-lg-2"></div>
+                    <div  class="am-u-lg-6">
+                        <div class="am-progress">
+                            <div class="am-progress-bar am-progress-bar-success" style="width: @ViewBag.Percent"></div>
+                        </div>
+                    </div>
+                    <div class="am-u-lg-4">
+                        
+                    </div>
+
+                </div>
+                <div class="am-g">
+                    <div class="am-u-lg-2"></div>
+                    <div class="am-u-lg-10">同意的人约占总人数的 @ViewBag.Percent。</div>
+                
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+

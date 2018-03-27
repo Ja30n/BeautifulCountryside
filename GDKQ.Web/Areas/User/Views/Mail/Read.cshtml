@@ -1,0 +1,105 @@
+﻿@model GDKQ.Model.Mail
+@{
+    ViewBag.Title = "查阅邮件";
+}
+
+<!--	<div class="am-g">-->
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="am-g">
+            <!-- Row start -->
+            <div class="am-u-sm-12">
+                <div class="card-box">
+                    <form action="" class="am-form" data-am-validator>
+                        <fieldset>
+                            <legend>来信邮件</legend>
+                            <div class="am-form-group">
+                                <label for="doc-vld-sender-2" class="title-all-receive">发件人：</label>
+                                <label for-"doc-vld-sender-2"> @Model.From_Name </label>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="doc-vld-time-2" class="title-all-receive">时间：</label>
+                                <label for-"doc-vld-time-2"> @Model.CreateTime </label>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="doc-vld-theme-2" class="title-all-receive">主题：</label>
+                                <label for-"doc-vld-theme-2"> @Model.Title </label>
+                            </div>
+
+
+
+
+                            <div class="am-form-group">
+                                <label for="doc-vld-theme-2" class="title-all-receive">内容：</label></br>
+                                <label for-"doc-vld-theme-2" class="email-pub-style"> @Model.Body </label>
+                            </div>
+
+
+
+
+                        </fieldset>
+                    </form>
+
+                </div>
+
+                <div class="card-box">
+                    <form action="" class="am-form" data-am-validator>
+                        <fieldset>
+
+                            <div class="am-form-group">
+                                <label for="doc-vld-theme-2">主题：</label>
+                                <input type="email" id="Title" name="Title" minlength="1" placeholder="输入主题" required />
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="doc-vld-reply-2" class="title-all-receive">回复：</label>
+                                <textarea id="Body" name="Body" minlength="10" maxlength="800" placeholder="输入内容" required /> </textarea>
+                            </div>
+                            @Html.AntiForgeryToken()
+
+
+
+                            <button class="am-btn am-btn-secondary" type="button" onclick="Mail()">提交</button>
+
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+            <!-- Row end -->
+        </div>
+
+
+
+
+    </div>
+</div>
+<!-- end right Content here -->
+<!--</div>-->
+<script>
+    function Mail() {
+        var Title = $.trim($("#Title").val());
+        var Body = $.trim($("#Body").val());
+        var Mail = $.trim(@Model.ID);
+        alert(Mail);
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = { Title: Title, Body: Body, Mail: Mail, __RequestVerificationToken: __RequestVerificationToken }
+        var url = "/User/Mail/Reply?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/User/Home";
+            } else {
+                alert(data.info);
+                location.href = "/User/Mail/Read?MailID= @Model.ID ";
+            }
+        }, 'json')
+    }//修改密码
+
+</script>
+

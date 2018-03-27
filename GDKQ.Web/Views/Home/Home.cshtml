@@ -1,0 +1,366 @@
+﻿@using GDKQ.Model
+@model GDKQ.Web.Controllers.HomeController.viewModel
+@{
+    Layout = null;
+    if (Session["user"] != null)
+    {
+        ViewBag.UserHome = "/User/Home";
+        ViewBag.UserIcon = "我的个人空间";
+    }
+    else if (Session["admin"] != null)
+    {
+        ViewBag.UserHome = "/Adm1n/Home";
+        ViewBag.UserIcon = "返回后台";
+    }
+    else if (Session["villager"] != null)
+    {
+        ViewBag.UserHome = "/Livelihood/Home";
+        ViewBag.UserIcon = "村务中心";
+    }
+    else
+    {
+        ViewBag.UserHome = "/Login";
+        ViewBag.UserIcon = "登录/注册";
+    }
+}
+<!DOCTYPE html>
+<!--[if IE 7]>					<html class="ie7 no-js" lang="en">     <![endif]-->
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if IE 9]>					<html class="ie9 no-js" lang="en">     <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="not-ie no-js" lang="en">
+  <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>孔坵村</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut" href="/Content/main/images/favicon.ico" />
+
+    <link rel="stylesheet" href="/Content/main/css/skeleton.css" media="screen" />
+    <link rel="stylesheet" href="/Content/main/css/style.css" media="screen" />
+    <link rel="stylesheet" href="/Content/main/css/mediaelementplayer.css" media="screen" />
+    <link rel="stylesheet" href="/Content/main/fancybox/jquery.fancybox.css" media="screen" />
+
+    <!-- REVOLUTION BANNER CSS SETTINGS -->
+    <link rel="stylesheet" href="/Content/main/rs-plugin/css/settings.css" media="screen" />
+
+ 
+    <link rel="shortcut icon" href="/content/logo_1.png">
+</head>
+<body class="color-1 h-style-1 text-1">
+    <header id="header">
+        <div class="container">
+
+            <a href="/Home/Home" title="耕读孔坵"><img src="/Content/main/images/logo-白高80.png" alt="耕读孔坵" style="height: 60px;margin-left: -55px;margin-bottom: -10px;"></a>
+            <!-- - - - - - - - - - - end Logo - - - - - - - - - - - - -->
+            <!-- - - - - - - - - - - - Event Holder - - - - - - - - - - - - - -->
+
+            <div class="event-holder clearfix">
+                <b style="margin-top: 10px;">
+                    孔坵欢迎您！今天是：
+                    <SCRIPT language="javascript">
+
+                             var d = new Date();
+                             document.write(d.getFullYear() + "年" +(d.getMonth() + 1) + "月" + d.getDate() + "日");
+                             document.write(' 星期'+'日一二三四五六'.charAt(new Date().getDay()));
+                    </SCRIPT>      <!--代码参考百度JS编码-->
+                </b>
+                <div class="denglu" style="margin-top: 10px;">
+                    <a href="@ViewBag.UserHome" title="登录">@ViewBag.UserIcon</a>
+                </div>
+
+            </div>
+            
+            <nav id="navigation" class="navigation clearfix">
+
+                <ul class="clearfix" style="margin-left: 10%;">
+                    <li ><a href="/Home/Home">首页</a></li>
+                    <li><a href="/News/KQDetail">走进孔坵</a></li>
+                    <li>
+                        <a >人文历史</a>
+                        <ul>
+                            <li><a href="/News/OnePage?bh=11">逆旅千古</a></li>
+                            <li><a href="/News/List?bh=12">先哲今贤</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/News/OnePage_sw">守望瑰宝</a>
+                        <ul>
+                            <li>
+                                <a >文化遗产保护</a>
+                                <ul>
+                                    <li><a href="/News/OnePage1?bh=71&id=1063">农耕文化保护</a></li>
+                                    <li><a href="/News/OnePage1?bh=71&id=1064">古村文化保护</a></li>
+                                    <li><a href="/News/OnePage1?bh=71&id=1065">古屋建筑保护</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a>世外桃源</a>
+                        <ul>
+                            <li><a href="/News/OnePage_qj">孔坵全景</a></li>
+                            <li><a href="/News/OnePage_sm">山明水秀</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/News/OnePage_qjty">曲径通幽</a></li>
+                    <li>
+                        <a>异彩纷呈</a>
+                        <ul>
+                            <li>
+                                <a href="/News/List_zc?bh=41">众筹与活动</a>
+                                <ul>
+                                    <li><a href="/News/OnePage_zc?bh=412&id=1078">素食活动</a></li>
+                                    <li><a href="/News/OnePage_zc?bh=412&id=1080">枯枝创意</a></li>
+                                    <li><a href="/News/OnePage_zc?bh=412&id=1079">玩转轮胎</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="/News/photo_contest">摄影评选</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a >众说纷纭</a>
+                        <ul>
+                            <li><a href="/Livelihood">村务入口</a></li>
+                            <li><a href="/BBS">孔坵论坛</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+    </header>
+    <!-- - - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - Slider - - - - - - - - - - - - - - - -->
+
+    <div class="fullwidthbanner-container">
+
+        <div class="fullwidthbanner">
+
+            <ul>
+
+                <!-- FADE -->
+
+                <li data-transition="fade" data-slotamount="10">
+                    <img src="/Content/main/images/quanjingtu1-4.jpg" alt="">
+
+                    <div class="caption sft medium_black" data-x="20" data-y="145" data-speed="900" data-start="1300" data-easing="easeOutBack">发现古村落</div>
+                    <div class="caption sft small_text" data-x="20" data-y="210" data-speed="900" data-start="1500" data-easing="easeOutBack">——临海孔坵村：传统村落的缩影</div>
+
+                    <!--<div class="caption sft pic"><div class="div1" style="margin-left: 90%;margin-top: 290%;"><a href="/Content/main/摄影投票.html"><img src="/Content/main/images/相机图标.png"></a></div></div>-->
+                </li>
+
+            </ul>
+
+        </div><!--/ .fullwidthbanner-->
+
+    </div><!--/ .fullwidthbanner-container-->
+    <!-- - - - - - - - - - - - - end Slider - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - Main - - - - - - - - - - - - - - - - -->
+
+    <section class="container">
+
+        <!-- - - - - - - - - - - - - Holder - - - - - - - - - - - - - - -->
+
+        <section class="holder clearfix">
+        @if (Model.n != null)
+        {
+            foreach (var item in Model.n)
+            {
+                <div class="one-third column">
+                    <div class="detailimg">
+                        <div class="bordered">
+                            <figure class="add-border">
+                                <a class="single-image picture-icon" rel="holder" href="@item.Photo"><img src="@item.Photo" alt="" /></a>
+                            </figure>
+                        </div><!--/ .bordered-->
+                        <h5>@item.Title </h5>
+                        <p>
+                            @item.Body
+                        </p>
+                    </div>
+                </div>
+            }
+        }
+            
+            <div class="button1">
+                <a href="/News/OnePage_sm" class="button default">更多</a>
+            </div>
+            <div class="clear"></div>
+
+        </section><!--/ .holder-->
+        <!-- - - - - - - - - - - - end Holder - - - - - - - - - - - - - -->
+        <!-- - - - - - - - - - - - - - - Bottom Sidebar - - - - - - - - - - - - - - - - -->
+
+
+        <section class="holder clearfix">
+            <aside id="bottom-sidebar" class="clearfix">
+                <div class="one-third column">
+                    <h3 class="widget-title"><a href="/News/List_zc?bh=41">异彩纷呈</a></h3>
+                @if (Model.n1 != null)
+                {
+                    foreach (var item in Model.n1)
+                    {
+                        <div class="bordered alignleft">
+                            <figure class="add-border">
+                                <a><img src="@item.Photo" alt="" /></a>
+                            </figure>
+                        </div><!--/ .bordered-->
+                        <h5><a><b>@item.Title</b></a></h5>
+                        <p>
+                            @Html.Raw(item.Body)
+                        </p>
+                    }
+                }
+
+                </div><!--/ .one-third-->
+                <div class="centerdiv" style="width:1px;margin-left:315px;margin-top: 50px;"></div>
+
+                <div class="one-third column1">
+
+                    <div class="widget widget_upcoming_events">
+
+                        <h3 class="widget-title"><a href="/BBS">翰墨流芳</a></h3>
+                        <ul class="articles" style="width:300px;">
+                            @if (Model.a != null)
+                            {
+                                foreach (var item in Model.a)
+                                {
+                                    <li class="article-entry standard">
+                                        <h6><a href="/BBS/News/OnePage?id=@item.ID"><b>@item.Title</b></a></h6>
+                                        <span class="article-meta">@item.CreateTime.ToString("M月dd日，yyyy")    by ：<a>@item.AuthorName</a></span>
+                                        <button  class="like-count" onclick="AddLike(@item.ID)">@item.like_count</button>
+                                    </li>
+                                }
+                            }
+                        </ul>
+
+
+
+                    </div><!--/ .widget-->
+
+                </div><!--/ .one-third-->
+
+                <div class="centerdiv" style="width:1px;margin-left:635px;margin-top:-700px;"></div>
+                <div class="one-third column2" style="width: 300px;">
+
+                    <div class="widget widget_recent_entries">
+
+                        <h3 class="widget-title"><a href="/News/List?bh=12">名人轶事</a></h3>
+
+                        <ul>
+                            <h5><a href="/News/List?bh=12"><b>章宏戌</b></a></h5>
+
+                            <div class="borderedmr alignleft">
+
+                                <figure class="add-border">
+                                    <a class="single-image" href="/News/List?bh=12"><img src="/Content/main/images/章宏戌1.png" alt="" /></a>
+                                </figure>
+
+                            </div><!--/ .bordered-->
+
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;民国时期，村里章宏戌章宏量兄弟曾出任国民党抗日部队将军，带出了许多兄弟奔赴前线。期间，章宏戌、章宏量等担任陆军少将，都是走出大山的名人。
+                            </p>
+
+                            <h5><a href="/News/List?bh=12"><b>章升平</b></a></h5>
+
+                            <div class="borderedmr alignleft">
+
+                                <figure class="add-border">
+                                    <a class="single-image" href="/News/List?bh=12"><img src="/Content/main/images/章升平.png" alt="" /></a>
+                                </figure>
+
+                            </div><!--/ .bordered-->
+
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;章升平,民国时期人，曾就教于复旦大学，是上海复旦大学教授。抗战时期后任29军、98军、10军等军法处处长，与台州籍名将陈安宝并肩抗日。
+                            </p>
+                        </ul>
+
+                    </div><!--/ .widget-->
+
+                </div>
+
+                <div class="support-widget1">
+                    <div class="div1"><a href="/Livelihood"><img src="/Content/main/images/rukou1.png"></a></div>
+                    <h3 class="title"><a href="/Livelihood"><b>村务入口</b></a></h3>
+                    <p class="intro" style="margin-top: -15px;">如果您是村民，想了解村里的事务，请点击此入口。</p>
+                </div>
+                <div class="support-widget">
+                    <h3 class="title"><a href="/BBS/News/ListQ"><b>论坛入口</b></a></h3>
+                    <p class="intro">如果您还有什么其它的疑问，可以扫描二维码关注公众号并联系我们。</p>
+                </div>
+
+
+            </aside><!--/ #bottom-sidebar-->
+        </section>
+
+        <!--<section class="widget">     </section>-->
+
+
+    </section><!--/ .main -->
+    <!-- - - - - - - - - - - - - end Main - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+
+    <footer id="footer">
+
+        <div class="container clearfix">
+
+            <div class="widget widget_contacts">
+                <div class="vcard" style="text-align: center;">
+                    <span class="contact street-address">地址:浙江省台州市临海市汇溪镇孔坵村</span>
+                    <span class="contact WeChat">微信公众号：gdkq_2014</span>
+                    <span class="contact email">邮箱:2633890098@qq.com</span>
+                </div>
+            </div><!--/ .widget-->
+        </div><!--/ .container-->
+
+    </footer><!--/ #footer-->
+    <!-- - - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - Bottom Footer - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - end Bottom Footer - - - - - - - - - - - - - -->
+    <!-- GET JQUERY FROM THE GOOGLE APIS -->
+    <script src="/Content/main/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/Content/main/js/selectivizr-and-extra-selectors.min.js"></script>
+    <![endif]-->
+    <script src="/Content/main/js/respond.min.js"></script>
+
+    <!-- JQUERY KENBURN SLIDER  -->
+    <script src="/Content/main/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script src="/Content/main/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="/Content/main/js/jquery.easing.1.3.js"></script>
+    <script src="/Content/main/js/jquery.cycle.all.min.js"></script>
+    <script src="/Content/main/js/mediaelement-and-player.min.js"></script>
+    <script src="/Content/main/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="/Content/main/js/custom.js"></script>
+    <script src='Content/main/js/default1.js' language='JavaScript' charset='gb2312'></script>
+   
+</body>
+</html>
+<script>
+    function AddLike(var1) {
+        var id=var1;
+        var postdata = { id:id }
+        var url = "/Home/AddLike?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/Home/Home";
+            } else {
+                alert(data.info);
+                location.href = "/Home/Home";
+            }
+        }, 'json')
+    }//点赞
+
+</script>

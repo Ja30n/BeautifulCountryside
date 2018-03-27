@@ -1,0 +1,51 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.Article>
+@{
+    ViewBag.Title = "搜索结果";
+}
+
+<div class="span8 main-listing">
+
+    <article class=" page type-page hentry clearfix">
+        <h1 class="post-title">
+            <a href="#">@ViewBag.Title</a>
+            <a href="contact.html">
+                <div class="publish-header">
+                </div>
+            </a>
+
+
+        </h1>
+        <hr>                                                
+    </article>
+
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <article class=" type-post hentry clearfix">
+
+                <header class="clearfix article-entry">
+
+
+                    <h4 class="post-title">
+                        <a href="（二）评赎奴隶.html" target="view_window">@item.Title</a>
+                    </h4>
+
+                    <div class="post-meta clearfix">
+                        <span class="date">@item.ModTime</span>
+                        <span class="category">作者<a> @item.AuthorName </a></span><!-- href="" title=""-->
+                        <span class="comments"><a>@item.Comments 条评论</a></span><!-- href="single.html" title="查看评论"-->
+                        <span class="tag_all">标签：<a>@item.lab</a></span>
+                        <span class="like-count">@item.like_count</span>
+                    </div><!-- end of post meta -->
+
+                </header>
+
+                <p> @item.Body <a class="readmore-link" href="（二）评赎奴隶.html" target="view_window">查看原文</a></p>
+
+            </article>
+        }
+    }
+</div>

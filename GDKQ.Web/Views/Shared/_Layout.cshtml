@@ -1,0 +1,562 @@
+﻿@{ 
+    if (Session["user"] != null)
+    {
+        ViewBag.UserHome = "/User/Home";
+        ViewBag.UserIcon = "我的个人空间";
+    }
+    else if (Session["admin"] != null)
+    {
+        ViewBag.UserHome = "/Adm1n/Home";
+        ViewBag.UserIcon = "返回后台";
+    }
+    else if (Session["villager"] != null)
+    {
+        ViewBag.UserHome = "/Livelihood/Home";
+        ViewBag.UserIcon = "村务中心";
+    }
+    else
+    {
+        ViewBag.UserHome = "/Login";
+        ViewBag.UserIcon = "登录/注册";
+    }
+
+}
+<!DOCTYPE html>
+<!--[if IE 7]>					<html class="ie7 no-js" lang="en">     <![endif]-->
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if IE 9]>					<html class="ie9 no-js" lang="en">     <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="not-ie no-js" lang="en">
+  <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/content/logo_1.png">
+    <title>走进孔坵</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+ 
+    <link rel="stylesheet" href="/Content/main/css/skeleton.css" media="screen" />
+    <link rel="stylesheet" href="/Content/main/css/style.css" media="screen" />
+
+
+    <!--<link  href="/Content/main/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">-->
+ 
+    <style type="text/css">
+          *{margin:0;padding:0;list-style-type:none;background: #494A5F;}
+a,img{border:0;}
+.blank30{height:30px;overflow:hidden;}
+/* jQuery jcImgScroll */
+.jcImgScroll{position:relative;height:500px;margin:40px auto 0 auto;}
+.jcImgScroll li{border:1px solid #ccc;}
+.jcImgScroll li a{background:#fff;display:block;position:relative;z-index:99;}
+.jcImgScroll li.loading a{background:#fff url(/Content/main/images/zjkqimg/loading.gif) no-repeat center center;} 
+.jcImgScroll li img,.jcImgScroll li,.jcImgScroll em,.jcImgScroll dl{display:none;border:0 none;}
+.jcImgScroll li img{width: 100%;height: 100%;}
+.jcImgScroll em.sPrev{background:url(/Content/main/images/zjkqimg/arrow-left.png) no-repeat left center;margin-left: -350px;}
+.jcImgScroll em.sNext{background:url(/Content/main/images/zjkqimg/arrow-right.png) no-repeat right center;margin-left:-130px;}
+.jcImgScroll dl dd{background:url(/Content/main/images/zjkqimg/NumBtn.png) no-repeat 0 bottom;text-indent:-9em;}
+.jcImgScroll dl dd:hover,.jcImgScroll dl dd.curr{background-position:0 0;}
+
+                .whqhOn {
+                    font-size: 12px;
+                    color: #ff3f10;
+                    text-align: left;
+                    cursor: pointer;
+                }
+
+                    .whqhOn a:link {
+                        font-size: 12px;
+                        color: #ff3f10;
+                        text-align: left;
+                        cursor: pointer;
+                    }
+
+                    .whqhOn a:visited {
+                        font-size: 12px;
+                        color: #ff3f10;
+                        text-align: left;
+                        cursor: pointer;
+                    }
+
+                    .whqhOn a:hover {
+                        font-size: 12px;
+                        color: #ff3f10;
+                        text-align: left;
+                        cursor: pointer;
+                    }
+
+                .whqh {
+                    font-size: 12px;
+                    text-align: left;
+                    cursor: pointer;
+                }
+
+                    .whqh a:link {
+                        font-size: 12px;
+                        text-align: left;
+                        cursor: pointer;
+                    }
+
+                    .whqh a:link {
+                        font-size: 12px;
+                        text-align: left;
+                        cursor: pointer;
+                    }
+
+                    .whqh a:link {
+                        font-size: 12px;
+                        text-align: left;
+                        cursor: pointer;
+                    }
+
+                .qhOn {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #373737;
+                    line-height: 40px;
+                    cursor: pointer;
+                    border-bottom: solid 1px #ececec;
+                }
+
+                .qh {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #929292;
+                    line-height: 40px;
+                    cursor: pointer;
+                    border-bottom: solid 1px #ececec;
+                }
+
+                .bd {
+                    border-bottom: solid 1px #ececec;
+                }
+
+                .ylm {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #5f5353;
+                    padding-left: 7px;
+                    line-height: 40px;
+                    border-bottom: solid 1px #ececec;
+                }
+
+
+                .yztzOn {
+                    font-size: 14px;
+                    font-weight: bold;
+                    padding-left: 7px;
+                    cursor: pointer;
+                    line-height: 40px;
+                    border-bottom: solid 1px #ececec;
+                    color: #343434;
+                }
+
+                .yztz {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #afafaf;
+                    padding-left: 7px;
+                    cursor: pointer;
+                    line-height: 40px;
+                    border-bottom: solid 1px #ececec;
+                }
+
+
+                .hidden {
+                    display: none;
+                }
+
+                #type-menu {
+                    margin: 0 auto;
+                    height: 215px;
+                    overflow: hidden;
+                    width: 490px;
+                    float: left;
+                }
+
+                .tm-n a {
+                    display: block;
+                    cursor: pointer;
+                    height: 215px;
+                    width: 78px;
+                    float: left;
+                    padding: 55px 15px 0px 0px;
+                }
+
+                    .tm-n a.select {
+                        cursor: pointer;
+                    }
+
+                #tb-m {
+                    border-top: none;
+                    height: 215px;
+                    width: 460px;
+                    margin: 0 auto;
+                    float: left;
+                }
+
+                /*台州历史等切换*/
+                #tzls_box {
+                    width: 450px;
+                    float: left;
+                    overflow: hidden;
+                    margin: -290px 0 0 450px;
+                    height: 160px;
+                }
+
+                .tz-n a {
+                    display: block;
+                    cursor: pointer;
+                    height: 248px;
+                    width: 127px;
+                    float: left;
+                }
+
+                    .tz-n a.select {
+                        cursor: pointer;
+                    }
+
+                #tzls_box p {
+                    font-weight: bold;
+                    color: #5f5353;
+                }
+
+                .vip-uc-a a {
+                    background: url(/Content/main/images/icons/tzls_01.png) center no-repeat;
+                }
+
+                    .vip-uc-a a:hover {
+                        background: url(/Content/main/images/icons/tzls_02.png) no-repeat;
+                    }
+
+                .vip-uc-b a {
+                    background: url(/Content/main/images/icons/yhcs_01.png) center no-repeat;
+                }
+
+                    .vip-uc-b a:hover {
+                        background: url(/Content/main/images/icons/yhcs_02.png) center no-repeat;
+                    }
+
+                .vip-uc-c a {
+                    background: url(/Content/main/images/icons/tzry_01.png) center no-repeat;
+                }
+
+                    .vip-uc-c a:hover {
+                        background: url(/Content/main/images/icons/tzry_02.png) center no-repeat;
+                    }
+
+                .vip-uc-d a {
+                    background: url(/Content/main/images/icons/tznj_01.png) center no-repeat;
+                }
+
+                    .vip-uc-d a:hover {
+                        background: url(/Content/main/images/icons/tznj_02.png) center no-repeat;
+                    }
+                /*.vip-uc-but a:link,.vip-uc-but a:visited,.uc-regis-but a:link,.uc-regis-but a:visited{color:#fff; font-size:0px;}
+        .vip-uc-but a:hover{color:#d7d7d7;}
+        */
+                /*#tz-1 a { width:110px; height:120px;background:url(images/icons/tzls_01.png) center no-repeat; }
+        #tz-2 a { width:110px; height:120px;background:url(images/icons/yhcs_01.png) center no-repeat; }
+        #tz-3 a { width:110px; height:120px;background:url(images/icons/tzry_01.png) center no-repeat; }
+        #tz-4 a { width:110px; height:120px;background:url(images/icons/tznj_01.png) center no-repeat; }
+
+
+        #tz-1 a.hover {width:110px; height:120px;background:url(images/icons/tzls_02.png) center no-repeat;}
+        #tz-2 a.hover {width:110px; height:120px;background:url(images/icons/yhcs_02.png) center no-repeat; }
+        #tz-3 a.hover {width:110px; height:120px;background:url(images/icons/tzry_02.png) center no-repeat; }
+        #tz-4 a.hover {width:110px; height:120px;background:url(images/icons/tznj_02.png) center no-repeat; }
+
+
+        #tz-1 a.select { width:110px; height:120px;background:url(images/icons/tzls_02.png) center no-repeat!important; }
+        #tz-2 a.select { width:110px; height:120px;background:url(images/icons/yhcs_02.png) center no-repeat!important; }
+        #tz-3 a.select { width:110px; height:120px;background:url(images/icons/tzry_02.png) center no-repeat!important; }
+        #tz-4 a.select { width:110px; height:120px;background:url(images/icons/tznj_02.png) center no-repeat!important; }*/
+
+                /*游走台州样式*/
+                * {
+                    list-style-type: none;
+                }
+
+                a, img {
+                    border: 0;
+                }
+
+                body {
+                    font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
+                }
+                /* case */
+                .case {
+                    height: 300px;
+                    width: 900px;
+                    margin: 0 auto;
+                }
+
+                .case_box {
+                    position: relative;
+                    width: 900px;
+                    height: 305px;
+                    overflow: hidden;
+                    margin-left:20px;
+                }
+
+                    .case_box p {
+                        z-index: 2;
+                        position: absolute;
+                        text-indent: -9999px;
+                        width: 28px;
+                        height: 51px;
+                        top: 40%;
+                        cursor: pointer;
+                    }
+
+                    .case_box ul {
+                        position: absolute;
+                        height: 288px;
+                        overflow: hidden;
+                        top: 0px;
+                        left: 0px;
+                    }
+
+                        .case_box ul li {
+                            width: 981px;
+                            float: left;
+                            height: 288px;
+                        }
+
+                            .case_box ul li dl.case_info {
+                                line-height: 17px;
+                                margin: 95px 0px 0px 475px;
+                                width: 295px;
+                                zoom: 1;
+                                color: #616741;
+                                font-size: 13px;
+                                overflow: hidden;
+                            }
+
+                                .case_box ul li dl.case_info dd {
+                                    text-indent: 26px;
+                                }
+
+                .case_info_add dd {
+                    line-height: 22px;
+                }
+
+                .case_box ol {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    margin: 0 0 0 -50px;
+                    height: 12px;
+                    z-index: 99;
+                }
+
+                    .case_box ol li {
+                        float: left;
+                        margin: 0 4px;
+                        display: inline;
+                        width: 12px;
+                        height: 12px;
+                        line-height: 999em;
+                        background: url(/Content/main/images/821/pagination1.png) no-repeat;
+                        overflow: hidden;
+                        cursor: pointer;
+                    }
+
+                        .case_box ol li.active {
+                            background-position: 0 -12px;
+                        }
+    </style>
+
+    <!--<script type="text/javascript" src="/Content/main/js/bg.js"></script>
+    <script type="text/javascript" src="/Content/main/js/bg1.js"></script>
+    -->
+
+
+
+    <script type="text/javascript">
+/*function ShowTag(TagName,TagClass,num,count,more) {
+	for(var i=0;i<count;i++) {
+		var tag = document.getElementById(TagName+"_tab_"+i);
+		var cont = document.getElementById(TagName+"_cont_"+i);
+		var mores;
+		if(more) {
+			mores = document.getElementById(TagName+"_more_"+i);
+			}
+		if(i==num) {
+			tag.className = TagClass+"On";
+			cont.style.display = "block";
+			if(more) {
+			mores.style.display = "block";
+			}
+			} else {
+				tag.className = TagClass;
+			    cont.style.display = "none";
+				if(more) {
+			mores.style.display = "none";
+			}
+				}
+		}
+}*/
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+    </script>
+</head>
+
+<body class="color-1 h-style-1 text-1">
+
+    <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
+    <header id="header">
+        <div class="container">
+
+            <a href="/Home/Home" title="耕读孔坵"><img src="/Content/main/images/logo-白高80.png" alt="耕读孔坵" style="height: 60px;margin-left: -55px;"></a>
+            <!-- - - - - - - - - - - end Logo - - - - - - - - - - - - -->
+            <!-- - - - - - - - - - - - Event Holder - - - - - - - - - - - - - -->
+
+            <div class="event-holder clearfix">
+                <b >
+                    孔坵欢迎您！今天是：
+                    <SCRIPT language="javascript">
+
+                             var d = new Date();
+                             document.write(d.getFullYear() + "年" +(d.getMonth() + 1) + "月" + d.getDate() + "日");
+                             document.write(' 星期'+'日一二三四五六'.charAt(new Date().getDay()));
+                    </SCRIPT>      <!--代码参考百度JS编码-->
+                </b>
+                <div class="denglu">
+                    <a href="@ViewBag.UserHome" title="登录">@ViewBag.UserIcon</a>
+                </div>
+
+            </div>
+            <!-- 导航菜单代码 开始 ------------------------------------------->
+            <nav id="navigation" class="navigation clearfix" style="margin-top: -30px;height: 57px;">
+
+                <ul class="clearfix" style="margin-left:10%;margin-top: 3px;">
+                    <li><a href="/Home/Home">首页</a></li>
+                    <li><a href="/News/KQDetail" >走进孔坵</a></li>
+                    <li>
+                        <a>人文历史</a>
+                        <ul>
+                            <li><a href="/News/OnePage?bh=11">逆旅千古</a></li>
+                            <li><a href="/News/List?bh=12">先哲今贤</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/News/OnePage_sw">守望瑰宝</a>
+                        <ul>
+                            <li>
+                                <a >文化遗产保护</a>
+                                <ul>
+                                    <li><a href="/News/OnePage1?bh=71&id=1064">古村文化保护</a></li>
+                                    <li><a href="/News/OnePage1?bh=71&id=1063">农耕文化保护</a></li>
+                                    <li><a href="/News/OnePage1?bh=71&id=1065">古屋建筑保护</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>世外桃源</a>
+                        <ul>
+                            <li><a href="/News/OnePage_qj">孔坵全景</a></li>
+                            <li><a href="/News/OnePage_sm">山明水秀</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/News/OnePage_qjty">曲径通幽</a></li>
+                    <li>
+                        <a>异彩纷呈</a>
+                        <ul>
+                            <li>
+                                <a href="/News/List_zc?bh=41">众筹与活动</a>
+                                <ul>
+                                    <li><a href="/News/OnePage_zc?bh=412&id=1078">素食活动</a></li>
+                                    <li><a href="/News/OnePage_zc?bh=412&id=1080">枯枝创意</a></li>
+                                    <li><a href="/News/OnePage_zc?bh=412&id=1079">玩转轮胎</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="/News/photo_contest">摄影评选</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a >众说纷纭</a>
+                        <ul>
+                            <li><a href="/Livelihood">村务入口</a></li>
+                            <li><a href="/BBS">孔坵论坛</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- - - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - Page Header - - - - - - - - - - - - - - - -->
+
+    <section class="page-header">
+        <img src="/Content/main/images/quanjingtu2-1.jpg" width="100%" height="200px" alt="">
+
+    </section>
+
+    <!-- - - - - - - - - - - - - end Page Header - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - Main - - - - - - - - - - - - - - - - -->
+
+    @RenderBody()<!--/ .main -->
+    <!-- - - - - - - - - - - - - end Main - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+
+    <footer id="footer">
+
+        <div class="container clearfix">
+
+            <div class="widget widget_contacts">
+
+                <div class="vcard">
+                    <span class="contact street-address">地址：浙江省台州市临海市汇溪镇孔坵村</span>
+                    <span class="contact WeChat">微信公众号：gdkq_2014</span>
+                    <span class="contact email">邮箱:2633890098@qq.com</span>
+                </div>
+            </div>
+
+
+        </div><!--/ .container-->
+
+    </footer><!--/ #footer-->
+    <!-- - - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - Bottom Footer - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - end Bottom Footer - - - - - - - - - - - - - -->
+    <!-- GET JQUERY FROM THE GOOGLE APIS 
+    <script src="/Content/main/js/jquery.min.js"></script>-->
+    <!--[if lt IE 9]>
+        <script src="/Content/main/js/selectivizr-and-extra-selectors.min.js"></script>
+    <![endif]-->
+    <script src="/Content/main/js/respond.min.js"></script>
+    <script src="/Content/main/js/custom.js"></script>
+
+</body>
+</html>
+

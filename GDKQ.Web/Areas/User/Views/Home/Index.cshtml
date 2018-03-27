@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "个人空间";
+}
+@using GDKQ.Model
+@model GDKQ.Web.Areas.User.Controllers.HomeController.viewModel
+
+        <!--	<div class="am-g">-->
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="am-g">
+            <!-- Row start -->
+            <div class="am-u-sm-12">
+                <div class="card-box">
+                    @if (Model.ui != null)
+                    {
+                        <form action="" class="am-form" data-am-validator>
+                            <fieldset>
+                                <legend class="title-all">个人基本资料<a href="/User/UserInfoMod" style="float:right; font-size:16px; margin-top:7px;">修改</a></legend>
+                                <div class="am-form-group">
+                                    <label for="doc-vld-name-2">昵称：</label>
+                                    <label for="doc-vld-name-2">@Model.ui.Nickname</label>
+                                    <!--<input type="text" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/>-->
+                                </div>
+
+
+                                <div class="am-form-group">
+                                    <label for="doc-vld-url-2">爱好：</label>
+                                    <label for="doc-vld-url-2">@Model.ui.Hobby</label>
+                                    <!-- <input type="url" id="doc-vld-url-2" placeholder="请输入你的爱好" required/>-->
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label>性别： </label>
+                                    <label>@Model.ui.Gender</label>
+                                </div>
+
+
+                                <div class="am-form-group">
+                                    <label for="doc-vld-ta-2">自我描述：</label>
+                                    <label for="doc-vld-ta-2">@Model.ui.Description</label>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    }
+                </div>
+
+
+
+
+
+                <div class="card-box">
+
+                    <form action="" class="am-form" data-am-validator>
+                        <fieldset>
+                            <legend>历史文章<a href="/User/Article/List" style="float:right; font-size:16px; margin-top:7px;">更多...</a></legend>
+
+                            <div class="am-g article-main">
+                                <div class="am-u-sm-12">
+                                    <form class="am-form">
+                                        <table class="am-table am-table-striped am-table-hover table-main">
+                                            <thead>
+                                                <tr>
+                                                    <th class="table-id">ID</th>
+                                                    <th class="table-title">标题</th>
+                                                    <th class="table-type">类别</th>
+                                                    <th class="table-author am-hide-sm-only">作者</th>
+                                                    <th class="table-date am-hide-sm-only">修改日期</th>
+                                                    </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if (Model.Article != null)
+                                                {
+                                                    foreach (var item in Model.Article)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.ID</td>
+                                                            <td><a href="/BBS/News/OnePage?id=@item.ID">@item.Title</a></td>
+                                                            <td>@item.CaName</td>
+                                                            <td class="am-hide-sm-only">@item.AuthorName</td>
+                                                            <td class="am-hide-sm-only">@item.CreateTime.ToString("M月dd日,yyyy年")</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                                </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <!-- Row end -->
+        </div>
+
+    </div>
+</div>

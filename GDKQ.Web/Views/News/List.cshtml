@@ -1,0 +1,98 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.News>
+@{
+    ViewBag.Title = "先哲今贤";
+}
+<script src="/Content/main/js/jquery.min.js"></script>
+<script type="text/javascript">
+    /*	Back to Top
+	/* ---------------------------------------------------- */
+
+    (function () {
+
+        var extend = {
+            button: '#back-top',
+            bt: '.divider-top a',
+            text: 'Back to Top',
+            min: 200,
+            fadeIn: 400,
+            fadeOut: 400,
+            speed: 800,
+            easing: 'easeOutQuint'
+        }
+			,
+			oldiOS = false,
+			oldAndroid = false;
+
+        // Detect if older iOS device, which doesn't support fixed position
+        if (/(iPhone|iPod|iPad)\sOS\s[0-4][_\d]+/i.test(navigator.userAgent))
+            oldiOS = true;
+
+        // Detect if older Android device, which doesn't support fixed position
+        if (/Android\s+([0-2][\.\d]+)/i.test(navigator.userAgent))
+            oldAndroid = true;
+
+        $('body').append('<a href="#" id="' + extend.button.substring(1) + '" title="' + extend.text + '">' + extend.text + '</a>');
+
+        $(window).scroll(function () {
+            var pos = $(window).scrollTop();
+
+            if (oldiOS || oldAndroid) {
+                $(settings.button).css({
+                    'position': 'absolute',
+                    'top': pos + $(window).height()
+                });
+            }
+
+            if (pos > extend.min)
+                $(extend.button).fadeIn(extend.fadeIn);
+            else
+                $(extend.button).fadeOut(extend.fadeOut);
+        });
+
+        $(extend.button).add(extend.bt).click(function (e) {
+            $('html, body').animate({ scrollTop: 0 }, extend.speed, extend.easing);
+            e.preventDefault();
+        });
+
+    })();
+
+    /* end Back to Top */
+
+</script>
+<!-- - - - - - - - - - - - - - Main - - - - - - - - - - - - - - - - -->
+
+<section class="main container sbr clearfix">
+
+    <!-- - - - - - - - - - Breadcrumbs - - - - - - - - - - - - -->
+
+    <div class="breadcrumbs">
+
+        <a title="孔坵首页" href="/Home/Home"><b>首页</b></a>
+        <a title="孔坵首页"><b>人文历史</b></a>
+        <span><b>@ViewBag.Title</b></span>
+        <div class="border-divider1"></div>
+    </div><!--/ .breadcrumbs-->
+    <!-- - - - - - - - - end Breadcrumbs - - - - - - - - - - - -->
+    @foreach (var item in Model)
+    {
+        <div class="four columns">
+            <div class="bordered">
+                <figure class="add-border">
+                    <a>
+                        <img src="@item.Photo" alt="" />
+                    </a>
+                </figure>
+            </div><!--/ .bordered-->
+        </div><!--/ .four .columns-->
+        <div class="twelve columns">
+            <h4 class="with-desc" data-desc="(@item.Author)"  >@item.Title</h4>
+            <p>
+             @item.Body
+            </p>
+        </div>
+        <div class="border-divider"></div>
+    }
+
+</section><!--/ .main -->
+<!-- - - - - - - - - - - - - end Main - - - - - - - - - - - - - - - - -->			

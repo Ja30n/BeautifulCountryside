@@ -1,0 +1,197 @@
+﻿
+@{
+    ViewBag.Title = "摄影比赛";
+}
+
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<link href="/Content/User/assets/css/others.css" rel="stylesheet" type="text/css" />
+	<!--	<div class="am-g">-->
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="am-g">
+            <!-- Row start -->
+            <div class="am-u-sm-12">
+                <div class="card-box">
+
+
+
+
+                    <form action="" class="am-form" data-am-validator>
+                        <fieldset>
+                            <legend>我的摄影比赛</legend>
+
+
+
+                            <div id="zp_dsmj_cont">
+
+                                <div class="dv">
+                                    <div class="dv_img"><img src="/Content/User/images/logo_1.png" height="154" onclick="show1('/Content/User/images/logo_1.png','大美郑州—流光溢彩（组照一）')" title="点击查看详细" /></div>
+                                    <div class="dv_tit"><a onclick="show1('/Content/User/images/logo_1.png','大美郑州—流光溢彩（组照一）')" title="点击查看大图">大美郑州—流光溢彩（组照一）</a></div>
+                                    <div class="dv_cont"></div>
+                                    <div class="dv_tp">已有<span id="num4743">36331</span>人投票</div>
+                                </div>
+
+
+                                <div class="dv">
+                                    <div class="dv_img"><img src="/Content/User/images/logo_1.png" height="154" onclick="show1('/Content/User/images/logo_1.png','美丽天鹅城')" title="点击查看详细" /></div>
+                                    <div class="dv_tit"><a onclick="show1('/Content/User/images/logo_1.png','美丽天鹅城')" title="点击查看大图">美丽天鹅城</a></div>
+                                    <div class="dv_cont"></div>
+                                    <div class="dv_tp">已有<span id="num5013">35477</span>人投票</div>
+                                </div>
+
+
+                                <div class="dv">
+                                    <div class="dv_img"><img src="/Content/User/images/logo_1.png" height="154" onclick="show1('/Content/User/images/logo_1.png','路口')" title="点击查看详细" /></div>
+                                    <div class="dv_tit"><a onclick="show1('/Content/User/images/logo_1.png')" title="点击查看大图">路口</a></div>
+                                    <div class="dv_cont"></div>
+                                    <div class="dv_tp">已有<span id="num4556">35377</span>人投票</div>
+                                </div>
+
+
+                                <div class="dv">
+                                    <div class="dv_img"><img src="/Content/User/images/logo_1.png" height="154" onclick="show1('/Content/User/images/logo_1.png')" title="点击查看详细" /></div>
+                                    <div class="dv_tit"><a onclick="show1('/Content/User/images/logo_1.png')" title="点击查看大图">二七广场夜景</a></div>
+                                    <div class="dv_cont"></div>
+                                    <div class="dv_tp">已有<span id="num5348">33512</span>人投票</div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+            <!-- Row end -->
+        </div>
+
+
+
+
+    </div>
+</div>
+<!-- end right Content here -->
+<!--</div>-->
+<script language="javascript" type="text/javascript">
+
+window.onload=function()
+{
+	var wd=window.screen.width
+	var img=document.getElementById("Top")
+	if(wd<=1440)
+	{
+		img.style.backgroundImage="url(/templets/default/sheying2014/images/top_img2.jpg)"
+	}
+	else
+	{
+		img.style.backgroundImage="url(/templets/default/sheying2014/images/top_img3.jpg)"
+	}
+}
+
+
+function show()
+{
+
+	var swd=document.body.scrollWidth
+	var wid=(swd-980)/2
+	var hh=window.screen.height
+	var hig=(hh-580)/2
+
+	var ps=document.getElementById("ps");
+	ps.style.left=wid+"px"
+	ps.style.top=hig+"px"
+
+	document.getElementById('ps').style.display = "block";
+	document.getElementById("div3").style.display="block";
+}
+function iclose()
+{
+	document.getElementById('ps').style.display = "none";
+	document.getElementById("div3").style.display="none";
+}
+
+
+function show1(n,m,t,q)
+{
+	var swd=document.body.scrollWidth
+	var wid=(swd-980)/2
+	var hh=window.screen.height
+	var hig=50
+
+	var ps=document.getElementById("imgps");
+	ps.style.left=wid+"px"
+	ps.style.top=hig+"px"
+
+	var nn=n;
+	var ssimg=document.getElementById('showimg')
+	ssimg.src=nn;
+
+	var mm=m
+	var zpname=document.getElementById("zp_name")
+	zpname.innerHTML=mm
+
+	/*var tt=t
+	var zpzz=document.getElementById("zp_zz")
+	zpzz.innerHTML=tt
+
+	var qq=q
+	var zpadr=document.getElementById("zp_adr")
+	zpadr.innerHTML=qq*/
+
+
+	document.getElementById('imgps').style.display = "block";
+	document.getElementById("imgdiv3").style.display="block";
+}
+
+function imgclose()
+{
+	document.getElementById('imgps').style.display = "none";
+	document.getElementById("imgdiv3").style.display="none";
+}
+
+
+function resizeimg(ImgD,iwidth,iheight) {
+     var image=new Image();
+     image.src=ImgD.src;
+     if(image.width>0 && image.height>0){
+        if(image.width/image.height>= iwidth/iheight){
+           if(image.width>iwidth){
+               ImgD.width=iwidth;
+               ImgD.height=(image.height*iwidth)/image.width;
+           }else{
+                  ImgD.width=image.width;
+                  ImgD.height=image.height;
+                }
+               ImgD.alt=image.width+"×"+image.height;
+        }
+        else{
+                if(image.height>iheight){
+                       ImgD.height=iheight;
+                       ImgD.width=(image.width*iheight)/image.height;
+                }else{
+                        ImgD.width=image.width;
+                        ImgD.height=image.height;
+                     }
+                ImgD.alt=image.width+"×"+image.height;
+            }
+　　　　　ImgD.style.cursor= "pointer"; //改变鼠标指针
+　　　　　ImgD.onclick = function() { window.open(this.src);} //点击打开大图片
+　　　　if (navigator.userAgent.toLowerCase().indexOf("ie") > -1) { //判断浏览器，如果是IE
+　　　　　　ImgD.title = "请使用鼠标滚轮缩放图片，点击图片可在新窗口打开";
+　　　　　　ImgD.onmousewheel = function img_zoom() //滚轮缩放
+　　　　　 {
+　　　　　　　　　　var zoom = parseInt(this.style.zoom, 10) || 100;
+　　　　　　　　　　zoom += event.wheelDelta / 12;
+　　　　　　　　　　if (zoom> 0)　this.style.zoom = zoom + "%";
+　　　　　　　　　　return false;
+　　　　　 }
+　　　  } else { //如果不是IE
+　　　　　　　     ImgD.title = "点击图片可在新窗口打开";
+　　　　　　   }
+    }
+}
+</script>

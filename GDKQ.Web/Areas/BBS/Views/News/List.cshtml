@@ -1,0 +1,73 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.Article>
+
+@{
+    
+}
+
+
+<div class="span8 main-listing">
+
+    <article class=" page type-page hentry clearfix">
+        <h1 class="post-title">
+            <a>@ViewBag.Title</a>
+
+            <a href="/BBS/News/Add">
+                <div class="publish-header">
+                </div>
+            </a>
+        </h1>
+        <hr>
+    </article>
+
+
+    @foreach (var item in Model)
+    {
+        <article class="format-standard type-post hentry clearfix">
+
+            <header class="clearfix">
+
+                <h3 class="post-title">
+                    <a  href="/BBS/News/OnePage?id=@item.ID">@item.Title</a>
+                </h3>
+
+                <div class="post-meta clearfix">
+                    <span class="date">@item.CreateTime.ToString("M月dd日，yyyy") </span>
+                    <span class="category"><a>作者：@item.AuthorName</a></span>
+                    <span class="comments"><a href="/BBS/News/OnePage?id=@item.ID" title="查看详情">@item.Comments</a></span>
+                    <span class="like-count" onclick="AddLikeCount(@item.ID,@item.CategoryID)">@item.like_count</span>
+                </div><!-- end of post meta -->
+
+            </header>
+            <div>
+                <p class="cont233">@item.Body</p>
+                <a class="readmore-link" style="float:right; margin-right:30px;" href="/BBS/News/OnePage?id=@item.ID">查看更多</a>
+            </div>
+        </article>
+    }
+    <div class="text-center" style="float:left; margin-left:30%;">
+        <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css" />
+        <nav>
+            @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageindex", ContainerTagName = "ul", CssClass = "pagination2", CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>", DisabledPagerItemTemplate = "<li class=\"pagination2\"><a>{0}</a></li>", PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager" })
+        </nav>
+    </div>
+</div>
+<script>
+    function AddLikeCount(var1,var2) {
+        var id = var1;
+        var bh=var2;
+        var postdata = { id: id }
+        var url = "/Home/AddLike?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/BBS/News/List?bh=0"+var2;
+            } else {
+                alert(data.info);
+                location.href = "/BBS/News/List?bh=0"+var2;
+            }
+        }, 'json')
+    }//点赞
+</script>
+
+

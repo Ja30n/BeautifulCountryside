@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "添加投票";
+}
+<link rel="stylesheet" href="/Content/Admin/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="/Content/Admin/kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="/Content/Admin/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="/Content/Admin/kindeditor/lang/zh-CN.js"></script>
+<script charset="utf-8" src="/Content/Admin/kindeditor/plugins/code/prettify.js"></script>
+<script>
+    var editor1;
+    KindEditor.ready(function (K) {
+        editor1 = K.create('#body', {
+            cssPath: '/Content/Admin/kindeditor/plugins/code/prettify.css',
+            uploadJson: '/Adm1n/Home/Kindeditor_Upload',
+            allowFileManager: false,
+
+        });
+        prettyPrint();
+    });
+</script>
+
+
+<div class="tpl-content-wrapper">
+    <div class="row">
+        <div class="row">
+            <div class="am-u-md-12 am-u-sm-12 row-mb">
+
+                <div class="tpl-portlet">
+                    <div class="tpl-portlet-title">
+                        <div class="note note-info">
+                            <h3>
+                                @ViewBag.Title
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="wrapper" class="wrapper" style="height:auto">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <label for="doc-ipt-3" class="am-u-sm-2 am-form-label">投票主题</label>
+                            <div class="am-u-sm-3 am-u-end">
+                                <input type="text" id="title" name="title" placeholder="请输入投票主题">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">截止日期</label>
+                            <div class="am-u-sm-3 am-u-end">
+                                <input type="text" id="endtime" name="endtime" placeholder="格式为yyyy-MM-dd">
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <div class="am-form-group">
+                                <div class="am-u-sm-1">投票内容</div>
+                                <div class="am-u-sm-10">
+                                    <label for="doc-ta-1"></label>
+                                    <textarea class="" rows="10" id="body" name="body" style="height:600px;"></textarea>
+                                </div>
+                                <div class="am-u-sm-1"></div>
+
+                            </div>
+                        </div>
+
+                        
+                        <br>
+                        <div class="am-form-group">
+                            <div class="am-g">
+                                <div class="am-u-sm-2"></div>
+                                <div class="am-u-sm-10">
+                                    <button type="button" onclick="AddVote()" class="am-btn am-btn-success am-round">发起</button>
+                                    <button type="reset" class="am-btn am-btn-warning am-round">重置</button>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.AntiForgeryToken()
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function AddVote() {
+        var title = $.trim($("#title").val());
+        var body = editor1.html();
+        var endtime = $.trim($("#endtime").val());
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = { title: title, body: body, endtime: endtime, __RequestVerificationToken: __RequestVerificationToken }
+        var url = "/Adm1n/Vote/Add?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/Adm1n/Vote/List";
+            } else {
+                alert(data.info);
+                location.href = "/Adm1n/Vote/Add";
+            }
+        }, 'json')
+    }//发起投票
+
+</script><!-- 提交数据到后台&取得返回info -->

@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "耕读孔坵主页";
+    Layout = null;
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>视频</title>
+    <link rel="stylesheet" href="/Content/main/video/style1.css" media="screen" />
+    <script type="text/javascript" src="/Content/main/video/video.js"></script>
+    <link rel="shortcut icon" href="/content/logo_1.png">
+</head>
+
+<body>
+    <video id="bgvid" playsinline autoplay muted loop>
+        <!--poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg"  WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button
+        <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm"> -->
+        <source src="/Content/main/kongqiu.mp4" type="video/mp4">
+    </video>
+    <div id="polina">
+        <h1>孔坵村</h1>
+        <p>——传统村落的缩影</p>
+        <p style="margin-top: -115px;margin-left: 350px;"><a href="/Home/Home" target="_blank" style="width: 80px;text-align: center;font-size: 18px;border-radius: 3px;">首页</a></p>
+        <p style="margin-top: 80px;">孔坵村是明代古村落。据《临海陇洲章氏宗谱》载明崇祯年间“天下大乱，为避战乱，宁海处士海游人章廷可携六子入山，惟恐不深，寻至临海陇洲结庐而居”。从此，章廷可“举世不闻，以耕以读，克勤克俭，秉承遗训，教子育后，世居于此”。</p>
+        <p>孔坵村位于海拔300余米的山坳之间，村域面积约3.3平方公里。村庄群山环抱，山上一缕瀑布冲天而下。四周梯田环绕，错落有致，宛若世外桃源，令人神往。村内有宝新义塾旧址、五世同堂石碑等20多处古建，得到了很好保护。</p>
+        <p>孔坵村风景秀丽，历史悠久，文化底蕴深厚，民风淳朴，有识之士层出不穷。日前，已被评为国家级文化古村落。随着改革开放不断深入，建设新农村力度日益加强，一个绿色环保、文明和谐暨旅游休闲的新孔坵将展现在世人面前。</p>
+        <button style="margin-left: 20px;">暂停</button>
+        <div class="chakan"><a href="/News/KQDetail" target="_blank">查看完整视频</a></div>
+
+    </div>
+    <script>
+var video = document.getElementById("bgvid"),
+pauseButton = document.querySelector("#polina button");
+
+if (window.matchMedia('(prefers-reduced-motion)').matches) {
+    vid.removeAttribute("autoplay");
+    vid.pause();
+    pauseButton.innerHTML = "暂停";
+}
+
+function vidFade() {
+  video.classList.add("stopfade");
+}
+
+video.addEventListener('ended', function()
+{
+// only functional if "loop" is removed
+video.pause();
+vidFade();
+}, false);
+
+pauseButton.addEventListener("click", function() {
+  video.classList.toggle("stopfade");
+  if (video.paused) {
+    video.play();
+    pauseButton.innerHTML = "暂停";
+  } else {
+    video.pause();
+    pauseButton.innerHTML = "播放";
+  }
+}, false);
+
+video.addEventListener('touchstart', function(e) {
+e.preventDefault();
+video.play();
+})
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','http://google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-9896842-2', 'auto');
+  ga('send', 'pageview');
+    </script>
+</body>
+</html>

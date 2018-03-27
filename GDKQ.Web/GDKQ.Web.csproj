@@ -1,0 +1,1363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{89444BFC-AEF0-4C72-9384-0A5FFFE9A05F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GDKQ.Web</RootNamespace>
+    <AssemblyName>GDKQ.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LitJSON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\第三方类库\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Webdiyer.MvcPager, Version=3.0.2015.802, Culture=neutral, PublicKeyToken=f6872c5a09aed72c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Webdiyer.MvcPager.3.0.1.1\lib\Webdiyer.MvcPager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\assets\css\admin.css" />
+    <Content Include="Content\Admin\assets\css\amazeui.min.css" />
+    <Content Include="Content\Admin\assets\css\app.css" />
+    <Content Include="Content\Admin\assets\img\lbbg.png" />
+    <Content Include="Content\Admin\assets\img\user01.png" />
+    <Content Include="Content\Admin\assets\img\user02.png" />
+    <Content Include="Content\Admin\assets\img\user03.png" />
+    <Content Include="Content\Admin\assets\img\user04.png" />
+    <Content Include="Content\Admin\assets\img\user05.png" />
+    <Content Include="Content\Admin\assets\img\user06.png" />
+    <Content Include="Content\Admin\assets\img\user07.png" />
+    <Content Include="Content\Admin\assets\i\favicon.ico" />
+    <Content Include="Content\Admin\assets\js\amazeui.ie8polyfill.js" />
+    <Content Include="Content\Admin\assets\js\amazeui.ie8polyfill.min.js" />
+    <Content Include="Content\Admin\assets\js\amazeui.js" />
+    <Content Include="Content\Admin\assets\js\amazeui.min.js" />
+    <Content Include="Content\Admin\assets\js\amazeui.widgets.helper.js" />
+    <Content Include="Content\Admin\assets\js\amazeui.widgets.helper.min.js" />
+    <Content Include="Content\Admin\assets\js\app.js" />
+    <Content Include="Content\Admin\assets\js\echarts.min.js" />
+    <Content Include="Content\Admin\assets\js\handlebars.min.js" />
+    <Content Include="Content\Admin\assets\js\iscroll.js" />
+    <Content Include="Content\Admin\assets\js\jquery.min.js" />
+    <Content Include="Content\Admin\kindeditor\asp.net\bin\LitJSON.dll" />
+    <Content Include="Content\Admin\kindeditor\asp.net\demo.aspx" />
+    <Content Include="Content\Admin\kindeditor\asp.net\README.txt" />
+    <Content Include="Content\Admin\kindeditor\asp\demo.asp" />
+    <Content Include="Content\Admin\kindeditor\asp\file_manager_json.asp" />
+    <Content Include="Content\Admin\kindeditor\asp\JSON_2.0.4.asp" />
+    <Content Include="Content\Admin\kindeditor\asp\UpLoad_Class.asp" />
+    <Content Include="Content\Admin\kindeditor\asp\upload_json.asp" />
+    <Content Include="Content\Admin\kindeditor\jsp\lib\commons-fileupload-1.2.1.jar" />
+    <Content Include="Content\Admin\kindeditor\jsp\lib\commons-io-1.4.jar" />
+    <Content Include="Content\Admin\kindeditor\jsp\lib\json_simple-1.1.jar" />
+    <Content Include="Content\Admin\kindeditor\jsp\README.txt" />
+    <Content Include="Content\Admin\kindeditor\kindeditor-all-min.js" />
+    <Content Include="Content\Admin\kindeditor\kindeditor-all.js" />
+    <Content Include="Content\Admin\kindeditor\lang\ar.js" />
+    <Content Include="Content\Admin\kindeditor\lang\en.js" />
+    <Content Include="Content\Admin\kindeditor\lang\ko.js" />
+    <Content Include="Content\Admin\kindeditor\lang\ru.js" />
+    <Content Include="Content\Admin\kindeditor\lang\zh-CN.js" />
+    <Content Include="Content\Admin\kindeditor\lang\zh-TW.js" />
+    <Content Include="Content\Admin\kindeditor\license.txt" />
+    <Content Include="Content\Admin\kindeditor\plugins\anchor\anchor.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\autoheight\autoheight.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\baidumap\baidumap.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\baidumap\index.html" />
+    <Content Include="Content\Admin\kindeditor\plugins\baidumap\map.html" />
+    <Content Include="Content\Admin\kindeditor\plugins\clearhtml\clearhtml.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\code\code.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\code\prettify.css" />
+    <Content Include="Content\Admin\kindeditor\plugins\code\prettify.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\emoticons.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\0.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\1.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\10.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\100.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\101.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\102.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\103.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\104.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\105.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\106.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\107.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\108.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\109.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\11.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\110.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\111.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\112.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\113.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\114.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\115.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\116.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\117.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\118.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\119.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\12.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\120.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\121.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\122.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\123.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\124.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\125.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\126.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\127.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\128.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\129.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\13.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\130.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\131.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\132.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\133.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\134.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\14.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\15.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\16.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\17.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\18.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\19.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\2.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\20.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\21.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\22.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\23.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\24.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\25.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\26.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\27.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\28.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\29.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\3.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\30.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\31.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\32.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\33.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\34.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\35.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\36.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\37.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\38.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\39.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\4.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\40.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\41.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\42.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\43.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\44.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\45.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\46.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\47.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\48.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\49.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\5.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\50.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\51.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\52.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\53.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\54.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\55.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\56.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\57.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\58.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\59.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\6.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\60.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\61.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\62.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\63.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\64.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\65.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\66.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\67.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\68.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\69.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\7.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\70.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\71.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\72.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\73.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\74.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\75.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\76.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\77.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\78.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\79.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\8.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\80.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\81.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\82.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\83.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\84.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\85.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\86.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\87.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\88.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\89.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\9.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\90.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\91.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\92.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\93.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\94.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\95.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\96.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\97.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\98.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\99.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\emoticons\images\static.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\filemanager\filemanager.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\filemanager\images\file-16.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\filemanager\images\file-64.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\filemanager\images\go-up.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\fixtoolbar\fixtoolbar.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\flash\flash.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\image\image.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\image\images\align_left.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\image\images\align_right.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\image\images\align_top.gif" />
+    <Content Include="Content\Admin\kindeditor\plugins\image\images\refresh.png" />
+    <Content Include="Content\Admin\kindeditor\plugins\insertfile\insertfile.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\lineheight\lineheight.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\link\link.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\map\map.html" />
+    <Content Include="Content\Admin\kindeditor\plugins\map\map.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\media\media.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\multiimage\images\image.png" />
+    <Content Include="Content\Admin\kindeditor\plugins\multiimage\images\select-files-en.png" />
+    <Content Include="Content\Admin\kindeditor\plugins\multiimage\images\select-files-zh-CN.png" />
+    <Content Include="Content\Admin\kindeditor\plugins\multiimage\images\swfupload.swf" />
+    <Content Include="Content\Admin\kindeditor\plugins\multiimage\multiimage.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\pagebreak\pagebreak.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\plainpaste\plainpaste.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\preview\preview.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\quickformat\quickformat.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\table\table.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\template\html\1.html" />
+    <Content Include="Content\Admin\kindeditor\plugins\template\html\2.html" />
+    <Content Include="Content\Admin\kindeditor\plugins\template\html\3.html" />
+    <Content Include="Content\Admin\kindeditor\plugins\template\template.js" />
+    <Content Include="Content\Admin\kindeditor\plugins\wordpaste\wordpaste.js" />
+    <Content Include="Content\Admin\kindeditor\themes\common\anchor.gif" />
+    <Content Include="Content\Admin\kindeditor\themes\common\blank.gif" />
+    <Content Include="Content\Admin\kindeditor\themes\common\flash.gif" />
+    <Content Include="Content\Admin\kindeditor\themes\common\loading.gif" />
+    <Content Include="Content\Admin\kindeditor\themes\common\media.gif" />
+    <Content Include="Content\Admin\kindeditor\themes\common\rm.gif" />
+    <Content Include="Content\Admin\kindeditor\themes\default\background.png" />
+    <Content Include="Content\Admin\kindeditor\themes\default\default.css" />
+    <Content Include="Content\Admin\kindeditor\themes\default\default.png" />
+    <Content Include="Content\Admin\kindeditor\themes\qq\editor.gif" />
+    <Content Include="Content\Admin\kindeditor\themes\qq\qq.css" />
+    <Content Include="Content\Admin\kindeditor\themes\simple\simple.css" />
+    <Content Include="Content\Admin\PythonApplication\Daxuesheng.py" />
+    <Content Include="Content\Admin\PythonApplication\main.py" />
+    <Content Include="Content\BBS\css\bootstrap5152.css" />
+    <Content Include="Content\BBS\css\custom5152.html" />
+    <Content Include="Content\BBS\css\main5152.css" />
+    <Content Include="Content\BBS\css\responsive5152.css" />
+    <Content Include="Content\BBS\images\21.png" />
+    <Content Include="Content\BBS\images\active.png" />
+    <Content Include="Content\BBS\images\bt.png" />
+    <Content Include="Content\BBS\images\bt_w.png" />
+    <Content Include="Content\BBS\images\calendar-icon.png" />
+    <Content Include="Content\BBS\images\category-icon.png" />
+    <Content Include="Content\BBS\images\category-main-icon.png" />
+    <Content Include="Content\BBS\images\comment.png" />
+    <Content Include="Content\BBS\images\faq-minus.png" />
+    <Content Include="Content\BBS\images\faq-plus.png" />
+    <Content Include="Content\BBS\images\favicon.png" />
+    <Content Include="Content\BBS\images\footer-bg.png" />
+    <Content Include="Content\BBS\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\BBS\images\glyphicons-halflings.png" />
+    <Content Include="Content\BBS\images\image-large.png" />
+    <Content Include="Content\BBS\images\image.png" />
+    <Content Include="Content\BBS\images\kongzi1.png" />
+    <Content Include="Content\BBS\images\kongzi2.jpg" />
+    <Content Include="Content\BBS\images\kuzhi1.png" />
+    <Content Include="Content\BBS\images\kuzhi2.png" />
+    <Content Include="Content\BBS\images\kuzhi3.png" />
+    <Content Include="Content\BBS\images\li-arrow.png" />
+    <Content Include="Content\BBS\images\like-btn.png" />
+    <Content Include="Content\BBS\images\like.png" />
+    <Content Include="Content\BBS\images\loading.gif" />
+    <Content Include="Content\BBS\images\logo-1.png" />
+    <Content Include="Content\BBS\images\logo.png" />
+    <Content Include="Content\BBS\images\logo_1.png" />
+    <Content Include="Content\BBS\images\main-bg.jpg" />
+    <Content Include="Content\BBS\images\main-content-bg5.png" />
+    <Content Include="Content\BBS\images\pencil.png" />
+    <Content Include="Content\BBS\images\plus-minus.png" />
+    <Content Include="Content\BBS\images\quanjingtu.jpg" />
+    <Content Include="Content\BBS\images\question-large.png" />
+    <Content Include="Content\BBS\images\question.png" />
+    <Content Include="Content\BBS\images\quote.png" />
+    <Content Include="Content\BBS\images\scroll-top.png" />
+    <Content Include="Content\BBS\images\search-loader.gif" />
+    <Content Include="Content\BBS\images\standard-large.png" />
+    <Content Include="Content\BBS\images\standard.png" />
+    <Content Include="Content\BBS\images\toux1.jpg" />
+    <Content Include="Content\BBS\images\toux2.jpg" />
+    <Content Include="Content\BBS\images\toux3.jpg" />
+    <Content Include="Content\BBS\images\toux4.jpg" />
+    <Content Include="Content\BBS\images\user.png" />
+    <Content Include="Content\BBS\images\video-large.png" />
+    <Content Include="Content\BBS\images\video.png" />
+    <Content Include="Content\BBS\images\weixin_.jpg" />
+    <Content Include="Content\BBS\images\weixin_2.png" />
+    <Content Include="Content\BBS\images\发帖.png" />
+    <Content Include="Content\BBS\images\发帖2.png" />
+    <Content Include="Content\BBS\images\发帖3.png" />
+    <Content Include="Content\BBS\images\耕读3.jpg" />
+    <Content Include="Content\BBS\js\custom.js" />
+    <Content Include="Content\BBS\js\custom5152.js" />
+    <Content Include="Content\BBS\js\jflickrfeed.js" />
+    <Content Include="Content\BBS\js\jquery-1.4.1.min.js" />
+    <Content Include="Content\BBS\js\jquery-1.8.3.min.js" />
+    <Content Include="Content\BBS\js\jquery.easing.1.3.js" />
+    <Content Include="Content\BBS\js\jquery.easing.1.34e44.js" />
+    <Content Include="Content\BBS\js\jquery.form.js" />
+    <Content Include="Content\BBS\js\jquery.formd471.js" />
+    <Content Include="Content\BBS\js\jquery.liveSearch.js" />
+    <Content Include="Content\BBS\js\jquery.liveSearchd5f7.js" />
+    <Content Include="Content\BBS\js\jquery.validate.min.js" />
+    <Content Include="Content\BBS\js\jquery.validate.minfc6b.js" />
+    <Content Include="Content\BBS\js\prettyphoto\jquery.prettyPhoto.js" />
+    <Content Include="Content\BBS\js\prettyphoto\jquery.prettyPhotoaeb9.js" />
+    <Content Include="Content\BBS\js\prettyphoto\prettyPhotoaeb9.css" />
+    <Content Include="Content\BBS\style.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\Livelihood\css\activity.css" />
+    <Content Include="Content\Livelihood\css\affair.css" />
+    <Content Include="Content\Livelihood\css\content.css" />
+    <Content Include="Content\Livelihood\css\notice.css" />
+    <Content Include="Content\Livelihood\css\relax.css" />
+    <Content Include="Content\Livelihood\css\services.css" />
+    <Content Include="Content\Livelihood\css\style.css" />
+    <Content Include="Content\Livelihood\images\01.jpg" />
+    <Content Include="Content\Livelihood\images\02.jpg" />
+    <Content Include="Content\Livelihood\images\03.jpg" />
+    <Content Include="Content\Livelihood\images\04.jpg" />
+    <Content Include="Content\Livelihood\images\05.jpg" />
+    <Content Include="Content\Livelihood\images\06.jpg" />
+    <Content Include="Content\Livelihood\images\07.jpg" />
+    <Content Include="Content\Livelihood\images\08.jpg" />
+    <Content Include="Content\Livelihood\images\09.jpg" />
+    <Content Include="Content\Livelihood\images\1.jpg" />
+    <Content Include="Content\Livelihood\images\10.jpg" />
+    <Content Include="Content\Livelihood\images\11.jpg" />
+    <Content Include="Content\Livelihood\images\12.jpg" />
+    <Content Include="Content\Livelihood\images\13.jpg" />
+    <Content Include="Content\Livelihood\images\14.jpg" />
+    <Content Include="Content\Livelihood\images\1508250054221225019.png" />
+    <Content Include="Content\Livelihood\images\1508250054222206322.png" />
+    <Content Include="Content\Livelihood\images\1508250054223546450.png" />
+    <Content Include="Content\Livelihood\images\1508250054224876841.png" />
+    <Content Include="Content\Livelihood\images\1508250054226278839.png" />
+    <Content Include="Content\Livelihood\images\1508251608504805546.png" />
+    <Content Include="Content\Livelihood\images\1508271609163063675.png" />
+    <Content Include="Content\Livelihood\images\1508271609166217819.png" />
+    <Content Include="Content\Livelihood\images\1508271609167697043.png" />
+    <Content Include="Content\Livelihood\images\1508271609168941445.png" />
+    <Content Include="Content\Livelihood\images\1508271609168941456.png" />
+    <Content Include="Content\Livelihood\images\1508271609170241464.png" />
+    <Content Include="Content\Livelihood\images\1508271609171701476.png" />
+    <Content Include="Content\Livelihood\images\1508271609173022078.png" />
+    <Content Include="Content\Livelihood\images\1508271609174379335.png" />
+    <Content Include="Content\Livelihood\images\1508271609175813838.png" />
+    <Content Include="Content\Livelihood\images\1508271609176977124.png" />
+    <Content Include="Content\Livelihood\images\1508271609284306424.png" />
+    <Content Include="Content\Livelihood\images\1508271609285034550.png" />
+    <Content Include="Content\Livelihood\images\1508271609285678495.png" />
+    <Content Include="Content\Livelihood\images\1508271609286595655.png" />
+    <Content Include="Content\Livelihood\images\2.jpg" />
+    <Content Include="Content\Livelihood\images\3.jpg" />
+    <Content Include="Content\Livelihood\images\4.jpg" />
+    <Content Include="Content\Livelihood\images\5.jpg" />
+    <Content Include="Content\Livelihood\images\6.jpg" />
+    <Content Include="Content\Livelihood\images\7.jpg" />
+    <Content Include="Content\Livelihood\images\8.jpg" />
+    <Content Include="Content\Livelihood\images\9.jpg" />
+    <Content Include="Content\Livelihood\images\a17.png" />
+    <Content Include="Content\Livelihood\images\abm_bg.png" />
+    <Content Include="Content\Livelihood\images\ac1.jpg" />
+    <Content Include="Content\Livelihood\images\ac2.jpg" />
+    <Content Include="Content\Livelihood\images\ac3.jpg" />
+    <Content Include="Content\Livelihood\images\af_img1.png" />
+    <Content Include="Content\Livelihood\images\af_img2.png" />
+    <Content Include="Content\Livelihood\images\af_img3.png" />
+    <Content Include="Content\Livelihood\images\af_img4.jpg" />
+    <Content Include="Content\Livelihood\images\azt_bg.png" />
+    <Content Include="Content\Livelihood\images\bg.png" />
+    <Content Include="Content\Livelihood\images\blue.png" />
+    <Content Include="Content\Livelihood\images\carousel_bg_arrow.jpg" />
+    <Content Include="Content\Livelihood\images\carousel_next_bg.gif" />
+    <Content Include="Content\Livelihood\images\carousel_previous_bg.gif" />
+    <Content Include="Content\Livelihood\images\dianOn.png" />
+    <Content Include="Content\Livelihood\images\dianOn1.png" />
+    <Content Include="Content\Livelihood\images\dianOver.png" />
+    <Content Include="Content\Livelihood\images\dianOver1.png" />
+    <Content Include="Content\Livelihood\images\fwbg1.png" />
+    <Content Include="Content\Livelihood\images\fwbg2.png" />
+    <Content Include="Content\Livelihood\images\iframe.png" />
+    <Content Include="Content\Livelihood\images\img1.jpg" />
+    <Content Include="Content\Livelihood\images\left.png" />
+    <Content Include="Content\Livelihood\images\loading.gif" />
+    <Content Include="Content\Livelihood\images\logo.png" />
+    <Content Include="Content\Livelihood\images\logo1.png" />
+    <Content Include="Content\Livelihood\images\on1.png" />
+    <Content Include="Content\Livelihood\images\on2.png" />
+    <Content Include="Content\Livelihood\images\over1.png" />
+    <Content Include="Content\Livelihood\images\over2.png" />
+    <Content Include="Content\Livelihood\images\qz_07.png" />
+    <Content Include="Content\Livelihood\images\re_gcimg1.png" />
+    <Content Include="Content\Livelihood\images\re_gcimg2.png" />
+    <Content Include="Content\Livelihood\images\re_gcimg3.png" />
+    <Content Include="Content\Livelihood\images\re_xpimg1.png" />
+    <Content Include="Content\Livelihood\images\re_xpimg2.png" />
+    <Content Include="Content\Livelihood\images\re_xpimg3.png" />
+    <Content Include="Content\Livelihood\images\re_xsimg1.png" />
+    <Content Include="Content\Livelihood\images\re_xsimg2.png" />
+    <Content Include="Content\Livelihood\images\re_xsimg3.png" />
+    <Content Include="Content\Livelihood\images\re_yzimg1.png" />
+    <Content Include="Content\Livelihood\images\re_yzimg2.png" />
+    <Content Include="Content\Livelihood\images\re_yzimg3.jpg" />
+    <Content Include="Content\Livelihood\images\right.png" />
+    <Content Include="Content\Livelihood\images\t01.png" />
+    <Content Include="Content\Livelihood\images\thumb-01.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-02.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-03.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-04.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-05.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-06.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-07.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-08.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-09.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-10.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-11.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-12.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-13.jpg" />
+    <Content Include="Content\Livelihood\images\thumb-14.jpg" />
+    <Content Include="Content\Livelihood\images\xian.png" />
+    <Content Include="Content\Livelihood\images\正方形.png" />
+    <Content Include="Content\Livelihood\js\affair.js" />
+    <Content Include="Content\Livelihood\js\bootstrap.min.js" />
+    <Content Include="Content\Livelihood\js\jquery-1.11.0.min.js" />
+    <Content Include="Content\Livelihood\js\jquery-1.11.1.min.js" />
+    <Content Include="Content\Livelihood\js\jquery-1.11.3.min.js" />
+    <Content Include="Content\Livelihood\js\jquery-1.3.2.min.js" />
+    <Content Include="Content\Livelihood\js\jQuery-easing.js" />
+    <Content Include="Content\Livelihood\js\jQuery-jcImgScroll.js" />
+    <Content Include="Content\Livelihood\js\jquery.dualSlider.0.3.js" />
+    <Content Include="Content\Livelihood\js\jquery.easing.1.3.js" />
+    <Content Include="Content\Livelihood\js\jquery.min.js" />
+    <Content Include="Content\Livelihood\js\jquery.poptrox.min.js" />
+    <Content Include="Content\Livelihood\js\jquery.timers-1.2.js" />
+    <Content Include="Content\Livelihood\js\jquery.vm-carousel.js" />
+    <Content Include="Content\Livelihood\js\jssor.slider-21.1.6.mini.js" />
+    <Content Include="Content\Livelihood\js\modernizr.js" />
+    <Content Include="Content\Login\css\login2.css" />
+    <Content Include="Content\Login\images\1.jpg" />
+    <Content Include="Content\Login\images\login.js" />
+    <Content Include="Content\Login\images\login_bg.jpg" />
+    <Content Include="Content\Login\images\login_bg1.jpg" />
+    <Content Include="Content\Login\images\login_bg3.jpg" />
+    <Content Include="Content\Login\js\jquery-1.9.0.min.js" />
+    <Content Include="Content\logo_1.png" />
+    <Content Include="Content\main\css\bootstrap.css" />
+    <Content Include="Content\main\css\list.css" />
+    <Content Include="Content\main\css\mediaelementplayer.css" />
+    <Content Include="Content\main\css\pc.css" />
+    <Content Include="Content\main\css\skeleton.css" />
+    <Content Include="Content\main\css\style.css" />
+    <Content Include="Content\main\css\stylezp.css" />
+    <Content Include="Content\main\css\templets_cchp_images_css.css" />
+    <Content Include="Content\main\css\templets_cchp_images_res.css" />
+    <Content Include="Content\main\css\zjkq.css" />
+    <Content Include="Content\main\css\zjkq_page.css" />
+    <Content Include="Content\main\css\zpstyle .css" />
+    <Content Include="Content\main\fancybox\blank.gif" />
+    <Content Include="Content\main\fancybox\fancybox.min.css" />
+    <Content Include="Content\main\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\main\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\main\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Content\main\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Content\main\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Content\main\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\main\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Content\main\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\main\fancybox\jquery.fancybox.js" />
+    <Content Include="Content\main\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="Content\main\images\0.jpg" />
+    <Content Include="Content\main\images\1.jpg" />
+    <Content Include="Content\main\images\10.jpg" />
+    <Content Include="Content\main\images\11.jpg" />
+    <Content Include="Content\main\images\111.jpg" />
+    <Content Include="Content\main\images\112.jpg" />
+    <Content Include="Content\main\images\12.jpg" />
+    <Content Include="Content\main\images\13.jpg" />
+    <Content Include="Content\main\images\14.jpg" />
+    <Content Include="Content\main\images\15.jpg" />
+    <Content Include="Content\main\images\1505271452144168760.gif" />
+    <Content Include="Content\main\images\16.jpg" />
+    <Content Include="Content\main\images\17.jpg" />
+    <Content Include="Content\main\images\18.jpg" />
+    <Content Include="Content\main\images\19.JPG" />
+    <Content Include="Content\main\images\2.jpg" />
+    <Content Include="Content\main\images\20.jpg" />
+    <Content Include="Content\main\images\21.jpg" />
+    <Content Include="Content\main\images\22.jpg" />
+    <Content Include="Content\main\images\23.jpg" />
+    <Content Include="Content\main\images\24.jpg" />
+    <Content Include="Content\main\images\27.jpg" />
+    <Content Include="Content\main\images\3.jpg" />
+    <Content Include="Content\main\images\4.jpg" />
+    <Content Include="Content\main\images\5.jpg" />
+    <Content Include="Content\main\images\6.jpg" />
+    <Content Include="Content\main\images\7.jpg" />
+    <Content Include="Content\main\images\8.jpg" />
+    <Content Include="Content\main\images\9.jpg" />
+    <Content Include="Content\main\images\arrow_left.png" />
+    <Content Include="Content\main\images\arrow_right.png" />
+    <Content Include="Content\main\images\bg-body.png" />
+    <Content Include="Content\main\images\bg-header.png" />
+    <Content Include="Content\main\images\bg.jpg" />
+    <Content Include="Content\main\images\bg1.jpg" />
+    <Content Include="Content\main\images\bgkq.png" />
+    <Content Include="Content\main\images\bt_w.png" />
+    <Content Include="Content\main\images\di_bg.png" />
+    <Content Include="Content\main\images\dongtai.png" />
+    <Content Include="Content\main\images\fagui.png" />
+    <Content Include="Content\main\images\footer-top-arrow.png" />
+    <Content Include="Content\main\images\f_bg.png" />
+    <Content Include="Content\main\images\gravatar.png" />
+    <Content Include="Content\main\images\header-bottom-arrow.png" />
+    <Content Include="Content\main\images\icons\arrowclass.png" />
+    <Content Include="Content\main\images\icons\back-to-top.png" />
+    <Content Include="Content\main\images\icons\birds.png" />
+    <Content Include="Content\main\images\icons\blue-arrow.png" />
+    <Content Include="Content\main\images\icons\collapse.png" />
+    <Content Include="Content\main\images\icons\contact-icons.png" />
+    <Content Include="Content\main\images\icons\empty.png" />
+    <Content Include="Content\main\images\icons\next-prev-posts.png" />
+    <Content Include="Content\main\images\icons\prev-next.png" />
+    <Content Include="Content\main\images\icons\quote-arrow.png" />
+    <Content Include="Content\main\images\icons\rightarrowclass.png" />
+    <Content Include="Content\main\images\icons\search-btn-icon.png" />
+    <Content Include="Content\main\images\icons\slider-nav.png" />
+    <Content Include="Content\main\images\icons\small\add_small.png" />
+    <Content Include="Content\main\images\icons\small\application_osx.png" />
+    <Content Include="Content\main\images\icons\small\arrow_small_right.png" />
+    <Content Include="Content\main\images\icons\small\arrow_state_blue_right.png" />
+    <Content Include="Content\main\images\icons\small\check.png" />
+    <Content Include="Content\main\images\icons\small\document_a4_edit.png" />
+    <Content Include="Content\main\images\icons\small\document_copy.png" />
+    <Content Include="Content\main\images\icons\small\folder_classic.png" />
+    <Content Include="Content\main\images\icons\small\folder_modernist_stuffed.png" />
+    <Content Include="Content\main\images\icons\small\media_controls_forward_small.png" />
+    <Content Include="Content\main\images\icons\small\pencil.png" />
+    <Content Include="Content\main\images\icons\small\star_empty.png" />
+    <Content Include="Content\main\images\icons\small\thumb_up.png" />
+    <Content Include="Content\main\images\icons\small\tick.png" />
+    <Content Include="Content\main\images\icons\small\view_outline.png" />
+    <Content Include="Content\main\images\icons\small\warning_triangle.png" />
+    <Content Include="Content\main\images\icons\social-icons.png" />
+    <Content Include="Content\main\images\icons\sprite-notifications-type1.png" />
+    <Content Include="Content\main\images\icons\sprite-notifications-type2.png" />
+    <Content Include="Content\main\images\icons\sup-arrow.png" />
+    <Content Include="Content\main\images\icons\tearoff.png" />
+    <Content Include="Content\main\images\icons\tzls_01.png" />
+    <Content Include="Content\main\images\icons\tzls_02.png" />
+    <Content Include="Content\main\images\icons\tznj_01.png" />
+    <Content Include="Content\main\images\icons\tznj_02.png" />
+    <Content Include="Content\main\images\icons\tzry_01.png" />
+    <Content Include="Content\main\images\icons\tzry_02.png" />
+    <Content Include="Content\main\images\icons\video-icon.png" />
+    <Content Include="Content\main\images\icons\yhcs_01.png" />
+    <Content Include="Content\main\images\icons\yhcs_02.png" />
+    <Content Include="Content\main\images\icons\zoom.png" />
+    <Content Include="Content\main\images\image.png" />
+    <Content Include="Content\main\images\info_date.png" />
+    <Content Include="Content\main\images\info_date1.png" />
+    <Content Include="Content\main\images\jianzhu1-1.jpg" />
+    <Content Include="Content\main\images\jianzhu1.jpg" />
+    <Content Include="Content\main\images\jianzhu2.jpg" />
+    <Content Include="Content\main\images\jianzhu3.jpg" />
+    <Content Include="Content\main\images\jianzhu4.jpg" />
+    <Content Include="Content\main\images\jianzhu5-1.jpg" />
+    <Content Include="Content\main\images\jianzhu5.jpg" />
+    <Content Include="Content\main\images\kongqiu.jpg" />
+    <Content Include="Content\main\images\kqbg.jpg" />
+    <Content Include="Content\main\images\kqbg1.jpg" />
+    <Content Include="Content\main\images\like.png" />
+    <Content Include="Content\main\images\logo-白高80.png" />
+    <Content Include="Content\main\images\logo-红.png" />
+    <Content Include="Content\main\images\logo_棕.png" />
+    <Content Include="Content\main\images\lxwm_right.png" />
+    <Content Include="Content\main\images\main-content-bg.png" />
+    <Content Include="Content\main\images\main-content-bg1.png" />
+    <Content Include="Content\main\images\main-content-bg2.png" />
+    <Content Include="Content\main\images\main-content-bg3.png" />
+    <Content Include="Content\main\images\main-content-bg5.png" />
+    <Content Include="Content\main\images\mediaelement\background.png" />
+    <Content Include="Content\main\images\mediaelement\bigplay.png" />
+    <Content Include="Content\main\images\mediaelement\controls.png" />
+    <Content Include="Content\main\images\mediaelement\loading.gif" />
+    <Content Include="Content\main\images\nav-bg.png" />
+    <Content Include="Content\main\images\new_icon.png" />
+    <Content Include="Content\main\images\new_icon1.png" />
+    <Content Include="Content\main\images\page-header-1.png" />
+    <Content Include="Content\main\images\portfolio\thumbs\col1-1.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col1-2.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col1-3.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col1-4.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col1-5.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col2-1.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col2-2.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col2-3.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col2-4.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col3-1.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col3-2.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col3-3.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col3-4.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col3-5.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col3-6.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col3-7.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col3-8.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col3-9.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col4-1.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col4-2.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col4-3.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col4-4.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col4-5.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col4-6.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col4-7.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col4-8.jpg" />
+    <Content Include="Content\main\images\portfolio\thumbs\col4-9.jpg" />
+    <Content Include="Content\main\images\preloader.gif" />
+    <Content Include="Content\main\images\qita1.jpg" />
+    <Content Include="Content\main\images\qita2.jpg" />
+    <Content Include="Content\main\images\qita3.jpg" />
+    <Content Include="Content\main\images\qita4-1.jpg" />
+    <Content Include="Content\main\images\qita4.jpg" />
+    <Content Include="Content\main\images\qita5.jpg" />
+    <Content Include="Content\main\images\quanjingtu.jpg" />
+    <Content Include="Content\main\images\quanjingtu1-1.jpg" />
+    <Content Include="Content\main\images\quanjingtu1-2-1.jpg" />
+    <Content Include="Content\main\images\quanjingtu1-2.jpg" />
+    <Content Include="Content\main\images\quanjingtu1-4.jpg" />
+    <Content Include="Content\main\images\quanjingtu1-41.png" />
+    <Content Include="Content\main\images\quanjingtu1-5.jpg" />
+    <Content Include="Content\main\images\quanjingtu1-555.jpg" />
+    <Content Include="Content\main\images\quanjingtu1.jpg" />
+    <Content Include="Content\main\images\quanjingtu2-1.jpg" />
+    <Content Include="Content\main\images\quanjingtu2.jpg" />
+    <Content Include="Content\main\images\qz_07.png" />
+    <Content Include="Content\main\images\renwu1-1.jpg" />
+    <Content Include="Content\main\images\renwu1.jpg" />
+    <Content Include="Content\main\images\renwu2-1.jpg" />
+    <Content Include="Content\main\images\renwu2.jpg" />
+    <Content Include="Content\main\images\rukou.jpg" />
+    <Content Include="Content\main\images\rukou.png" />
+    <Content Include="Content\main\images\rukou1.png" />
+    <Content Include="Content\main\images\scenery_bg.jpg" />
+    <Content Include="Content\main\images\shoucan_bg.png" />
+    <Content Include="Content\main\images\shoucan_bg1.png" />
+    <Content Include="Content\main\images\standard.png" />
+    <Content Include="Content\main\images\tianjia.png" />
+    <Content Include="Content\main\images\timg.jpg" />
+    <Content Include="Content\main\images\timg.png" />
+    <Content Include="Content\main\images\toupiao\c_bg_dsmj1.jpg" />
+    <Content Include="Content\main\images\toux1.jpg" />
+    <Content Include="Content\main\images\toux2.jpg" />
+    <Content Include="Content\main\images\toux3.jpg" />
+    <Content Include="Content\main\images\toux4.jpg" />
+    <Content Include="Content\main\images\tubiao.png" />
+    <Content Include="Content\main\images\video.png" />
+    <Content Include="Content\main\images\weixin_2.png" />
+    <Content Include="Content\main\images\xiangyun.png" />
+    <Content Include="Content\main\images\xiangyun1.png" />
+    <Content Include="Content\main\images\zhuguang_bg.png" />
+    <Content Include="Content\main\images\zjkqimg\1-1.jpg" />
+    <Content Include="Content\main\images\zjkqimg\1.jpg" />
+    <Content Include="Content\main\images\zjkqimg\2-1.jpg" />
+    <Content Include="Content\main\images\zjkqimg\2.jpg" />
+    <Content Include="Content\main\images\zjkqimg\3-1.jpg" />
+    <Content Include="Content\main\images\zjkqimg\3.jpg" />
+    <Content Include="Content\main\images\zjkqimg\4-1.jpg" />
+    <Content Include="Content\main\images\zjkqimg\4.jpg" />
+    <Content Include="Content\main\images\zjkqimg\5-1.jpg" />
+    <Content Include="Content\main\images\zjkqimg\5.jpg" />
+    <Content Include="Content\main\images\zjkqimg\6-1.jpg" />
+    <Content Include="Content\main\images\zjkqimg\6.jpg" />
+    <Content Include="Content\main\images\zjkqimg\7.jpg" />
+    <Content Include="Content\main\images\zjkqimg\8.jpg" />
+    <Content Include="Content\main\images\zjkqimg\9.jpg" />
+    <Content Include="Content\main\images\zjkqimg\arrow-left.png" />
+    <Content Include="Content\main\images\zjkqimg\arrow-right.png" />
+    <Content Include="Content\main\images\zjkqimg\fancy_deboss.png" />
+    <Content Include="Content\main\images\zjkqimg\loading.gif" />
+    <Content Include="Content\main\images\zjkqimg\nav.png" />
+    <Content Include="Content\main\images\zjkqimg\NumBtn.png" />
+    <Content Include="Content\main\images\zjkqimg\options.png" />
+    <Content Include="Content\main\images\zjkqimg\shadow.png" />
+    <Content Include="Content\main\images\zjkq\zjkq1.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq10.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq2-1.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq2.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq3.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq4-1.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq4-2.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq4.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq5.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq6.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq7-1.jpg" />
+    <Content Include="Content\main\images\zjkq\zjkq8.jpg" />
+    <Content Include="Content\main\images\zp\0.jpg" />
+    <Content Include="Content\main\images\zp\1.jpg" />
+    <Content Include="Content\main\images\zp\10.jpg" />
+    <Content Include="Content\main\images\zp\11.jpg" />
+    <Content Include="Content\main\images\zp\12.jpg" />
+    <Content Include="Content\main\images\zp\13.jpg" />
+    <Content Include="Content\main\images\zp\14.jpg" />
+    <Content Include="Content\main\images\zp\15.jpg" />
+    <Content Include="Content\main\images\zp\16.jpg" />
+    <Content Include="Content\main\images\zp\17.jpg" />
+    <Content Include="Content\main\images\zp\18.jpg" />
+    <Content Include="Content\main\images\zp\19.jpg" />
+    <Content Include="Content\main\images\zp\2.jpg" />
+    <Content Include="Content\main\images\zp\20.jpg" />
+    <Content Include="Content\main\images\zp\21.jpg" />
+    <Content Include="Content\main\images\zp\22.jpg" />
+    <Content Include="Content\main\images\zp\23.jpg" />
+    <Content Include="Content\main\images\zp\24.jpg" />
+    <Content Include="Content\main\images\zp\3.jpg" />
+    <Content Include="Content\main\images\zp\4.jpg" />
+    <Content Include="Content\main\images\zp\5.jpg" />
+    <Content Include="Content\main\images\zp\6.jpg" />
+    <Content Include="Content\main\images\zp\7.jpg" />
+    <Content Include="Content\main\images\zp\8.jpg" />
+    <Content Include="Content\main\images\zp\9.jpg" />
+    <Content Include="Content\main\images\zp\quanjingtu2-1.jpg" />
+    <Content Include="Content\main\images\zx1.png" />
+    <Content Include="Content\main\images\zx1_hover.png" />
+    <Content Include="Content\main\images\zx1_hover1.png" />
+    <Content Include="Content\main\images\zx2.png" />
+    <Content Include="Content\main\images\zx2_hover.png" />
+    <Content Include="Content\main\images\zx2_hover1.png" />
+    <Content Include="Content\main\images\zx3.png" />
+    <Content Include="Content\main\images\zx3_hover.png" />
+    <Content Include="Content\main\images\zx3_hover1.png" />
+    <Content Include="Content\main\images\zx4.png" />
+    <Content Include="Content\main\images\zx4_hover.png" />
+    <Content Include="Content\main\images\zx4_hover1.png" />
+    <Content Include="Content\main\images\一心斋.jpg" />
+    <Content Include="Content\main\images\中和桥-1.jpg" />
+    <Content Include="Content\main\images\中和桥.jpg" />
+    <Content Include="Content\main\images\中和桥1.jpg" />
+    <Content Include="Content\main\images\中和桥2.jpg" />
+    <Content Include="Content\main\images\书法.jpg" />
+    <Content Include="Content\main\images\书画.jpg" />
+    <Content Include="Content\main\images\五世同堂.jpg" />
+    <Content Include="Content\main\images\五世同堂1.jpg" />
+    <Content Include="Content\main\images\众筹活动\chisu1.jpg" />
+    <Content Include="Content\main\images\众筹活动\chisu2.jpg" />
+    <Content Include="Content\main\images\众筹活动\chisu3.jpg" />
+    <Content Include="Content\main\images\众筹活动\chisu4.jpg" />
+    <Content Include="Content\main\images\众筹活动\chisu5.jpg" />
+    <Content Include="Content\main\images\众筹活动\luntai1.png" />
+    <Content Include="Content\main\images\众筹活动\luntai2.png" />
+    <Content Include="Content\main\images\众筹活动\luntai3.png" />
+    <Content Include="Content\main\images\众筹活动\luntai4.png" />
+    <Content Include="Content\main\images\众筹活动\luntai5.png" />
+    <Content Include="Content\main\images\众筹活动\废旧轮胎.jpg" />
+    <Content Include="Content\main\images\众筹活动\未标题-1-01.png" />
+    <Content Include="Content\main\images\众筹活动\枯枝1.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝10.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝11.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝2.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝3.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝4.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝5.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝6.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝7.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝7.png" />
+    <Content Include="Content\main\images\众筹活动\枯枝8.jpg" />
+    <Content Include="Content\main\images\众筹活动\枯枝9.jpg" />
+    <Content Include="Content\main\images\入口.png" />
+    <Content Include="Content\main\images\农耕1.JPG" />
+    <Content Include="Content\main\images\农耕2.JPG" />
+    <Content Include="Content\main\images\农耕3.JPG" />
+    <Content Include="Content\main\images\凉亭.jpg" />
+    <Content Include="Content\main\images\半耕堂门外.jpg" />
+    <Content Include="Content\main\images\半耕堂门外1-1.jpg" />
+    <Content Include="Content\main\images\半耕堂门外1.jpg" />
+    <Content Include="Content\main\images\半耕堂门外2.jpg" />
+    <Content Include="Content\main\images\古村文化1.JPG" />
+    <Content Include="Content\main\images\古村文化2.JPG" />
+    <Content Include="Content\main\images\古村文化3.JPG" />
+    <Content Include="Content\main\images\图标.png" />
+    <Content Include="Content\main\images\夏令营.png" />
+    <Content Include="Content\main\images\孔坵.jpg" />
+    <Content Include="Content\main\images\孔坵.png" />
+    <Content Include="Content\main\images\孔坵2.jpg" />
+    <Content Include="Content\main\images\孔坵一景.jpg" />
+    <Content Include="Content\main\images\孔坵一景1.jpg" />
+    <Content Include="Content\main\images\孔坵大队.jpg" />
+    <Content Include="Content\main\images\孔坵村.jpg" />
+    <Content Include="Content\main\images\孔坵村1.jpg" />
+    <Content Include="Content\main\images\孔坵村2.jpg" />
+    <Content Include="Content\main\images\孔坵溪.jpg" />
+    <Content Include="Content\main\images\孔坵溪1.jpg" />
+    <Content Include="Content\main\images\孔坵溪2.jpg" />
+    <Content Include="Content\main\images\宝新义塾旧址.jpg" />
+    <Content Include="Content\main\images\宝新义塾旧址1.jpg" />
+    <Content Include="Content\main\images\宝新义塾旧址2.jpg" />
+    <Content Include="Content\main\images\建筑-1.jpg" />
+    <Content Include="Content\main\images\建筑.jpg" />
+    <Content Include="Content\main\images\建筑1.jpg" />
+    <Content Include="Content\main\images\建筑保护1.jpg" />
+    <Content Include="Content\main\images\建筑保护2.JPG" />
+    <Content Include="Content\main\images\建筑保护3.JPG" />
+    <Content Include="Content\main\images\建筑屋瓦.jpg" />
+    <Content Include="Content\main\images\掀天楼.jpg" />
+    <Content Include="Content\main\images\文化大舞台.jpg" />
+    <Content Include="Content\main\images\枯枝.jpg" />
+    <Content Include="Content\main\images\枯枝1.jpg" />
+    <Content Include="Content\main\images\枯枝2.jpeg" />
+    <Content Include="Content\main\images\枯枝创意.png" />
+    <Content Include="Content\main\images\桥.png" />
+    <Content Include="Content\main\images\水墨1.jpg" />
+    <Content Include="Content\main\images\活动.jpg" />
+    <Content Include="Content\main\images\源远流长1.jpg" />
+    <Content Include="Content\main\images\源远流长2.jpg" />
+    <Content Include="Content\main\images\源远流长3.jpg" />
+    <Content Include="Content\main\images\百岁路-1.jpg" />
+    <Content Include="Content\main\images\百岁路.jpg" />
+    <Content Include="Content\main\images\百岁路1.jpg" />
+    <Content Include="Content\main\images\百岁路2.jpg" />
+    <Content Include="Content\main\images\相机图标.png" />
+    <Content Include="Content\main\images\相机图标1.png" />
+    <Content Include="Content\main\images\石拱桥.jpg" />
+    <Content Include="Content\main\images\石拱桥1.jpg" />
+    <Content Include="Content\main\images\石拱桥2.jpg" />
+    <Content Include="Content\main\images\章业培.png" />
+    <Content Include="Content\main\images\章业培2.png" />
+    <Content Include="Content\main\images\章以沤.png" />
+    <Content Include="Content\main\images\章以沤2.png" />
+    <Content Include="Content\main\images\章以贯2.jpg" />
+    <Content Include="Content\main\images\章升平.png" />
+    <Content Include="Content\main\images\章升平1.png" />
+    <Content Include="Content\main\images\章升平2.png" />
+    <Content Include="Content\main\images\章宏戌.png" />
+    <Content Include="Content\main\images\章宏戌1.png" />
+    <Content Include="Content\main\images\章宏戌2.png" />
+    <Content Include="Content\main\images\章宏量1.png" />
+    <Content Include="Content\main\images\章宏量2.png" />
+    <Content Include="Content\main\images\素食活动.jpg" />
+    <Content Include="Content\main\images\素食活动1.jpg" />
+    <Content Include="Content\main\images\蓑衣.jpg" />
+    <Content Include="Content\main\images\讲堂.jpg" />
+    <Content Include="Content\main\images\走进台州\huangyan.png" />
+    <Content Include="Content\main\images\走进台州\jiaojiang.png" />
+    <Content Include="Content\main\images\走进台州\linhai.png" />
+    <Content Include="Content\main\images\走进台州\luqiao.png" />
+    <Content Include="Content\main\images\走进台州\sanmen.png" />
+    <Content Include="Content\main\images\走进台州\tiantai.png" />
+    <Content Include="Content\main\images\走进台州\wenling.png" />
+    <Content Include="Content\main\images\走进台州\xianju.png" />
+    <Content Include="Content\main\images\走进台州\yuhuan.png" />
+    <Content Include="Content\main\images\走进台州\三门青蟹.png" />
+    <Content Include="Content\main\images\走进台州\冬至咸圆.png" />
+    <Content Include="Content\main\images\走进台州\望潮.png" />
+    <Content Include="Content\main\images\走进台州\涌泉桔.png" />
+    <Content Include="Content\main\images\走进台州\葡萄.png" />
+    <Content Include="Content\main\images\走进台州\蛋清羊尾.png" />
+    <Content Include="Content\main\images\走进台州\食饼筒.png" />
+    <Content Include="Content\main\images\走进台州\鱼皮馄饨.png" />
+    <Content Include="Content\main\images\路径.png" />
+    <Content Include="Content\main\images\路线2.png" />
+    <Content Include="Content\main\images\路线3.png" />
+    <Content Include="Content\main\images\近仁堂.jpg" />
+    <Content Include="Content\main\images\近仁堂1.jpg" />
+    <Content Include="Content\main\images\近仁堂2.jpg" />
+    <Content Include="Content\main\images\食宿\zhusu1-1.jpg" />
+    <Content Include="Content\main\images\食宿\zhusu1.jpg" />
+    <Content Include="Content\main\images\食宿\zhusu2-1.jpg" />
+    <Content Include="Content\main\images\食宿\zhusu2.jpg" />
+    <Content Include="Content\main\images\食宿\zhusu3-1.jpg" />
+    <Content Include="Content\main\images\食宿\zhusu3.jpg" />
+    <Content Include="Content\main\images\食宿\食1-1.png" />
+    <Content Include="Content\main\images\食宿\食1.jpg" />
+    <Content Include="Content\main\images\食宿\食2-1.png" />
+    <Content Include="Content\main\images\食宿\食2.jpg" />
+    <Content Include="Content\main\images\食宿\食3-1.png" />
+    <Content Include="Content\main\images\食宿\食3.png" />
+    <Content Include="Content\main\images\食宿\食4-1.png" />
+    <Content Include="Content\main\images\食宿\食4.jpg" />
+    <Content Include="Content\main\images\食宿\食5-1.png" />
+    <Content Include="Content\main\images\食宿\食5.jpg" />
+    <Content Include="Content\main\images\食宿\食6-1.png" />
+    <Content Include="Content\main\images\食宿\食6.jpg" />
+    <Content Include="Content\main\images\食宿\食7-1.png" />
+    <Content Include="Content\main\images\食宿\食7.jpg" />
+    <Content Include="Content\main\images\食宿\食8-1.png" />
+    <Content Include="Content\main\images\食宿\食8.jpg" />
+    <Content Include="Content\main\images\马头墙.jpg" />
+    <Content Include="Content\main\images\马头墙1.jpg" />
+    <Content Include="Content\main\images\马头墙2.jpg" />
+    <Content Include="Content\main\js\1507011715567555.js" />
+    <Content Include="Content\main\js\1508302019393644.js" />
+    <Content Include="Content\main\js\bg.js" />
+    <Content Include="Content\main\js\bg1.js" />
+    <Content Include="Content\main\js\custom.js" />
+    <Content Include="Content\main\js\default1.js" />
+    <Content Include="Content\main\js\flashmediaelement.swf" />
+    <Content Include="Content\main\js\jflickrfeed.min.js" />
+    <Content Include="Content\main\js\jquery-1.11.0.min.js" />
+    <Content Include="Content\main\js\jQuery-easing.js" />
+    <Content Include="Content\main\js\jQuery-jcImgScroll.js" />
+    <Content Include="Content\main\js\jquery.cycle.all.min.js" />
+    <Content Include="Content\main\js\jquery.easing.1.3.js" />
+    <Content Include="Content\main\js\jquery.gmap.min.js" />
+    <Content Include="Content\main\js\jquery.isotope.min.js" />
+    <Content Include="Content\main\js\jquery.min.js" />
+    <Content Include="Content\main\js\jquery.pseudo.js" />
+    <Content Include="Content\main\js\jqueryzp.min.js" />
+    <Content Include="Content\main\js\mediaelement-and-player.min.js" />
+    <Content Include="Content\main\js\modernizr.custom.js" />
+    <Content Include="Content\main\js\PIE.htc" />
+    <Content Include="Content\main\js\respond.min.js" />
+    <Content Include="Content\main\js\selectivizr-and-extra-selectors.min.js" />
+    <Content Include="Content\main\js\templets_cchp_js_jquery.iosslider.js" />
+    <Content Include="Content\main\js\templets_cchp_js_jquery.SuperSlide.2.1.js" />
+    <Content Include="Content\main\js\templets_cchp_js_jquery1.42.min.js" />
+    <Content Include="Content\main\js\templets_cchp_js_slider.js" />
+    <Content Include="Content\main\js\toupiao_dedeajax2.js" />
+    <Content Include="Content\main\js\twitterFetcher.js" />
+    <Content Include="Content\main\js\vote1.js" />
+    <Content Include="Content\main\js\vote2.js" />
+    <Content Include="Content\main\js\zjkqjquery.min.js" />
+    <Content Include="Content\main\js\zjkqshutter.js" />
+    <Content Include="Content\main\js\zjkqvelocity.js" />
+    <Content Include="Content\main\js\zjkq_jquery.js" />
+    <Content Include="Content\main\kongqiu.mp4" />
+    <Content Include="Content\main\php\1.png" />
+    <Content Include="Content\main\rs-plugin\assets\arrow-large.png" />
+    <Content Include="Content\main\rs-plugin\assets\arrowleft.png" />
+    <Content Include="Content\main\rs-plugin\assets\arrowright.png" />
+    <Content Include="Content\main\rs-plugin\assets\arrow_left.png" />
+    <Content Include="Content\main\rs-plugin\assets\arrow_left2.png" />
+    <Content Include="Content\main\rs-plugin\assets\arrow_right.png" />
+    <Content Include="Content\main\rs-plugin\assets\arrow_right2.png" />
+    <Content Include="Content\main\rs-plugin\assets\black50.png" />
+    <Content Include="Content\main\rs-plugin\assets\bullets.png" />
+    <Content Include="Content\main\rs-plugin\assets\bullets2.png" />
+    <Content Include="Content\main\rs-plugin\assets\grain.png" />
+    <Content Include="Content\main\rs-plugin\assets\loader.gif" />
+    <Content Include="Content\main\rs-plugin\assets\navigdots.png" />
+    <Content Include="Content\main\rs-plugin\assets\navigdots_bgtile.png" />
+    <Content Include="Content\main\rs-plugin\assets\shadow1.png" />
+    <Content Include="Content\main\rs-plugin\assets\shadow2.png" />
+    <Content Include="Content\main\rs-plugin\assets\shadow3.png" />
+    <Content Include="Content\main\rs-plugin\assets\timer.png" />
+    <Content Include="Content\main\rs-plugin\assets\timerdot.png" />
+    <Content Include="Content\main\rs-plugin\assets\white50.png" />
+    <Content Include="Content\main\rs-plugin\css\settings.css" />
+    <Content Include="Content\main\rs-plugin\images\decor_inside.png" />
+    <Content Include="Content\main\rs-plugin\images\decor_inside_white.png" />
+    <Content Include="Content\main\rs-plugin\images\decor_testimonial.png" />
+    <Content Include="Content\main\rs-plugin\images\gradient\g30.png" />
+    <Content Include="Content\main\rs-plugin\images\gradient\g40.png" />
+    <Content Include="Content\main\rs-plugin\js\jquery-ui-1.8.21.custom.min.js" />
+    <Content Include="Content\main\rs-plugin\js\jquery.themepunch.plugins.min.js" />
+    <Content Include="Content\main\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Content\main\video\style1.css" />
+    <Content Include="Content\main\video\video.js" />
+    <Content Include="Content\main\孔坵.mp4" />
+    <Content Include="Content\main\耕读孔坵.mp4" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\User\assets\css\admin.css" />
+    <Content Include="Content\User\assets\css\amazeui.css" />
+    <Content Include="Content\User\assets\css\amazeui.jqgrid.min.css" />
+    <Content Include="Content\User\assets\css\bootstrap-grid.min.css" />
+    <Content Include="Content\User\assets\css\component.css" />
+    <Content Include="Content\User\assets\css\core.css" />
+    <Content Include="Content\User\assets\css\font-awesome.css" />
+    <Content Include="Content\User\assets\css\index.css" />
+    <Content Include="Content\User\assets\css\menu.css" />
+    <Content Include="Content\User\assets\css\others.css" />
+    <Content Include="Content\User\assets\css\page\form.css" />
+    <Content Include="Content\User\assets\css\page\typography.css" />
+    <Content Include="Content\User\assets\img\avatar-1.jpg" />
+    <Content Include="Content\User\assets\img\avatar-10.jpg" />
+    <Content Include="Content\User\assets\img\avatar-2.jpg" />
+    <Content Include="Content\User\assets\img\avatar-3.jpg" />
+    <Content Include="Content\User\assets\img\avatar-4.jpg" />
+    <Content Include="Content\User\assets\img\avatar-5.jpg" />
+    <Content Include="Content\User\assets\img\bg1.jpg" />
+    <Content Include="Content\User\assets\img\inform.png" />
+    <Content Include="Content\User\assets\img\rember.png" />
+    <Content Include="Content\User\assets\img\search.png" />
+    <Content Include="Content\User\assets\img\toux1.jpg" />
+    <Content Include="Content\User\assets\js\amazeui.min.js" />
+    <Content Include="Content\User\assets\js\app.js" />
+    <Content Include="Content\User\assets\js\blockUI.js" />
+    <Content Include="Content\User\assets\js\charts\columnarChart.js" />
+    <Content Include="Content\User\assets\js\charts\echarts.min.js" />
+    <Content Include="Content\User\assets\js\charts\indexChart.js" />
+    <Content Include="Content\User\assets\js\charts\lineChart.js" />
+    <Content Include="Content\User\assets\js\charts\pieChart.js" />
+    <Content Include="Content\User\assets\js\jquery-2.1.0.js" />
+    <Content Include="Content\User\assets\js\others2.js" />
+    <Content Include="Content\User\images\avatar-1.jpg" />
+    <Content Include="Content\User\images\avatar-10.jpg" />
+    <Content Include="Content\User\images\avatar-2.jpg" />
+    <Content Include="Content\User\images\avatar-3.jpg" />
+    <Content Include="Content\User\images\avatar-4.jpg" />
+    <Content Include="Content\User\images\avatar-5.jpg" />
+    <Content Include="Content\User\images\bg1.jpg" />
+    <Content Include="Content\User\images\email-read.png" />
+    <Content Include="Content\User\images\email-unread.png" />
+    <Content Include="Content\User\images\home.png" />
+    <Content Include="Content\User\images\inform.png" />
+    <Content Include="Content\User\images\rember.png" />
+    <Content Include="Content\User\images\search.png" />
+    <Content Include="Content\User\images\toux1.jpg" />
+    <Content Include="Content\User\src\amazeui.min.js" />
+    <Content Include="Content\User\src\app.js" />
+    <Content Include="Content\User\src\blockUI.js" />
+    <Content Include="Content\User\src\jquery-2.1.0.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="LitJSON.dll" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Admin\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Admin\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Admin\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Admin\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Admin\assets\fonts\FontAwesome.otf" />
+    <Content Include="Content\User\dist\fontawesome-webfont.eot" />
+    <Content Include="Content\User\dist\fontawesome-webfont.ttf" />
+    <Content Include="Content\User\dist\fontawesome-webfont.woff" />
+    <Content Include="Content\User\dist\fontawesome-webfont.woff2" />
+    <Content Include="Content\User\dist\FontAwesome.otf" />
+    <Content Include="Content\.project" />
+    <Content Include="Areas\Adm1n\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Adm1n\Views\News\OnePage.cshtml" />
+    <Content Include="Areas\Adm1n\Views\PwdMod\Index.cshtml" />
+    <Content Include="Areas\Adm1n\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Adm1n\Views\web.config" />
+    <Content Include="Areas\Adm1n\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BBS\Views\web.config" />
+    <Content Include="Areas\Livelihood\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Livelihood\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Livelihood\Views\web.config" />
+    <Content Include="Areas\Livelihood\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\User\Views\Article\Index.cshtml" />
+    <Content Include="Areas\User\Views\Home\Index.cshtml" />
+    <Content Include="Areas\User\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\User\Views\UserInfoMod\Index.cshtml" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\User\Views\Article\List.cshtml" />
+    <Content Include="Areas\User\Views\Mail\List.cshtml" />
+    <Content Include="Areas\User\Views\Mail\Read.cshtml" />
+    <Content Include="Areas\User\Views\Contest\Index.cshtml" />
+    <Content Include="Areas\Livelihood\Views\News\List.cshtml" />
+    <Content Include="Areas\Livelihood\Views\Affair\List.cshtml" />
+    <Content Include="Areas\Livelihood\Views\Relax\Index.cshtml" />
+    <Content Include="Areas\Livelihood\Views\Activity\Index.cshtml" />
+    <Content Include="Areas\User\Views\Activity\Index.cshtml" />
+    <Content Include="Areas\Livelihood\Views\News\OnePage.cshtml" />
+    <Content Include="Content\Admin\kindeditor\asp.net\file_manager_json.ashx" />
+    <Content Include="Content\Admin\kindeditor\asp.net\upload_json.ashx" />
+    <Content Include="Content\Admin\kindeditor\jsp\demo.jsp" />
+    <Content Include="Content\Admin\kindeditor\jsp\file_manager_json.jsp" />
+    <Content Include="Content\Admin\kindeditor\jsp\upload_json.jsp" />
+    <Content Include="Content\Admin\kindeditor\php\demo.php" />
+    <Content Include="Content\Admin\kindeditor\php\file_manager_json.php" />
+    <Content Include="Content\Admin\kindeditor\php\JSON.php" />
+    <Content Include="Content\Admin\kindeditor\php\upload_json.php" />
+    <Content Include="Areas\Adm1n\Views\RoleManage\User.cshtml" />
+    <Content Include="Areas\Adm1n\Views\News\List.cshtml" />
+    <Content Include="Areas\Adm1n\Views\News\Add.cshtml" />
+    <Content Include="Areas\Adm1n\Views\News\AdviceList.cshtml" />
+    <Content Include="Areas\Adm1n\Views\RoleManage\Villager.cshtml" />
+    <Content Include="Areas\Livelihood\Views\News\Services.cshtml" />
+    <Content Include="Areas\BBS\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\BBS\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\BBS\Views\Home\Index.cshtml" />
+    <Content Include="Content\BBS\images\Descr.WD3" />
+    <Content Include="Content\BBS\images\temp\Descr.WD3" />
+    <Content Include="Content\BBS\images\发帖3.psd" />
+    <Content Include="Areas\BBS\Views\News\ListQ.cshtml" />
+    <Content Include="Areas\BBS\Views\News\Add.cshtml" />
+    <Content Include="Areas\BBS\Views\News\List.cshtml" />
+    <Content Include="Areas\BBS\Views\News\OnePage.cshtml" />
+    <Content Include="Areas\BBS\Views\News\ReturnResult.cshtml" />
+    <Content Include="Areas\Livelihood\Views\Vote\Index.cshtml" />
+    <Content Include="Areas\Adm1n\Views\RoleManage\AddVillager.cshtml" />
+    <Content Include="Areas\Adm1n\Views\Vote\List.cshtml" />
+    <Content Include="Areas\Adm1n\Views\Vote\Add.cshtml" />
+    <Content Include="Areas\Adm1n\Views\Vote\VoteResult.cshtml" />
+    <Content Include="Areas\Livelihood\Views\Vote\VoteResult.cshtml" />
+    <Content Include="Areas\Adm1n\Views\News\ExmArticle.cshtml" />
+    <Content Include="Content\main\.project" />
+    <Content Include="Content\main\php\capcha_page.php" />
+    <Content Include="Content\main\php\contact-send.php" />
+    <Content Include="Content\main\php\image.php" />
+    <Content Include="Areas\Adm1n\Views\News\ShowArticle.cshtml" />
+    <Content Include="Areas\Adm1n\Views\News\AddArticle.cshtml" />
+    <None Include="Properties\PublishProfiles\GDKQ.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+    <Content Include="Views\Login\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Adm1n\Adm1nAreaRegistration.cs" />
+    <Compile Include="Areas\Adm1n\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Adm1n\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Adm1n\Controllers\PwdModController.cs" />
+    <Compile Include="Areas\Adm1n\Controllers\RoleManageController.cs" />
+    <Compile Include="Areas\Adm1n\Controllers\VoteController.cs" />
+    <Compile Include="Areas\BBS\BBSAreaRegistration.cs" />
+    <Compile Include="Areas\BBS\Controllers\HomeController.cs" />
+    <Compile Include="Areas\BBS\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Livelihood\Controllers\ActivityController.cs" />
+    <Compile Include="Areas\Livelihood\Controllers\AffairController.cs" />
+    <Compile Include="Areas\Livelihood\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Livelihood\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Livelihood\Controllers\RelaxController.cs" />
+    <Compile Include="Areas\Livelihood\Controllers\VoteController.cs" />
+    <Compile Include="Areas\Livelihood\LivelihoodAreaRegistration.cs" />
+    <Compile Include="Areas\User\Controllers\ActivityController.cs" />
+    <Compile Include="Areas\User\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\User\Controllers\ContestController.cs" />
+    <Compile Include="Areas\User\Controllers\HomeController.cs" />
+    <Compile Include="Areas\User\Controllers\MailController.cs" />
+    <Compile Include="Areas\User\Controllers\UserInfoModController.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Filter\AdminLoginFilter.cs" />
+    <Compile Include="Filter\UserLoginFilter.cs" />
+    <Compile Include="Filter\VillagerLoginFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\News\OnePage.cshtml" />
+    <Content Include="Views\News\List.cshtml" />
+    <Content Include="Views\News\List1.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\News\KQDetail.cshtml" />
+    <Content Include="Views\News\OnePage1.cshtml" />
+    <Content Include="Views\News\OnePage_qj.cshtml" />
+    <Content Include="Views\News\OnePage_sm.cshtml" />
+    <Content Include="Views\News\OnePage_sw.cshtml" />
+    <Content Include="Views\News\OnePage_qjty.cshtml" />
+    <Content Include="Views\News\List_zc.cshtml" />
+    <Content Include="Views\News\OnePage_zc.cshtml" />
+    <Content Include="Views\News\photo_contest.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\News\join_contest.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Adm1n\Models\" />
+    <Folder Include="Areas\BBS\Models\" />
+    <Folder Include="Areas\Livelihood\Models\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Content\Livelihood\affair_cont\" />
+    <Folder Include="Content\Livelihood\building_cont\" />
+    <Folder Include="Content\Livelihood\notice_cont\" />
+    <Folder Include="Content\User\assets\fonts\" />
+    <Folder Include="Content\User\html\" />
+    <Folder Include="Content\User\img\" />
+    <Folder Include="Content\User\src\charts\" />
+    <Folder Include="upload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{13abdfad-8365-4a7b-8729-18d3f47419ce}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GDKQ.DAL\GDKQ.DAL.csproj">
+      <Project>{9aaae787-06d1-4579-976f-f62bf0d28c50}</Project>
+      <Name>GDKQ.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GDKQ.Model\GDKQ.Model.csproj">
+      <Project>{1c30cd80-4452-4ebe-83c3-29d9e9b39ffb}</Project>
+      <Name>GDKQ.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61026</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61026/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

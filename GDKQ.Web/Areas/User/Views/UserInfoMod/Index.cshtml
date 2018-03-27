@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "个人资料修改";
+}
+@model GDKQ.Model.UserInfo
+	<!--	<div class="am-g">-->
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="am-g">
+            <!-- Row start -->
+            <div class="am-u-sm-12">
+                <div class="card-box">
+
+                    <form action="" class="am-form" data-am-validator>
+                        <fieldset>
+                            <legend>修改个人信息</legend>
+                            <div class="am-form-group">
+                                <label for="doc-vld-name-2">昵称：</label>
+                                <input type="text" id="Nickname" name="Nickname" minlength="3" placeholder="输入用户名（至少 3 个字符）" value="@Model.Nickname" required />
+                            </div>
+
+
+                            <div class="am-form-group">
+                                <label for="doc-vld-name-2">上传头像：</label>
+                                <input type="file" value="上传吧" />
+                            </div>
+
+
+                            <!--								    <div class="am-form-group">
+                                                                  <label for="doc-vld-email-2">密码：</label>
+                                                                  <input type="email" id="doc-vld-email-2" placeholder="输入密码" required/>
+                                                                </div>
+                                                            -->
+                            <div class="am-form-group">
+                                <label for="doc-vld-url-2">原密码：</label>
+                                <input type="password" name="password" id="password" minlength="6" placeholder="输入密码" value="" required />
+                            </div>
+                            <div class="am-form-group">
+                                <label for="doc-vld-url-2">新密码：</label>
+                                <input type="password" name="password1" id="password1" minlength="6" placeholder="输入密码" value="" required />
+                            </div>
+                            <div class="am-form-group">
+                                <label for="doc-vld-url-2">确认密码：</label>
+                                <input type="password" name="password2" id="password2" minlength="6" onkeyup="validate()" value="" placeholder="再次输入密码" required /><span id="tishi"></span></p>
+                            </div>
+                            <!--
+                             <div class="am-form-group">
+                                  <label for="doc-vld-age-2">生日：</label>
+                                  <input type="number" class=""  id="doc-vld-age-2" placeholder="输入生日（可选填）" required />
+                                </div>
+                            -->
+                            <!--<div class="am-form-group">
+                              <label class="am-form-label">爱好：</label>
+                              <label class="am-checkbox-inline">
+                                <input type="checkbox" value="橘子" name="docVlCb" minchecked="2" maxchecked="4" required> 橘子
+                              </label>
+                              <label class="am-checkbox-inline">
+                                <input type="checkbox" value="苹果" name="docVlCb"> 苹果
+                              </label>
+                            </div>-->
+                            <div class="am-form-group">
+                                <label for="doc-vld-url-2">爱好：</label>
+                                <input type="text" id="Hobby" name="Hobby" placeholder="请输入你的爱好" value="@Model.Hobby" /><!-- required 为必填标识，此处选填即可-->
+                            </div>
+
+                            <div class="am-form-group">
+                                <label>性别： </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio"  value="男" name="Gender" id="Gender" checked="checked"> 男
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" value="女" name="Gender" id="Gender" > 女
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" value="保密" name="Gender" id="Gender"> 保密
+                                </label>
+                            </div>
+
+                            <!-- <div class="am-form-group">
+                               <label for="doc-select-1">下拉单选框</label>
+                               <select id="doc-select-1" required>
+                                 <option value="">-=请选择一项=-</option>
+                                 <option value="option1">选项一...</option>
+                                 <option value="option2">选项二.....</option>
+                                 <option value="option3">选项三........</option>
+                               </select>
+                               <span class="am-form-caret"></span>
+                             </div>-->
+                            <!--    <div class="am-form-group">
+                                  <label for="doc-select-2">多选框</label>
+                                  <select multiple class="" id="doc-select-2" minchecked="2" maxchecked="4">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                  </select>
+                                </div>-->
+
+                            <div class="am-form-group">
+                                <label for="doc-vld-ta-2">自我描述：</label>
+                                <textarea id="Description" name="Description" minlength="10" maxlength="150" placeholder="请进行简单的自我描述（10~100字）"> @Model.Description</textarea>
+                            </div>
+                            @Html.AntiForgeryToken()
+                            <button class="am-btn am-btn-secondary" onclick="UserInfoMod()" type="button">提交</button>
+                        </fieldset>
+                    </form>
+
+
+                </div>
+            </div>
+            <!-- Row end -->
+        </div>
+
+
+
+
+    </div>
+</div>
+<!-- end right Content here -->
+<!--</div>-->
+<script>
+    function UserInfoMod() {
+        var Nickname = $.trim($("#Nickname").val());
+        var password = $.trim($("#password").val());
+        var password1 = $.trim($("#password1").val());
+        var password2 = $.trim($("#password2").val());
+        var Hobby = $.trim($("#Hobby").val());
+        var Gender = $('input[name="Gender"]:checked ').val();
+        var Description = $.trim($("#Description").val());
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+
+        var postdata = {
+            Nickname: Nickname,
+            password:password,
+            password1: password1,
+            password2: password2,
+            Hobby: Hobby,
+            Gender: Gender,
+            Description:Description,
+            __RequestVerificationToken: __RequestVerificationToken
+        }
+
+        var url = "/User/UserInfoMod/Index?t=" + new Date().valueOf();
+        
+
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = data.NextUrl;
+            } else {
+                alert(data.info);
+                location.href = "/User/Home/Index";
+            }
+        }, 'json')
+    }
+
+
+</script>
+<!-- end right Content here -->
+<!--</div>-->

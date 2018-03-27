@@ -1,0 +1,120 @@
+﻿@using GDKQ.Model
+@model GDKQ.Web.Areas.BBS.Controllers.NewsController.viewModel
+@{
+}
+
+
+            <!-- start of page content -->
+            <div class="span8 page-content">
+
+                <ul class="breadcrumb">
+                    <li><a href="/BBS/Home">论坛首页</a><span class="divider">/</span></li>
+                    <li><a href="/BBS/News/List?bh=@ViewBag.CategoryID" title="标签">@ViewBag.Title</a> <span class="divider">/</span></li>
+                    <!-- <li class="active">风景优美</li>-->
+                    <!--                                                        <li class="writter" style="margin-left:520px;">作者：</li><a href="page.html"><span style="float:right;">西红柿</span></a>-->
+                </ul>
+                @if (Model.Art != null)
+                {
+                    <article class=" type-post format-standard hentry clearfix">
+                        <h1 class="post-title"><a href="#">@Model.Art.Title </a></h1>
+                        <div class="post-meta clearfix">
+                            <span class="date">@Model.Art.CreateTime.ToString("MM月dd日，yyyy")</span>
+                            <span class="category"><a href="/BBS/List?bh=@Model.Art.CategoryID" title="View all posts in Server &amp; Database">@Model.Art.AuthorName</a></span>
+                            <span class="comments"><a title="Comment on Integrating WordPress with Your Website">@Model.Art.Comments 条评论</a></span>
+                            <span class="like-count">@Model.Art.like_count</span>
+                        </div><!-- end of post meta -->
+                        <br>
+                        @Html.Raw(Model.Art.Body) 
+                    </article>
+                    <div class="like-btn">
+                        <span class="tags">
+                            <strong>标签:&nbsp;&nbsp;</strong><a>@Model.Art.lab</a><!--, <a href="" rel="tag">website</a>-->
+                        </span>
+                    </div>
+                }
+                <section id="comments">
+
+                    <h3 id="comments-title">(@Model.Art.Comments)评论</h3>
+
+                    <ol class="commentlist">
+                        <li class="comment even thread-even depth-1" id="li-comment-2">
+                    </ol>
+
+                    <div id="respond">
+                        <h3>我要评论</h3>
+                        <a name="asd"></a>
+                        <div class="cancel-comment-reply">
+                            <a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;"></a>
+                        </div>
+                        @if (Model.Comment != null)
+                        {
+                            foreach (var item in Model.Comment)
+                            {
+                                <article id="comment-2" style="line-height:22px;">
+
+                                    <a style="float:left;">
+                                        <img alt="" src="@item.Photo" class="avatar avatar-60 photo" height="60" width="60">
+                                    </a>
+                                    <div class="comment-meta" style="margin-left:70px;">
+                                        <h5 class="author">
+                                            <a>
+                                                <cite class="fn">@item.UserName</cite>
+                                            </a>
+                                        </h5>
+
+                                        <p class="date">
+                                            <a>
+                                                <time datetime="2013-02-26T13:20:14+00:00">@item.CreateTime.ToString("MM月dd日, yyyy")</time>
+                                            </a>
+                                        </p>
+
+                                    </div><!-- end .comment-meta -->
+
+                                    <div class="comment-body">
+                                        <p>@item.Body</p>
+                                    </div>
+
+                        <hr />
+                                </article><!-- end of comment -->
+                                
+                            }
+                        }
+
+                        <form action="#" method="post" id="commentform">
+                            <div>
+                                <textarea class="span8" name="comment" id="comment_body" cols="58" rows="10"></textarea>
+                            </div>
+                            <p class="allowed-tags"> </p>
+                            <div>
+                                <input type="button" onclick="AddComment()" name="submit" value="发表上传" class="btn btn-inverse">
+                            </div>
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(a=>a.Art.ID) 
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+<script>
+    function AddComment() {
+        var id = $.trim($("#Art_ID").val());
+        var body = $.trim($("#comment_body").val());
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = { id:id,body: body, __RequestVerificationToken: __RequestVerificationToken }
+        var url = "/BBS/News/AddComments?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/BBS/News/OnePage?id="+id;
+            } else if (data.status == "n1") {
+                alert(data.info);
+                location.href = "/Login";
+            } else{
+                alert(data.info);
+                location.href = "/BBS/News/OnePage?id=" + id;
+            }
+        }, 'json')
+    }//提交评论
+
+
+</script>

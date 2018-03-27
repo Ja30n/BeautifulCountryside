@@ -1,0 +1,86 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<GDKQ.Model.Vote_Main>
+@{
+}
+<div class="tpl-content-wrapper">
+    <div class="row">
+        <div class="row">
+            <div class="am-u-md-12 am-u-sm-12 row-mb">
+
+                <div class="tpl-portlet">
+                    <div class="tpl-portlet-title">
+                        <div class="note note-info">
+                            <h3>
+                                @ViewBag.Title
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="wrapper" class="wrapper">
+                    <a class="am-btn am-btn-secondary" href="/Adm1n/Vote/Add">添加投票</a>
+                    <table class="am-table am-table-striped am-table-hover table-main">
+                        <thead>
+                            <tr>
+                                <th class="table-check"><input type="checkbox" /></th>
+                                <th class="table-id">ID</th>
+                                <th class="table-title">标题</th>
+                                <th class="table-date am-hide-sm-only">截止日期</th>
+                                <th class="table-set">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+            {
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>@item.ID</td>
+                                    <td>@item.Title</td>
+                                    <td class="am-hide-sm-only">@item.CreateTime.ToString("yyyy-MM-dd")</td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <a class="am-btn am-btn-default am-btn-xs am-text-secondary" href="/Adm1n/Vote/VoteResult?id=@item.ID"><span class="am-icon-pencil-square-o">查看结果</span></a>
+                                                <a class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" href="/Adm1n/Vote/Disable?id=@item.ID"><span class="am-icon-trash-o"> 停止投票</span></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <nav>
+                            @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageindex", ContainerTagName = "ul", CssClass = "pagination", CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>", DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>", PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager" })
+                        </nav>
+                    </div>
+                    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function PwdMod() {
+        var password = $.trim($("#password").val());
+        var password1 = $.trim($("#password1").val());
+        var password2 = $.trim($("#password2").val());
+        var __RequestVerificationToken = $("input[name='__RequestVerificationToken']").val();
+        var postdata = { password: password, password1: password1, password2: password2, __RequestVerificationToken: __RequestVerificationToken }
+        var url = "/Adm1n/PwdMod?t=" + new Date().valueOf();
+        $.post(url, postdata, function (data) {
+            if (data.status == "y") {
+                alert(data.info);
+                location.href = "/Login";
+            } else {
+                alert(data.info);
+                location.href = "/Adm1n/PwdMod";
+            }
+        }, 'json')
+    }//修改密码
+</script>
+
+
+
+
+
